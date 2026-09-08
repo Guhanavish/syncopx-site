@@ -1,9 +1,9 @@
 {
-  "app": "PRIMO",
-  "version": "1.4.1",
-  "file": "https://github.com/Guhanavish/primo-site/releases/download/v1.4.1/PRIMO-1.4.1-windows.zip",
-  "bytes": 162497042,
-  "sha256": "c8f5df3b25a89c54f8b28d09f21a4a59531eb933f000d6d3c047d84d5211e99f",
+  "app": "Syncopx",
+  "version": "1.4.2",
+  "file": "https://github.com/Guhanavish/syncopx-site/releases/download/v1.4.2/Syncopx-1.4.2-windows.zip",
+  "bytes": 162498230,
+  "sha256": "bed45271c92be36f6f8b8fbfbcc21cf0d237ad93363c3a40b292edd6cb553538",
   "date": "2026-09-08",
   "notes": "No browser automation. Screen control + voice + local files. Bring your own API key.",
   "requires": "Windows 10/11 64-bit, no admin, ~500 MB free"
