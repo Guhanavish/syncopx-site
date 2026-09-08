@@ -1,14 +1,14 @@
-/* SyncOps download site logic: version wiring, reveals, nav, hash copy.
+/* PRIMO download site logic: version wiring, reveals, nav, hash copy.
    No frameworks. Motion gated behind prefers-reduced-motion. */
 (function () {
   "use strict";
 
   var FALLBACK = {
-    version: "1.4.0",
-    file: "SyncOps-1.4.0-windows.zip",
-    bytes: 162500777,
-    sha256: "d9af252e08c969df629009210a89b9de923accff0a228880a04e65ed2c20c4a9",
-    date: "2026-09-07"
+    version: "1.4.1",
+    file: "https://github.com/Guhanavish/primo-site/releases/download/v1.4.1/PRIMO-1.4.1-windows.zip",
+    bytes: 162497042,
+    sha256: "c8f5df3b25a89c54f8b28d09f21a4a59531eb933f000d6d3c047d84d5211e99f",
+    date: "2026-09-08"
   };
 
   function mb(bytes) {
@@ -28,7 +28,7 @@
       el.textContent = v.version;
     });
     document.querySelectorAll("[data-ver-long]").forEach(function (el) {
-      el.textContent = "SyncOps " + v.version + " · Windows 10/11 64-bit · ZIP, no admin";
+      el.textContent = "PRIMO " + v.version + " · Windows 10/11 64-bit · ZIP, no admin";
     });
     document.querySelectorAll("[data-date]").forEach(function (el) {
       el.textContent = v.date;
@@ -100,7 +100,7 @@
   });
 
   // ---------- live demo (hero textbox) -> Cloudflare Worker proxy, key never touches browser ----------
-  var DEMO_API = (window.SYNCOPS_DEMO_API || "https://syncops-demo.ssgginfotech.workers.dev/api/chat").replace(/\/$/, "");
+  var DEMO_API = (window.PRIMO_DEMO_API || window.SYNCOPS_DEMO_API || "https://primo-demo.ssgginfotech.workers.dev/api/chat").replace(/\/$/, "");
   var demoForm = document.getElementById("demo-form");
   if (demoForm) {
     var log = document.getElementById("demo-log");
@@ -111,9 +111,9 @@
     var send = document.getElementById("demo-send");
     var attach = document.getElementById("demo-attach");
     var fileIn = document.getElementById("demo-file");
-    var id = localStorage.getItem("syncops_demo_id");
-    if (!id) { id = "d" + (crypto.randomUUID ? crypto.randomUUID().slice(0, 8) : Math.random().toString(36).slice(2, 10)); localStorage.setItem("syncops_demo_id", id); }
-    var used = parseInt(localStorage.getItem("syncops_demo_n") || "0", 10) || 0;
+    var id = localStorage.getItem("primo_demo_id");
+    if (!id) { id = "d" + (crypto.randomUUID ? crypto.randomUUID().slice(0, 8) : Math.random().toString(36).slice(2, 10)); localStorage.setItem("primo_demo_id", id); }
+    var used = parseInt(localStorage.getItem("primo_demo_n") || "0", 10) || 0;
 
     function bubble(text, who) {
       var d = document.createElement("div");
@@ -127,16 +127,16 @@
       var a = document.createElement("a");
       a.className = "btn btn-primary btn-sm demo-dl";
       a.href = "#download";
-      a.textContent = "Download SyncOps";
+      a.textContent = "Download PRIMO";
       log.appendChild(a);
       log.scrollTop = log.scrollHeight;
     }
     function setLeft(left) {
       used = 2 - left;
-      localStorage.setItem("syncops_demo_n", String(Math.min(2, Math.max(0, used))));
-      status.textContent = left + "/2 left · big tasks + code over 200 words run in the SyncOps app";
-      pill.textContent = left > 0 ? "live demo · " + left + " free" : "demo done · get SyncOps";
-      if (left <= 0) { send.disabled = true; input.disabled = true; input.placeholder = "Demo done — download SyncOps for more…"; }
+      localStorage.setItem("primo_demo_n", String(Math.min(2, Math.max(0, used))));
+      status.textContent = left + "/2 left · big tasks + code over 200 words run in the PRIMO app";
+      pill.textContent = left > 0 ? "live demo · " + left + " free" : "demo done · get PRIMO";
+      if (left <= 0) { send.disabled = true; input.disabled = true; input.placeholder = "Demo done — download PRIMO for more…"; }
     }
     setLeft(Math.max(0, 2 - used));
 
@@ -151,14 +151,14 @@
         typing.hidden = false;
         setTimeout(function () {
           typing.hidden = true;
-          if (used >= 2) { bubble("That's your 2 free web replies — download SyncOps for unlimited use.", "ai"); dlButton(); setLeft(0); return; }
-          bubble("Demo backend connects on deploy — for now, download SyncOps to chat unlimited on your PC.", "ai");
+          if (used >= 2) { bubble("That's your 2 free web replies — download PRIMO for unlimited use.", "ai"); dlButton(); setLeft(0); return; }
+          bubble("Demo backend connects on deploy — for now, download PRIMO to chat unlimited on your PC.", "ai");
           dlButton();
         }, 600);
         return;
       }
       if (used >= 2) {
-        bubble("That's your 2 free web replies — download SyncOps for unlimited voice, screen control, files and programs on your own PC.", "ai");
+        bubble("That's your 2 free web replies — download PRIMO for unlimited voice, screen control, files and programs on your own PC.", "ai");
         dlButton(); setLeft(0); return;
       }
       typing.hidden = false;
@@ -170,14 +170,14 @@
         .then(function (r) { return r.json(); })
         .then(function (j) {
           typing.hidden = true;
-          bubble(j.reply || "SyncOps demo is busy — download SyncOps to run it locally.", "ai");
+          bubble(j.reply || "PRIMO demo is busy — download PRIMO to run it locally.", "ai");
           if (j.blocked) dlButton();
           if (typeof j.left === "number") setLeft(j.left);
-          else { used += 1; localStorage.setItem("syncops_demo_n", String(used)); setLeft(Math.max(0, 2 - used)); }
+          else { used += 1; localStorage.setItem("primo_demo_n", String(used)); setLeft(Math.max(0, 2 - used)); }
         })
         .catch(function () {
           typing.hidden = true;
-          bubble("SyncOps demo is busy right now — download SyncOps to run it locally.", "ai");
+          bubble("PRIMO demo is busy right now — download PRIMO to run it locally.", "ai");
           dlButton();
         });
     });
@@ -189,7 +189,7 @@
         if (!f) return;
         bubble("📎 " + f.name, "me");
         if (DEMO_API.indexOf(".YOU.") !== -1) {
-          bubble("Got it — files run fully in the SyncOps app. Download SyncOps to process it.", "ai");
+          bubble("Got it — files run fully in the PRIMO app. Download PRIMO to process it.", "ai");
           dlButton(); fileIn.value = ""; return;
         }
         var fd = new FormData();
@@ -201,8 +201,8 @@
           body: fd,
         })
           .then(function (r) { return r.json(); })
-          .then(function (j) { typing.hidden = true; bubble(j.reply || "Got it — open it in SyncOps to process it fully.", "ai"); dlButton(); })
-          .catch(function () { typing.hidden = true; bubble("Got it — open it in SyncOps on your PC to process it fully.", "ai"); dlButton(); });
+          .then(function (j) { typing.hidden = true; bubble(j.reply || "Got it — open it in PRIMO to process it fully.", "ai"); dlButton(); })
+          .catch(function () { typing.hidden = true; bubble("Got it — open it in PRIMO on your PC to process it fully.", "ai"); dlButton(); });
         fileIn.value = "";
       });
     }

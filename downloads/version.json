@@ -1,10 +1,10 @@
 {
-  "app": "SyncOps",
-  "version": "1.4.0",
-  "file": "https://github.com/Guhanavish/syncops-site/releases/download/v1.4.0/SyncOps-1.4.0-windows.zip",
-  "bytes": 162500777,
-  "sha256": "d9af252e08c969df629009210a89b9de923accff0a228880a04e65ed2c20c4a9",
-  "date": "2026-09-07",
+  "app": "PRIMO",
+  "version": "1.4.1",
+  "file": "https://github.com/Guhanavish/primo-site/releases/download/v1.4.1/PRIMO-1.4.1-windows.zip",
+  "bytes": 162497042,
+  "sha256": "c8f5df3b25a89c54f8b28d09f21a4a59531eb933f000d6d3c047d84d5211e99f",
+  "date": "2026-09-08",
   "notes": "No browser automation. Screen control + voice + local files. Bring your own API key.",
   "requires": "Windows 10/11 64-bit, no admin, ~500 MB free"
 }

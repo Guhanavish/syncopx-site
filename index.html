@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<!-- SyncOps download site.
+<!-- PRIMO download site.
   Design philosophy (frontend-design): 1) Intent: quiet command-line
   confidence - installing a precise instrument, not joining another SaaS.
   2) Signature: graphite surfaces, one mint signal line, JetBrains Mono
-  where it counts, the SyncOps orb floating through the page.
+  where it counts, the PRIMO orb floating through the page.
   3) Constraint: no decorative gradients, no stock illustration, no fake
   testimonials - every visual is the product itself.
   Variance 6 / Motion 5 / Density 4. -->
@@ -11,9 +11,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SyncOps — your PC, on your words | Download for Windows</title>
-<meta name="description" content="SyncOps is a floating desktop AI assistant for Windows. Voice conversation, screen control, files, programs and documents. No signup, no bundled keys — download the ZIP, install, pick your AI provider.">
-<link rel="icon" type="image/png" href="assets/syncops-icon.png">
+<title>PRIMO — your PC, on your words | Download for Windows</title>
+<meta name="description" content="PRIMO is a floating desktop AI assistant for Windows. Voice conversation, screen control, files, programs and documents. No signup, no bundled keys — download the ZIP, install, pick your AI provider.">
+<link rel="icon" type="image/png" href="assets/primo-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,10 +24,10 @@
 
 <header class="nav" id="top">
   <div class="wrap nav-in">
-    <a class="brand" href="#top" aria-label="SyncOps home">
-      <img src="assets/syncops-icon.png" alt="" width="30" height="30">
-      <span>SyncOps</span>
-      <code class="ver" data-ver>1.4.0</code>
+    <a class="brand" href="#top" aria-label="PRIMO home">
+      <img src="assets/primo-icon.png" alt="" width="30" height="30">
+      <span>PRIMO</span>
+      <code class="ver" data-ver>1.4.1</code>
     </a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -45,11 +45,11 @@
 <main>
   <!-- ============ HERO ============ -->
   <section class="hero wrap" aria-labelledby="h1">
-    <p class="eyebrow reveal"><span class="dot" aria-hidden="true"></span><span data-ver-long>SyncOps 1.4.0 · Windows 10/11 64-bit · ZIP, no admin</span></p>
+    <p class="eyebrow reveal"><span class="dot" aria-hidden="true"></span><span data-ver-long>PRIMO 1.4.1 · Windows 10/11 64-bit · ZIP, no admin</span></p>
     <h1 id="h1" class="reveal">Your PC,<br>on your words.</h1>
-    <p class="lede reveal">SyncOps is a floating desktop assistant that talks, listens, sees your screen, and does the work — files, programs, documents, terminal, WhatsApp. It lives in an orb on your desktop, not in a browser tab.</p>
+    <p class="lede reveal">PRIMO is a floating desktop assistant that talks, listens, sees your screen, and does the work — files, programs, documents, terminal, WhatsApp. It lives in an orb on your desktop, not in a browser tab.</p>
     <div class="cta-row reveal" id="download">
-      <a class="btn btn-primary btn-lg" id="dl-btn" href="downloads/SyncOps-1.4.0-windows.zip" download>
+      <a class="btn btn-primary btn-lg" id="dl-btn" href="downloads/PRIMO-1.4.1-windows.zip" download>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
         <span>Download ZIP <span class="dl-meta" data-size>· 155 MB</span></span>
       </a>
@@ -58,22 +58,22 @@
     <p class="dl-sub reveal">No signup · No bundled API keys · <button class="hash" id="hash-btn" type="button" title="Copy full SHA-256">SHA-256 <code data-sha-short>d9af252e…</code></button> <span class="hash-ok" id="hash-ok" role="status" hidden>copied</span></p>
 
     <div class="hero-stage reveal">
-      <div class="orb" aria-hidden="true"><img src="assets/syncops-icon.png" alt=""></div>
-      <div class="mock" id="demo" role="region" aria-label="SyncOps web demo — 2 free replies">
+      <div class="orb" aria-hidden="true"><img src="assets/primo-icon.png" alt=""></div>
+      <div class="mock" id="demo" role="region" aria-label="PRIMO web demo — 2 free replies">
         <div class="mock-bar"><i></i><i></i><i></i><span class="demo-pill" id="demo-pill">live demo · 2 free</span></div>
         <div id="demo-log" aria-live="polite">
           <div class="mock-bubble me">Run dir in G:\Code</div>
           <div class="mock-bubble ai">Done — 14 entries, 3 folders. Want it as a file?</div>
-          <div class="mock-bubble ai">Hi, I'm SyncOps demo. Ask me something small — after 2 replies I'll point you to the desktop app.</div>
+          <div class="mock-bubble ai">Hi, I'm PRIMO demo. Ask me something small — after 2 replies I'll point you to the desktop app.</div>
         </div>
         <div class="mock-typing" id="demo-typing" hidden><b></b><b></b><b></b></div>
         <form class="mock-composer" id="demo-form" autocomplete="off">
-          <input id="demo-input" type="text" maxlength="500" placeholder="Ask anything — 2 free tries…" aria-label="Ask the SyncOps demo">
+          <input id="demo-input" type="text" maxlength="500" placeholder="Ask anything — 2 free tries…" aria-label="Ask the PRIMO demo">
           <input id="demo-file" type="file" hidden>
-          <button type="button" id="demo-attach" title="Files run fully in the SyncOps app" aria-label="Attach a file">+</button>
+          <button type="button" id="demo-attach" title="Files run fully in the PRIMO app" aria-label="Attach a file">+</button>
           <button type="submit" id="demo-send" aria-label="Send">➤</button>
         </form>
-        <p class="demo-sub" id="demo-status">2/2 left · big tasks + code over 200 words run in the SyncOps app</p>
+        <p class="demo-sub" id="demo-status">2/2 left · big tasks + code over 200 words run in the PRIMO app</p>
       </div>
     </div>
   </section>
@@ -118,23 +118,23 @@
     <h2 id="h-install" class="reveal">Three steps. No admin. Reversible.</h2>
     <ol class="steps">
       <li class="reveal"><span class="step-n">1</span><div><h3>Download the ZIP</h3><p>One file, ~155&nbsp;MB, versioned and hash-published on this page. Extract it anywhere.</p></div></li>
-      <li class="reveal"><span class="step-n">2</span><div><h3>Run the installer</h3><p>Double-click <code>Install-SyncOps.bat</code>. It copies the app to your profile, adds Start Menu (+ optional Desktop) shortcuts, and — only if you say yes — autostart. Full list below.</p></div></li>
+      <li class="reveal"><span class="step-n">2</span><div><h3>Run the installer</h3><p>Double-click <code>Install-PRIMO.bat</code>. It copies the app to your profile, adds Start Menu (+ optional Desktop) shortcuts, and — only if you say yes — autostart. Full list below.</p></div></li>
       <li class="reveal"><span class="step-n">3</span><div><h3>Pick your AI provider</h3><p>Open Settings, choose Ollama (local, free) or paste your own Gemini, Groq, OpenRouter… key. Keys stay encrypted on your PC. Nothing is bundled.</p></div></li>
     </ol>
     <div class="twocol">
       <div class="panel reveal">
         <h3>What the installer registers</h3>
         <ul class="reg">
-          <li><code>%LOCALAPPDATA%\SyncOps\app</code> — program files</li>
-          <li><code>HKCU\Software\SyncOps</code> — InstallDir, Version</li>
-          <li><code>HKCU\…\Run\SyncOps</code> — autostart, only with your yes</li>
+          <li><code>%LOCALAPPDATA%\PRIMO\app</code> — program files</li>
+          <li><code>HKCU\Software\PRIMO</code> — InstallDir, Version</li>
+          <li><code>HKCU\…\Run\PRIMO</code> — autostart, only with your yes</li>
           <li>Start Menu shortcut (+ Desktop if asked)</li>
         </ul>
         <p class="muted">Uninstall anytime with the bundled <code>Uninstall.bat</code> — it removes all of the above. Your chats and keys are kept unless you say wipe.</p>
       </div>
       <div class="panel warn reveal">
         <h3>About the SmartScreen warning</h3>
-        <p>SyncOps has no paid publisher certificate yet, so Windows may show <em>“Windows protected your PC”</em> on first run. That is expected: click <strong>More info → Run anyway</strong>. Verify the ZIP first with the SHA-256 hash above.</p>
+        <p>PRIMO has no paid publisher certificate yet, so Windows may show <em>“Windows protected your PC”</em> on first run. That is expected: click <strong>More info → Run anyway</strong>. Verify the ZIP first with the SHA-256 hash above.</p>
       </div>
     </div>
   </section>
@@ -143,7 +143,7 @@
   <section class="wrap section" id="providers" aria-labelledby="h-providers">
     <p class="kicker reveal">AI providers</p>
     <h2 id="h-providers" class="reveal">Bring your own key. Or none.</h2>
-    <p class="lede-sm reveal">SyncOps ships with <strong>zero</strong> API keys. Run fully offline with Ollama, or paste a key for any of these in Settings — quota failover keeps you running when one runs dry.</p>
+    <p class="lede-sm reveal">PRIMO ships with <strong>zero</strong> API keys. Run fully offline with Ollama, or paste a key for any of these in Settings — quota failover keeps you running when one runs dry.</p>
     <ul class="chips reveal" aria-label="Supported providers">
       <li>Ollama <span>local · free</span></li>
       <li>Gemini <span>free tier</span></li>
@@ -181,7 +181,7 @@
       </details>
       <details>
         <summary>Can it control websites for me?</summary>
-        <p>No. There is deliberately no browser automation in SyncOps — open the page yourself and it can work with what is on your screen, or read public pages directly.</p>
+        <p>No. There is deliberately no browser automation in PRIMO — open the page yourself and it can work with what is on your screen, or read public pages directly.</p>
       </details>
       <details>
         <summary>How do I update?</summary>
@@ -197,14 +197,14 @@
   <!-- ============ FINAL CTA ============ -->
   <section class="wrap section final reveal" aria-labelledby="h-final">
     <h2 id="h-final">Take the orb for a spin.</h2>
-    <a class="btn btn-primary btn-lg" id="dl-btn-2" href="downloads/SyncOps-1.4.0-windows.zip" download>Download SyncOps <span class="dl-meta" data-size>· 155 MB</span></a>
-    <p class="muted"><span data-ver-long>SyncOps 1.4.0</span> · <span data-date>2026-09-07</span></p>
+    <a class="btn btn-primary btn-lg" id="dl-btn-2" href="downloads/PRIMO-1.4.1-windows.zip" download>Download PRIMO <span class="dl-meta" data-size>· 155 MB</span></a>
+    <p class="muted"><span data-ver-long>PRIMO 1.4.1</span> · <span data-date>2026-09-08</span></p>
   </section>
 </main>
 
 <footer>
   <div class="wrap foot-in">
-    <p><img src="assets/syncops-icon.png" alt="" width="20" height="20"> SyncOps <span data-ver>v1.4.0</span> — a floating desktop AI assistant for Windows.</p>
+    <p><img src="assets/primo-icon.png" alt="" width="20" height="20"> PRIMO <span data-ver>v1.4.1</span> — a floating desktop AI assistant for Windows.</p>
     <p class="muted">ZIP install · No signup · Your keys stay yours · <a href="#faq">FAQ</a></p>
   </div>
 </footer>
