@@ -1,7 +1,7 @@
 {
   "app": "SyncOps",
   "version": "1.4.0",
-  "file": "SyncOps-1.4.0-windows.zip",
+  "file": "https://github.com/Guhanavish/syncops-site/releases/download/v1.4.0/SyncOps-1.4.0-windows.zip",
   "bytes": 162500777,
   "sha256": "d9af252e08c969df629009210a89b9de923accff0a228880a04e65ed2c20c4a9",
   "date": "2026-09-07",

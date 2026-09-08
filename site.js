@@ -16,7 +16,7 @@
   }
 
   function applyVersion(v) {
-    var href = "downloads/" + v.file;
+    var href = /^https?:\/\//.test(v.file) ? v.file : "downloads/" + v.file;
     ["dl-btn", "dl-btn-2"].forEach(function (id) {
       var a = document.getElementById(id);
       if (!a) return;
