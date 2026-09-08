@@ -1,0 +1,4 @@
+# ZIP ships via GitHub Release (version.json URL); Vercel caps files at 100MB
+downloads/*.zip
+node_modules
+.vercel
