@@ -1,0 +1,29 @@
+name = "syncops-demo"
+main = "index.js"
+compatibility_date = "2026-09-08"
+
+[observability]
+enabled = true
+
+[observability.logs]
+enabled = true
+invocation_logs = true
+
+[observability.traces]
+enabled = true
+
+[[kv_namespaces]]
+binding = "DEMO_KV"
+id = "e49fd883b286474c9ce5f90616c0c9ba"
+
+[vars]
+# Public config only — NEVER put keys here.
+ALLOWED_ORIGIN = "*"
+# B2_BUCKET_NAME = "paste-bucket-name-here"
+# B2_BUCKET_ID = "paste-bucket-id-here (faster than name lookup)"
+
+# Secrets (set via CLI, never commit):
+#   wrangler secret put GEMINI_API_KEY
+#   wrangler secret put B2_KEY_ID
+#   wrangler secret put B2_APP_KEY
+#   wrangler secret put ALLOWED_ORIGIN  # e.g. https://yourdomain.com

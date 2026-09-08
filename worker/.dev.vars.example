@@ -1,0 +1,6 @@
+# Copy to .dev.vars for `wrangler dev` only. NEVER commit the real file.
+GEMINI_API_KEY=dummy-for-local
+B2_KEY_ID=dummy
+B2_APP_KEY=dummy
+B2_BUCKET_NAME=YOUR_BUCKET_NAME
+ALLOWED_ORIGIN=*

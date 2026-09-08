@@ -1,0 +1,13 @@
+# Binaries go to GitHub Releases, never git
+*.zip
+*.exe
+downloads/*.zip
+
+# Real local secrets (example file is committed, real one never)
+worker/.dev.vars
+.dev.vars
+
+# Tooling
+node_modules/
+.wrangler/
+.vercel/
