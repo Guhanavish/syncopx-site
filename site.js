@@ -6,8 +6,8 @@
   var FALLBACK = {
     version: "1.4.2",
     file: "https://github.com/Guhanavish/syncopx-site/releases/download/v1.4.2/Syncopx-1.4.2-windows.zip",
-    bytes: 162498230,
-    sha256: "bed45271c92be36f6f8b8fbfbcc21cf0d237ad93363c3a40b292edd6cb553538",
+    bytes: 162498375,
+    sha256: "fd4937e82255251c3f96e2bbdc4edbe386a6ea67ae8959a66f5e502f0594c3b9",
     date: "2026-09-08"
   };
 
