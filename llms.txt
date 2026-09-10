@@ -1,0 +1,16 @@
+# Syncopx
+
+Syncopx is a free floating desktop AI assistant for Windows 10/11 64-bit.
+It talks and listens (voice conversation), sees the screen (OCR + control),
+manages files and documents, runs programs and terminal commands, and keeps
+notes, to-dos and chat history on the user's own PC.
+
+- Download (ZIP, no admin, no signup): https://syncopx.vercel.app/#download
+- How installing works: https://syncopx.vercel.app/#install
+- AI providers (bring your own key, or local Ollama): https://syncopx.vercel.app/#providers
+- FAQ: https://syncopx.vercel.app/#faq
+- Terms: https://syncopx.vercel.app/terms.html
+- Privacy: https://syncopx.vercel.app/privacy.html
+- Current version metadata (file, size, SHA-256): https://syncopx.vercel.app/downloads/version.json
+
+Keys are encrypted on the user's PC with Windows DPAPI. No accounts, no tracking.

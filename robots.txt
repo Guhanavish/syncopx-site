@@ -1,0 +1,6 @@
+# TODO(custom-domain): point at your domain when it lands
+User-agent: *
+Allow: /
+Disallow: /downloads/
+
+Sitemap: https://syncopx.vercel.app/sitemap.xml

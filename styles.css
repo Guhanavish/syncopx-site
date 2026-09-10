@@ -54,7 +54,7 @@ a { color: var(--accent); }
 .nav-in { display: flex; align-items: center; gap: 1rem; min-height: var(--nav-h); }
 .brand { display: flex; align-items: center; gap: 0.6rem; color: var(--text); text-decoration: none; font-family: var(--mono); font-weight: 700; }
 .brand img { border-radius: 50%; display: block; }
-.ver { font-size: 0.72rem; color: var(--dim); border: 1px solid var(--border); border-radius: 999px; padding: 0.1rem 0.55rem; font-weight: 400; }
+.ver { font-size: 0.72rem; color: var(--dim); border: 1px solid var(--border); border-radius: 8px; padding: 0.1rem 0.55rem; font-weight: 400; }
 .links { display: flex; gap: 1.4rem; margin-left: auto; }
 .links a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
 .links a:hover { color: var(--text); }
@@ -66,7 +66,7 @@ a { color: var(--accent); }
 .btn {
   display: inline-flex; align-items: center; gap: 0.6rem;
   font-family: var(--mono); font-weight: 600; text-decoration: none;
-  border-radius: 999px; border: 1px solid transparent; cursor: pointer;
+  border-radius: 14px; border: 1px solid transparent; cursor: pointer;
   transition: transform 0.12s var(--ease-out), background 0.2s, color 0.2s, border-color 0.2s;
 }
 .btn:active { transform: translateY(1px) scale(0.98); }
@@ -86,7 +86,7 @@ a { color: var(--accent); }
 .eyebrow {
   display: inline-flex; align-items: center; gap: 0.6rem;
   font-family: var(--mono); font-size: 0.82rem; color: var(--muted);
-  border: 1px solid var(--border); border-radius: 999px; padding: 0.4rem 1rem;
+  border: 1px solid var(--border); border-radius: 12px; padding: 0.4rem 1rem;
 }
 .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
 .hero h1 { font-family: var(--mono); font-weight: 700; font-size: clamp(3rem, 5vw, 5.5rem); margin: 1.6rem 0 1.2rem; max-width: 16ch; }
@@ -122,7 +122,7 @@ a { color: var(--accent); }
 @keyframes blink { 0%, 60%, 100% { opacity: 0.25; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
 .mock-composer { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; background: var(--input); border: 1px solid var(--border); border-radius: 999px; padding: 0.5rem 0.5rem 0.5rem 1.2rem; color: var(--dim); font-size: 0.9rem; }
 .mock-composer em { font-style: normal; background: var(--accent); color: var(--accent-ink); width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-size: 0.9rem; }
-.demo-pill { margin-left: auto; font-family: var(--mono); font-size: 0.7rem; color: var(--accent); border: 1px solid var(--border); border-radius: 999px; padding: 0.15rem 0.7rem; }
+.demo-pill { margin-left: auto; font-family: var(--mono); font-size: 0.7rem; color: var(--accent); border: 1px solid var(--border); border-radius: 8px; padding: 0.15rem 0.7rem; }
 #demo-log { display: grid; max-height: 300px; overflow-y: auto; }
 #demo-input { flex: 1; min-width: 0; background: none; border: none; outline: none; color: var(--text); font: inherit; font-size: 0.9rem; }
 #demo-input::placeholder { color: var(--dim); }
@@ -166,7 +166,7 @@ a { color: var(--accent); }
 
 /* provider chips */
 .chips { list-style: none; margin: 1.6rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.7rem; }
-.chips li { font-family: var(--mono); font-size: 0.9rem; border: 1px solid var(--border); border-radius: 999px; padding: 0.55rem 1.1rem; background: var(--panel); transition: border-color 0.2s; }
+.chips li { font-family: var(--mono); font-size: 0.9rem; border: 1px solid var(--border); border-radius: 10px; padding: 0.55rem 1.1rem; background: var(--panel); transition: border-color 0.2s; }
 .chips li:hover { border-color: var(--accent); }
 .chips span { color: var(--dim); font-size: 0.78rem; margin-left: 0.4rem; }
 
@@ -188,6 +188,13 @@ footer { border-top: 1px solid var(--border); padding: 2rem 0 3rem; }
 .foot-in { display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; align-items: center; justify-content: space-between; }
 .foot-in p { margin: 0; display: flex; align-items: center; gap: 0.5rem; }
 .foot-in img { border-radius: 50%; }
+
+/* ---------- legal pages + breadcrumbs ---------- */
+.legal { max-width: 46rem; }
+.legal h1 { font-family: var(--mono); font-size: clamp(2rem, 4vw, 3rem); margin: 0.6rem 0 1rem; }
+.legal h2 { font-size: 1.25rem; margin: 2rem 0 0.5rem; }
+.legal p { color: var(--muted); }
+.crumbs { font-family: var(--mono); font-size: 0.82rem; color: var(--dim); margin-bottom: 1rem; }
 
 /* ---------- reveals (transform/opacity only) ---------- */
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }

@@ -18,7 +18,8 @@ id = "e49fd883b286474c9ce5f90616c0c9ba"
 
 [vars]
 # Public config only — NEVER put keys here.
-ALLOWED_ORIGIN = "*"
+# Production browser origins allowed to call the demo API.
+ALLOWED_ORIGIN = "https://syncopx.vercel.app"
 # B2_BUCKET_NAME = "paste-bucket-name-here"
 # B2_BUCKET_ID = "paste-bucket-id-here (faster than name lookup)"
 

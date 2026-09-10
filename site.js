@@ -4,10 +4,10 @@
   "use strict";
 
   var FALLBACK = {
-    version: "1.4.3",
-    file: "https://github.com/Guhanavish/syncopx-site/releases/download/v1.4.3/Syncopx-1.4.3-windows.zip",
-    bytes: 162501637,
-    sha256: "333c4a87cfed384a0e4992de7d35eda8b7a290e1b0600f97d02ffec31ea084f7",
+    version: "1.4.4",
+    file: "https://github.com/Guhanavish/syncopx-site/releases/download/v1.4.4/Syncopx-1.4.4-windows.zip",
+    bytes: 162500439,
+    sha256: "c05b8fa287dcea2afbc8236e741b9306db8fbf513076892662e5d060d5e78505",
     date: "2026-09-10"
   };
 
@@ -41,7 +41,7 @@
   }
 
   // version.json drives the buttons, so each upload only changes data.
-  // file:// opens have no fetch — fall back silently to embedded values.
+  // file:// opens have no fetch, so fall back silently to embedded values.
   applyVersion(FALLBACK);
   fetch("downloads/version.json", { cache: "no-store" })
     .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
@@ -136,7 +136,7 @@
       localStorage.setItem("syncopx_demo_n", String(Math.min(2, Math.max(0, used))));
       status.textContent = left + "/2 left · desktop-only tasks run in the Syncopx app";
       pill.textContent = left > 0 ? "live demo · " + left + " free" : "demo done · get Syncopx";
-      if (left <= 0) { send.disabled = true; input.disabled = true; input.placeholder = "Demo done — download Syncopx for more…"; }
+      if (left <= 0) { send.disabled = true; input.disabled = true; input.placeholder = "Demo done. Download Syncopx for more…"; }
     }
     setLeft(Math.max(0, 2 - used));
 
@@ -151,14 +151,14 @@
         typing.hidden = false;
         setTimeout(function () {
           typing.hidden = true;
-          if (used >= 2) { bubble("That's your 2 free web replies — download Syncopx for unlimited use.", "ai"); dlButton(); setLeft(0); return; }
-          bubble("Demo backend connects on deploy — for now, download Syncopx to chat unlimited on your PC.", "ai");
+          if (used >= 2) { bubble("That's your 2 free web replies. Download Syncopx for unlimited use.", "ai"); dlButton(); setLeft(0); return; }
+          bubble("Demo backend connects on deploy. For now, download Syncopx to chat unlimited on your PC.", "ai");
           dlButton();
         }, 600);
         return;
       }
       if (used >= 2) {
-        bubble("That's your 2 free web replies — download Syncopx for unlimited voice, screen control, files and programs on your own PC.", "ai");
+        bubble("That's your 2 free web replies. Download Syncopx for unlimited voice, screen control, files and programs on your own PC.", "ai");
         dlButton(); setLeft(0); return;
       }
       typing.hidden = false;
@@ -170,14 +170,14 @@
         .then(function (r) { return r.json(); })
         .then(function (j) {
           typing.hidden = true;
-          bubble(j.reply || "Syncopx demo is busy — download Syncopx to run it locally.", "ai");
+          bubble(j.reply || "Syncopx demo is busy. Download Syncopx to run it locally.", "ai");
           if (j.blocked) dlButton();
           if (typeof j.left === "number") setLeft(j.left);
           else { used += 1; localStorage.setItem("syncopx_demo_n", String(used)); setLeft(Math.max(0, 2 - used)); }
         })
         .catch(function () {
           typing.hidden = true;
-          bubble("Syncopx demo is busy right now — download Syncopx to run it locally.", "ai");
+          bubble("Syncopx demo is busy right now. Download Syncopx to run it locally.", "ai");
           dlButton();
         });
     });
@@ -189,7 +189,7 @@
         if (!f) return;
         bubble("📎 " + f.name, "me");
         if (DEMO_API.indexOf(".YOU.") !== -1) {
-          bubble("Got it — files run fully in the Syncopx app. Download Syncopx to process it.", "ai");
+          bubble("Got it. Files run fully in the Syncopx app. Download Syncopx to process it.", "ai");
           dlButton(); fileIn.value = ""; return;
         }
         var fd = new FormData();
@@ -201,8 +201,8 @@
           body: fd,
         })
           .then(function (r) { return r.json(); })
-          .then(function (j) { typing.hidden = true; bubble(j.reply || "Got it — open it in Syncopx to process it fully.", "ai"); dlButton(); })
-          .catch(function () { typing.hidden = true; bubble("Got it — open it in Syncopx on your PC to process it fully.", "ai"); dlButton(); });
+          .then(function (j) { typing.hidden = true; bubble(j.reply || "Got it. Open it in Syncopx to process it fully.", "ai"); dlButton(); })
+          .catch(function () { typing.hidden = true; bubble("Got it. Open it in Syncopx on your PC to process it fully.", "ai"); dlButton(); });
         fileIn.value = "";
       });
     }
