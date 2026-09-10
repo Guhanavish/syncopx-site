@@ -4,10 +4,10 @@
   "use strict";
 
   var FALLBACK = {
-    version: "1.4.4",
-    file: "https://github.com/Guhanavish/syncopx-site/releases/download/v1.4.4/Syncopx-1.4.4-windows.zip",
-    bytes: 162500439,
-    sha256: "c05b8fa287dcea2afbc8236e741b9306db8fbf513076892662e5d060d5e78505",
+    version: "1.4.5",
+    file: "https://github.com/Guhanavish/syncopx-site/releases/download/v1.4.5/Syncopx-1.4.5-windows.zip",
+    bytes: 162501711,
+    sha256: "f371532eb683139bd60ef2e277289e98dbc770a9c2f838496321c7b003309fd0",
     date: "2026-09-10"
   };
 
@@ -138,12 +138,43 @@
       pill.textContent = left > 0 ? "live demo · " + left + " free" : "demo done · get Syncopx";
       if (left <= 0) { send.disabled = true; input.disabled = true; input.placeholder = "Demo done. Download Syncopx for more…"; }
     }
+    // Offline state: grey out the demo while the network is gone so users
+    // cannot spam retries into a dead connection.
+    function setOffline(off) {
+      send.disabled = off || used >= 2;
+      input.disabled = off || used >= 2;
+      if (off) {
+        status.textContent = "You are offline. Reconnect to use the demo.";
+        pill.textContent = "offline";
+        input.placeholder = "Waiting for connection…";
+      } else {
+        input.placeholder = "Ask anything. 2 free tries…";
+        setLeft(Math.max(0, 2 - used));
+      }
+    }
     setLeft(Math.max(0, 2 - used));
+    if (!navigator.onLine) setOffline(true);
+    window.addEventListener("offline", function () { setOffline(true); });
+    window.addEventListener("online", function () { setOffline(false); });
+    function netFail(msg) {
+      // Network failure (not a model/refusal): keep the message in the box
+      // so nothing is lost, and say exactly what happened.
+      typing.hidden = true;
+      input.value = msg;
+      bubble("Can't reach the demo. Check your internet connection, then press Send again.", "ai");
+    }
 
     demoForm.addEventListener("submit", function (e) {
       e.preventDefault();
       var msg = input.value.trim();
-      if (!msg || send.disabled) return;
+      if (!msg || send.disabled) {
+        if (!msg && !send.disabled) {
+          status.textContent = "Type a message first, then press Send.";
+          setTimeout(function () { setLeft(Math.max(0, 2 - used)); }, 2500);
+        }
+        return;
+      }
+      if (!navigator.onLine) { netFail(msg); return; }
       bubble(msg, "me");
       input.value = "";
       // Backend not deployed yet (placeholder URL) -> local upsell, no key exposed.
@@ -167,7 +198,10 @@
         headers: { "Content-Type": "application/json", "X-Demo-Id": id },
         body: JSON.stringify({ message: msg.slice(0, 500), demoId: id }),
       })
-        .then(function (r) { return r.json(); })
+        .then(function (r) {
+          if (!r.ok) throw new Error("http " + r.status);
+          return r.json();
+        })
         .then(function (j) {
           typing.hidden = true;
           bubble(j.reply || "Syncopx demo is busy. Download Syncopx to run it locally.", "ai");
@@ -175,10 +209,13 @@
           if (typeof j.left === "number") setLeft(j.left);
           else { used += 1; localStorage.setItem("syncopx_demo_n", String(used)); setLeft(Math.max(0, 2 - used)); }
         })
-        .catch(function () {
+        .catch(function (err) {
+          // TypeError = the request never left (offline/DNS/blocked).
+          // Anything else = the demo itself failed after receiving it.
+          if (err && err.name === "TypeError") { netFail(msg); return; }
           typing.hidden = true;
-          bubble("Syncopx demo is busy right now. Download Syncopx to run it locally.", "ai");
-          dlButton();
+          input.value = msg;
+          bubble("The demo hit a snag on that one. Your message is back in the box. Try again.", "ai");
         });
     });
 
@@ -187,6 +224,10 @@
       fileIn.addEventListener("change", function () {
         var f = fileIn.files && fileIn.files[0];
         if (!f) return;
+        if (f.size > 5 * 1024 * 1024) {
+          bubble("That file is over the 5 MB demo limit. Pick a smaller file, or open it in the Syncopx app with no limit.", "ai");
+          dlButton(); fileIn.value = ""; return;
+        }
         bubble("📎 " + f.name, "me");
         if (DEMO_API.indexOf(".YOU.") !== -1) {
           bubble("Got it. Files run fully in the Syncopx app. Download Syncopx to process it.", "ai");
@@ -202,7 +243,7 @@
         })
           .then(function (r) { return r.json(); })
           .then(function (j) { typing.hidden = true; bubble(j.reply || "Got it. Open it in Syncopx to process it fully.", "ai"); dlButton(); })
-          .catch(function () { typing.hidden = true; bubble("Got it. Open it in Syncopx on your PC to process it fully.", "ai"); dlButton(); });
+          .catch(function (err) { typing.hidden = true; bubble(err && err.name === "TypeError" ? "Can't reach the demo. Check your internet connection, then attach again." : "The upload hit a snag. Try again.", "ai"); });
         fileIn.value = "";
       });
     }
