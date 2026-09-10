@@ -4,11 +4,11 @@
   "use strict";
 
   var FALLBACK = {
-    version: "1.4.2",
-    file: "https://github.com/Guhanavish/syncopx-site/releases/download/v1.4.2/Syncopx-1.4.2-windows.zip",
-    bytes: 162498375,
-    sha256: "fd4937e82255251c3f96e2bbdc4edbe386a6ea67ae8959a66f5e502f0594c3b9",
-    date: "2026-09-08"
+    version: "1.4.3",
+    file: "https://github.com/Guhanavish/syncopx-site/releases/download/v1.4.3/Syncopx-1.4.3-windows.zip",
+    bytes: 162501637,
+    sha256: "333c4a87cfed384a0e4992de7d35eda8b7a290e1b0600f97d02ffec31ea084f7",
+    date: "2026-09-10"
   };
 
   function mb(bytes) {
@@ -134,7 +134,7 @@
     function setLeft(left) {
       used = 2 - left;
       localStorage.setItem("syncopx_demo_n", String(Math.min(2, Math.max(0, used))));
-      status.textContent = left + "/2 left · big tasks + code over 200 words run in the Syncopx app";
+      status.textContent = left + "/2 left · desktop-only tasks run in the Syncopx app";
       pill.textContent = left > 0 ? "live demo · " + left + " free" : "demo done · get Syncopx";
       if (left <= 0) { send.disabled = true; input.disabled = true; input.placeholder = "Demo done — download Syncopx for more…"; }
     }
