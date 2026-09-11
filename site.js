@@ -157,9 +157,21 @@
     function netFail(msg) {
       // Network failure (not a model/refusal): keep the message in the box
       // so nothing is lost, and say exactly what happened.
-      typing.hidden = true;
+      hideTyping();
       input.value = msg;
       bubble("Can't reach the demo. Check your internet connection, then press Send again.", "ai");
+    }
+    var slowTimer = null;
+    function showTyping() {
+      typing.hidden = false;
+      clearTimeout(slowTimer);
+      slowTimer = setTimeout(function () {
+        if (!typing.hidden) status.textContent = "Still thinking. It can take up to half a minute.";
+      }, 25000);
+    }
+    function hideTyping() {
+      typing.hidden = true;
+      clearTimeout(slowTimer);
     }
 
     demoForm.addEventListener("submit", function (e) {
@@ -177,15 +189,15 @@
       input.value = "";
       // Backend not deployed yet (placeholder URL) -> local upsell, no key exposed.
       if (DEMO_API.indexOf(".YOU.") !== -1) {
-        typing.hidden = false;
+        showTyping();
         setTimeout(function () {
-          typing.hidden = true;
+          hideTyping();
           bubble("Demo backend connects on deploy. For now, download Syncopx to chat unlimited on your PC.", "ai");
           dlButton();
         }, 600);
         return;
       }
-      typing.hidden = false;
+      showTyping();
       fetch(DEMO_API, {
         method: "POST",
         headers: { "Content-Type": "application/json", "X-Demo-Id": id },
@@ -196,7 +208,7 @@
           return r.json();
         })
         .then(function (j) {
-          typing.hidden = true;
+          hideTyping();
           bubble(j.reply || "Syncopx demo is busy. Download Syncopx to run it locally.", "ai");
           if (j.blocked) dlButton();
         })
@@ -204,7 +216,7 @@
           // TypeError = the request never left (offline/DNS/blocked).
           // Anything else = the demo itself failed after receiving it.
           if (err && err.name === "TypeError") { netFail(msg); return; }
-          typing.hidden = true;
+          hideTyping();
           input.value = msg;
           bubble("The demo hit a snag on that one. Your message is back in the box. Try again.", "ai");
         });
@@ -226,15 +238,15 @@
         }
         var fd = new FormData();
         fd.append("file", f);
-        typing.hidden = false;
+        showTyping();
         fetch(DEMO_API.replace(/\/api\/chat$/, "/api/upload"), {
           method: "POST",
           headers: { "X-Demo-Id": id },
           body: fd,
         })
           .then(function (r) { return r.json(); })
-          .then(function (j) { typing.hidden = true; bubble(j.reply || "Got it. Open it in Syncopx to process it fully.", "ai"); dlButton(); })
-          .catch(function (err) { typing.hidden = true; bubble(err && err.name === "TypeError" ? "Can't reach the demo. Check your internet connection, then attach again." : "The upload hit a snag. Try again.", "ai"); });
+          .then(function (j) { hideTyping(); bubble(j.reply || "Got it. Open it in Syncopx to process it fully.", "ai"); dlButton(); })
+          .catch(function (err) { hideTyping(); bubble(err && err.name === "TypeError" ? "Can't reach the demo. Check your internet connection, then attach again." : "The upload hit a snag. Try again.", "ai"); });
         fileIn.value = "";
       });
     }
