@@ -113,7 +113,8 @@
     var fileIn = document.getElementById("demo-file");
     var id = localStorage.getItem("syncopx_demo_id");
     if (!id) { id = "d" + (crypto.randomUUID ? crypto.randomUUID().slice(0, 8) : Math.random().toString(36).slice(2, 10)); localStorage.setItem("syncopx_demo_id", id); }
-    var used = parseInt(localStorage.getItem("syncopx_demo_n") || "0", 10) || 0;
+    // No client-side quota display: the server enforces the reply limit
+    // invisibly, so the box always feels like a normal conversation.
 
     function bubble(text, who) {
       var d = document.createElement("div");
@@ -131,28 +132,25 @@
       log.appendChild(a);
       log.scrollTop = log.scrollHeight;
     }
-    function setLeft(left) {
-      used = 2 - left;
-      localStorage.setItem("syncopx_demo_n", String(Math.min(2, Math.max(0, used))));
-      status.textContent = left + "/2 left · desktop-only tasks run in the Syncopx app";
-      pill.textContent = left > 0 ? "live demo · " + left + " free" : "demo done · get Syncopx";
-      if (left <= 0) { send.disabled = true; input.disabled = true; input.placeholder = "Demo done. Download Syncopx for more…"; }
+    function setStatusNormal() {
+      status.textContent = "Demo replies are limited. Get the app for unlimited chat.";
+      pill.textContent = "live demo";
     }
     // Offline state: grey out the demo while the network is gone so users
     // cannot spam retries into a dead connection.
     function setOffline(off) {
-      send.disabled = off || used >= 2;
-      input.disabled = off || used >= 2;
+      send.disabled = off;
+      input.disabled = off;
       if (off) {
         status.textContent = "You are offline. Reconnect to use the demo.";
         pill.textContent = "offline";
         input.placeholder = "Waiting for connection…";
       } else {
-        input.placeholder = "Ask anything. 2 free tries…";
-        setLeft(Math.max(0, 2 - used));
+        input.placeholder = "Ask anything…";
+        setStatusNormal();
       }
     }
-    setLeft(Math.max(0, 2 - used));
+    setStatusNormal();
     if (!navigator.onLine) setOffline(true);
     window.addEventListener("offline", function () { setOffline(true); });
     window.addEventListener("online", function () { setOffline(false); });
@@ -170,7 +168,7 @@
       if (!msg || send.disabled) {
         if (!msg && !send.disabled) {
           status.textContent = "Type a message first, then press Send.";
-          setTimeout(function () { setLeft(Math.max(0, 2 - used)); }, 2500);
+          setTimeout(setStatusNormal, 2500);
         }
         return;
       }
@@ -182,15 +180,10 @@
         typing.hidden = false;
         setTimeout(function () {
           typing.hidden = true;
-          if (used >= 2) { bubble("That's your 2 free web replies. Download Syncopx for unlimited use.", "ai"); dlButton(); setLeft(0); return; }
           bubble("Demo backend connects on deploy. For now, download Syncopx to chat unlimited on your PC.", "ai");
           dlButton();
         }, 600);
         return;
-      }
-      if (used >= 2) {
-        bubble("That's your 2 free web replies. Download Syncopx for unlimited voice, screen control, files and programs on your own PC.", "ai");
-        dlButton(); setLeft(0); return;
       }
       typing.hidden = false;
       fetch(DEMO_API, {
@@ -206,8 +199,6 @@
           typing.hidden = true;
           bubble(j.reply || "Syncopx demo is busy. Download Syncopx to run it locally.", "ai");
           if (j.blocked) dlButton();
-          if (typeof j.left === "number") setLeft(j.left);
-          else { used += 1; localStorage.setItem("syncopx_demo_n", String(used)); setLeft(Math.max(0, 2 - used)); }
         })
         .catch(function (err) {
           // TypeError = the request never left (offline/DNS/blocked).
