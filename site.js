@@ -15,8 +15,10 @@
     return Math.max(1, Math.round(bytes / 1048576)) + " MB";
   }
 
+  var LATEST_FILE = FALLBACK.file;
   function applyVersion(v) {
     var href = /^https?:\/\//.test(v.file) ? v.file : "downloads/" + v.file;
+    LATEST_FILE = href;
     ["dl-btn", "dl-btn-2"].forEach(function (id) {
       var a = document.getElementById(id);
       if (!a) return;
@@ -127,7 +129,11 @@
     function dlButton() {
       var a = document.createElement("a");
       a.className = "btn btn-primary btn-sm demo-dl";
-      a.href = "#download";
+      // Go straight to the file: the old "#download" hop landed under the
+      // sticky nav and looked broken.
+      a.href = LATEST_FILE;
+      a.target = "_blank";
+      a.rel = "noopener";
       a.textContent = "Download Syncopx";
       log.appendChild(a);
       log.scrollTop = log.scrollHeight;

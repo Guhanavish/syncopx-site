@@ -3,7 +3,7 @@
 Live demo box in the hero talks to Gemini, but the key NEVER ships to the browser.
 
 ## What it enforces
-- 2 free replies per visitor (`demoId` + IP soft cap 6/day). Hard limit enforced via bound `DEMO_KV`.
+- 2 free replies per visitor per day (`demoId`, auto-expires in 24h) + IP soft cap 50/day against bulk abuse. Hard limit enforced via bound `DEMO_KV`.
 - Firewall pre + post: message >800 chars or desktop-only intent (PC/screen control, files, terminal, WhatsApp, transcription, multi-file projects), or model output >450 words / >30 code lines / >3500 chars → upsell, original output is discarded. Normal questions and code get real answers.
 - Identity scrub: any mention of Gemini/Google/GPT/OpenAI/LLM/API/worker/B2 → replaced with `Syncopx - Alpha`. Errors are generic.
 - Storage: every turn + file upload is logged to your Backblaze B2 bucket (`demo-logs/YYYY-MM-DD/`, `demo-uploads/`). Counters live in KV (fast), not B2.

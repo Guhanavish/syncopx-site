@@ -220,7 +220,9 @@ export default {
       // --- 2-reply limit (hard when DEMO_KV bound) ---
       const { a, b } = await getCount(env, demoId, ip);
       const left = Math.max(0, 2 - a);
-      if (a >= 2 || b >= 6) {
+      // Per-visitor 2 replies; per-IP 50/day only stops bulk abuse (all
+      // counters auto-expire after 24h, so honest visitors reset daily).
+      if (a >= 2 || b >= 50) {
         logB2(env, ctx, { demoId, kind: "limited", message: message.slice(0, 200) });
         return json({ reply: LIMIT_MSG, blocked: "limit", left: 0, by: "Syncopx" }, 200, h);
       }
