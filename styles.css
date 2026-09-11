@@ -85,9 +85,11 @@ a { color: var(--accent); }
 .hero { padding: 5.5rem 0 3rem; position: relative; }
 .eyebrow {
   display: inline-flex; align-items: center; gap: 0.6rem;
+  flex-wrap: wrap; max-width: 100%;
   font-family: var(--mono); font-size: 0.82rem; color: var(--muted);
   border: 1px solid var(--border); border-radius: 12px; padding: 0.4rem 1rem;
 }
+html, body { overflow-x: clip; }
 .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
 .hero h1 { font-family: var(--mono); font-weight: 700; font-size: clamp(3rem, 5vw, 5.5rem); margin: 1.6rem 0 1.2rem; max-width: 16ch; }
 .lede { font-size: 1.2rem; color: var(--muted); max-width: 42rem; font-weight: 300; }
