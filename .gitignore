@@ -3,8 +3,7 @@
 *.exe
 downloads/*.zip
 
-# Real local secrets (example file is committed, real one never)
-worker/.dev.vars
+# Real local secrets (never commit)
 .dev.vars
 
 # Tooling

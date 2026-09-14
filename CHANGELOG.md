@@ -1,5 +1,9 @@
 # Syncopx changelog
 
+## Site (2026-09-14, app still 1.4.7)
+- Removed the Cloudflare web demo (Worker + demo box + quota/CSP wiring).
+  The hero now shows a static chat preview; the site is download-only.
+
 ## 1.4.7
 - Desktop chat input is now effectively unlimited (500k chars); length caps
   stay web-demo-only in the Worker firewall.

@@ -118,24 +118,9 @@ html, body { overflow-x: clip; }
 .mock-bubble { border-radius: 14px; padding: 0.65rem 0.95rem; font-size: 0.93rem; margin-bottom: 0.6rem; max-width: 92%; }
 .mock-bubble.me { background: var(--accent); color: var(--accent-ink); margin-left: auto; font-family: var(--mono); font-size: 0.85rem; border-bottom-right-radius: 5px; }
 .mock-bubble.ai { background: var(--panel-2); border-bottom-left-radius: 5px; }
-.mock-typing { display: flex; gap: 6px; padding: 0.4rem 0.2rem 0.8rem 0.2rem; }
-#demo-typing[hidden] { display: none; }
-.mock-typing b { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: blink 1.2s infinite; }
-.mock-typing b:nth-child(2) { animation-delay: 0.2s; }
-.mock-typing b:nth-child(3) { animation-delay: 0.4s; }
-@keyframes blink { 0%, 60%, 100% { opacity: 0.25; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
-.mock-composer { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; background: var(--input); border: 1px solid var(--border); border-radius: 999px; padding: 0.5rem 0.5rem 0.5rem 1.2rem; color: var(--dim); font-size: 0.9rem; }
-.mock-composer em { font-style: normal; background: var(--accent); color: var(--accent-ink); width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-size: 0.9rem; }
-.demo-pill { margin-left: auto; font-family: var(--mono); font-size: 0.7rem; color: var(--accent); border: 1px solid var(--border); border-radius: 8px; padding: 0.15rem 0.7rem; }
-#demo-log { display: grid; max-height: 300px; overflow-y: auto; }
-#demo-input { flex: 1; min-width: 0; background: none; border: none; outline: none; color: var(--text); font: inherit; font-size: 0.9rem; }
-#demo-input::placeholder { color: var(--dim); }
-#demo-send, #demo-attach { flex: none; border: none; cursor: pointer; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-size: 0.95rem; }
-#demo-send { background: var(--accent); color: var(--accent-ink); }
-#demo-send:disabled { opacity: 0.45; cursor: default; }
-#demo-attach { background: transparent; color: var(--dim); border: 1px solid var(--border); }
+.mock-log { display: grid; }
 .demo-sub { margin: 0.6rem 0 0; font-size: 0.78rem; color: var(--dim); font-family: var(--mono); }
-.demo-dl { display: inline-flex; margin-top: 0.5rem; }
+.demo-sub a { color: var(--accent); }
 
 /* ---------- sections ---------- */
 .section { padding: 4.5rem 0 1rem; }
