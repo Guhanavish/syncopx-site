@@ -1,6 +1,13 @@
 # Syncopx changelog
 
-## 1.4.6
+## 1.4.7
+- Desktop chat input is now effectively unlimited (500k chars); length caps
+  stay web-demo-only in the Worker firewall.
+- Thinking bloom shrunk (150px center → 64px corner-dock) so it never covers
+  bubbles in the small 440px panel.
+- File read/convert reliability: rich documents parsed locally, all creators
+  resolve via the Save folder, verify bytes on disk, and report the exact
+  verified path.
 - In-app updates: Settings, Updates checks the published version, downloads
   with progress, verifies size + SHA-256, and installs on restart.
   A toast confirms the new version and announces available ones.
