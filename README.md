@@ -22,3 +22,23 @@ Set-Location website
 python -m http.server 8931
 # open http://127.0.0.1:8931/
 ```
+
+## UI architecture decisions (2026-09 rebuild)
+
+Full rationale and wireframes live in `UI_REBUILD.md`. Summary:
+
+- Native static HTML/CSS/JS. No framework, no build step — the site stays a
+  copy-paste deploy.
+- Flat design system: graphite surfaces (`#091014`/`#101A1F`), 1px hairline
+  borders, single mint accent (`#58D6C2`), no gradients, no glows, no shadows
+  except the orb's drop shadow. Tokens are CSS custom properties in
+  `styles.css`.
+- The hero shows an explicitly labeled illustrative workflow (say → confirm →
+  done) instead of a fake chat transcript; there are no fabricated usage
+  counts or analytics anywhere.
+- All icons are inline 1.5px-stroke SVGs on a 24px grid; no new raster assets
+  were added, existing optimized PNGs are reused.
+- Motion budget: opacity + 22px translateY reveals and small hover lifts,
+  everything disabled under `prefers-reduced-motion`.
+- The version/size/SHA-256 display stays driven by `downloads/version.json`
+  with the same baked-in fallbacks; release URLs and hash are unchanged.

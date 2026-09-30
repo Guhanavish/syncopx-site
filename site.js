@@ -40,35 +40,35 @@
     if (hashBtn) hashBtn.dataset.full = v.sha256;
   }
 
-  // version.json drives the buttons, so each upload only changes data.
-  // file:// opens have no fetch, so fall back silently to embedded values.
   applyVersion(FALLBACK);
   fetch("downloads/version.json", { cache: "no-store" })
     .then(function (r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
     .then(function (v) { if (v && v.file && v.sha256) applyVersion(v); })
-    .catch(function () { /* offline/file preview: keep fallback */ });
+    .catch(function () {});
 
-  document.getElementById("hash-btn").addEventListener("click", function () {
-    var full = this.dataset.full || FALLBACK.sha256;
-    var ok = document.getElementById("hash-ok");
-    function done() {
-      ok.hidden = false;
-      setTimeout(function () { ok.hidden = true; }, 1600);
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(full).then(done, done);
-    } else {
-      var ta = document.createElement("textarea");
-      ta.value = full;
-      document.body.appendChild(ta);
-      ta.select();
-      try { document.execCommand("copy"); } catch (e) { /* noop */ }
-      document.body.removeChild(ta);
-      done();
-    }
-  });
+  var hashBtn = document.getElementById("hash-btn");
+  if (hashBtn) {
+    hashBtn.addEventListener("click", function () {
+      var full = this.dataset.full || FALLBACK.sha256;
+      var ok = document.getElementById("hash-ok");
+      function done() {
+        ok.hidden = false;
+        setTimeout(function () { ok.hidden = true; }, 1600);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(full).then(done, done);
+      } else {
+        var ta = document.createElement("textarea");
+        ta.value = full;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); } catch (e) {}
+        document.body.removeChild(ta);
+        done();
+      }
+    });
+  }
 
-  // staggered reveals, transform/opacity only
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var revealEls = document.querySelectorAll(".reveal");
   if (reduce || !("IntersectionObserver" in window)) {
@@ -85,19 +85,18 @@
     revealEls.forEach(function (el) { io.observe(el); });
   }
 
-  // mobile nav
   var toggle = document.querySelector(".nav-toggle");
   var links = document.getElementById("navlinks");
-  toggle.addEventListener("click", function () {
-    var open = links.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", open ? "true" : "false");
-  });
-  links.addEventListener("click", function (e) {
-    if (e.target.tagName === "A") {
-      links.classList.remove("open");
-      toggle.setAttribute("aria-expanded", "false");
-    }
-  });
-
-  // footer year is static by design (dated releases); nothing else needed.
+  if (toggle && links) {
+    toggle.addEventListener("click", function () {
+      var open = links.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    links.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") {
+        links.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
 })();
