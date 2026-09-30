@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Syncopx | Floating desktop AI assistant for Windows</title>
-<meta name="description" content="Syncopx is a floating desktop AI assistant for Windows 10/11. Talk to your PC, control apps on screen, manage files and run programs. No signup. You bring your own AI key.">
+<meta name="description" content="Floating desktop AI assistant for Windows 10/11. Talk to your PC, control apps, manage files and run programs. No signup, bring your own key.">
 <!-- TODO(custom-domain): replace the canonical + og:url with your domain, e.g. https://syncopx.com/ -->
 <link rel="canonical" href="https://syncopx.vercel.app/">
 <meta property="og:type" content="website">
@@ -20,6 +20,7 @@
 <meta property="og:image" content="https://syncopx.vercel.app/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Syncopx floating desktop AI assistant for Windows">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Syncopx | Your PC, on your words">
 <meta name="twitter:description" content="A floating desktop AI assistant for Windows. Voice, screen control, files and programs.">
@@ -30,9 +31,14 @@
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
 <link rel="manifest" href="manifest.webmanifest">
 <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite",
+"name":"Syncopx","url":"https://syncopx.vercel.app/"}
+</script>
+<script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication",
 "name":"Syncopx","applicationCategory":"UtilitiesApplication",
 "operatingSystem":"Windows 10/11 64-bit","offers":{"@type":"Offer","price":"0"},
+"url":"https://syncopx.vercel.app/",
 "description":"Floating desktop AI assistant for Windows: voice conversation, screen control, files, programs and documents."}
 </script>
 <script type="application/ld+json">
@@ -87,7 +93,7 @@
     <p class="dl-sub reveal">No signup · No bundled API keys · <button class="hash" id="hash-btn" type="button" title="Copy full SHA-256">SHA-256 <code data-sha-short>d3fbbb91…</code></button> <span class="hash-ok" id="hash-ok" role="status" hidden>copied</span></p>
 
     <div class="hero-stage reveal">
-      <div class="orb" aria-hidden="true"><img src="assets/syncopx-icon.png" alt=""></div>
+      <div class="orb" aria-hidden="true"><img src="assets/syncopx-icon.png" alt="" width="120" height="120" loading="eager" decoding="async"></div>
       <div class="flow" role="img" aria-label="Illustrative workflow: say what you need, confirm the plan, get the result as files on your PC">
         <p class="flow-tag">Illustrative workflow</p>
         <ol class="flow-steps">
@@ -244,7 +250,7 @@
 
 <footer>
   <div class="wrap foot-in">
-    <p><img src="assets/syncopx-icon.png" alt="Syncopx orb logo" width="20" height="20"> Syncopx <span data-ver>v1.4.7</span>, a floating desktop AI assistant for Windows.</p>
+    <p><img src="assets/syncopx-icon.png" alt="Syncopx orb logo" width="20" height="20" loading="lazy" decoding="async"> Syncopx <span data-ver>v1.4.7</span>, a floating desktop AI assistant for Windows.</p>
     <p class="muted">ZIP install · No signup · Your keys stay yours · <a href="#faq">FAQ</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
   </div>
 </footer>
