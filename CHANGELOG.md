@@ -1,5 +1,15 @@
 # Syncopx changelog
 
+## 1.4.8 (2026-10-04)
+- Task Subagents & Persistent Sessions: Sequential tool-driven general and explore subagents with disk-backed resume and accumulation.
+- Structured Questioning & Permission Gates: Multi-question dialogs, per-tool permission policies (allow once, always allow, reject with feedback), and plan-mode reuse.
+- Trust & Safety: Live token & cost accounting across providers, doom-loop detection with break-glass modal, session undo/redo and conversation forking.
+- Syncopx Originals: Local Program Library, scheduled background task execution, and file-defined custom tool registry.
+- Smart Model Routing: Heuristic per-task model routing (code -> strong models, explore -> fast/cheap, chat -> default) with conversation branching and model retry.
+- Output Secret Scanning: Automatic redaction of sensitive API keys and tokens across display bubbles, clipboard copy, and voice speech.
+- One-Click Data Backup & Restore: Portable ZIP packaging of user chats, notes, schedules, programs, and subagents with credentials stripped for security.
+- Bulletproof Installer: Added automatic task-kill and robocopy retry guards to prevent file locks during installation or upgrades.
+
 ## Site (2026-09-14, app still 1.4.7)
 - Removed the Cloudflare web demo (Worker + demo box + quota/CSP wiring).
   The hero now shows a static chat preview; the site is download-only.
