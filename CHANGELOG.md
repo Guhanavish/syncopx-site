@@ -1,6 +1,11 @@
 # Syncopx changelog
 
-## 1.4.8 (2026-10-04)
+## 1.4.8 (2026-10-05)
+- Modern Agent UI Rebuild: Borderless fullscreen agent window with Graphite & Mint theme, responsive availableGeometry layout, antialiased JetBrains Mono and IBM Plex Sans typography.
+- Resolution-Independent Icons: 100% vector SVG icons with runtime QSvgRenderer rasterization and per-DPR caching, eliminating pixelation across standard and HiDPI displays.
+- Official App & Taskbar Identity: Seamless Windows taskbar integration with embedded multi-resolution mipmaps (16px to 256px + 1536px HD circle) and explicit AppUserModelID binding.
+- Progressive Streaming & Provenance: Throttled rich message streaming, initial skeleton shimmer, and expandable collapsed step headers (`✓ N steps · 12s ▸`) with running stop affordance.
+- Keyboard First Navigation: Universal keyboard shortcuts (`Ctrl+K` focus input, `Ctrl+Enter` send, `Esc` stop/clear, `Ctrl+L` new chat, `Ctrl+J` toggle tasks, `?` shortcuts guide).
 - Task Subagents & Persistent Sessions: Sequential tool-driven general and explore subagents with disk-backed resume and accumulation.
 - Structured Questioning & Permission Gates: Multi-question dialogs, per-tool permission policies (allow once, always allow, reject with feedback), and plan-mode reuse.
 - Trust & Safety: Live token & cost accounting across providers, doom-loop detection with break-glass modal, session undo/redo and conversation forking.
@@ -8,7 +13,7 @@
 - Smart Model Routing: Heuristic per-task model routing (code -> strong models, explore -> fast/cheap, chat -> default) with conversation branching and model retry.
 - Output Secret Scanning: Automatic redaction of sensitive API keys and tokens across display bubbles, clipboard copy, and voice speech.
 - One-Click Data Backup & Restore: Portable ZIP packaging of user chats, notes, schedules, programs, and subagents with credentials stripped for security.
-- Bulletproof Installer: Added automatic task-kill and robocopy retry guards to prevent file locks during installation or upgrades.
+- Bulletproof Installer: Added automatic task-kill, robocopy retry guards, and explicit shortcut icon bindings to prevent file locks during installation or upgrades.
 
 ## Site (2026-09-14, app still 1.4.7)
 - Removed the Cloudflare web demo (Worker + demo box + quota/CSP wiring).
