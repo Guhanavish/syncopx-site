@@ -1,5 +1,11 @@
 # Syncopx changelog
 
+## 1.5.0 (2026-10-07)
+- Agent Chat Loop Repair: Resolved runtime TypeError on chat turns by making `cancel_check` a first-class constructor parameter and attribute.
+- Unified Cancellation Protocol: Wired `cancel_check` directly into the existing `CANCELLED` protocol across loop iterations, tool call execution, request retry, and stream chunk processing.
+- Live Token & Cost Accounting: First-class `on_token_stats` reporting prompt, completion, total tokens, and USD cost directly to the UI stats panel.
+- Bridge & Worker Hardening: Removed legacy `hasattr` checks in worker bridge; all 17 unit test suites verified green offline across 69 repo-wide call sites.
+
 ## 1.4.9 (2026-10-07)
 - Start-on-Boot Architecture & Diagnostics: Robust autostart resolution prioritizing active app_shell entrypoint, dead-target path verification, automatic path refresh after folder moves, boot diagnostics logger (`%TEMP%\syncopx_boot.log`), and unified single-instance mutex (`Local\Syncopx_SingleInstance`).
 - Provider Switching & Curated Models: Instant URL & model updates on provider switch, curated models for Ollama (including Phi-4 14B), Groq (Llama 3.3 70B, Llama 3.1 8B, Llama Guard 3), and OpenRouter with all deprecated models removed.
