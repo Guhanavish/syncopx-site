@@ -1,5 +1,12 @@
 # Syncopx changelog
 
+## 1.4.9 (2026-10-07)
+- Start-on-Boot Architecture & Diagnostics: Robust autostart resolution prioritizing active app_shell entrypoint, dead-target path verification, automatic path refresh after folder moves, boot diagnostics logger (`%TEMP%\syncopx_boot.log`), and unified single-instance mutex (`Local\Syncopx_SingleInstance`).
+- Provider Switching & Curated Models: Instant URL & model updates on provider switch, curated models for Ollama (including Phi-4 14B), Groq (Llama 3.3 70B, Llama 3.1 8B, Llama Guard 3), and OpenRouter with all deprecated models removed.
+- Honest Connection Diagnostics: Full multi-candidate error reporting in ConnectionTester with classification for auth, network, rate limit, quota, and invalid model errors.
+- Slash Command Engine: Inline `/model`, `/provider`, `/clear`, `/new`, `/shortcuts`, `/help`, `/tokens`, `/cost` command parsing with instant execution.
+- Vibe Pass Polish: Enhanced dark mode theme tokens, responsive header and composer actions, smoother animations, and subtle badge/state indicators.
+
 ## 1.4.8 (2026-10-05)
 - Modern Agent UI Rebuild: Borderless fullscreen agent window with Graphite & Mint theme, responsive availableGeometry layout, antialiased JetBrains Mono and IBM Plex Sans typography.
 - Resolution-Independent Icons: 100% vector SVG icons with runtime QSvgRenderer rasterization and per-DPR caching, eliminating pixelation across standard and HiDPI displays.
