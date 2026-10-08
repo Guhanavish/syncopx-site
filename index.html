@@ -8,22 +8,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Syncopx | Floating desktop AI assistant for Windows</title>
-<meta name="description" content="Floating desktop AI assistant for Windows 10/11. Talk to your PC, control apps, manage files and run programs. No signup, bring your own key.">
-<!-- TODO(custom-domain): replace the canonical + og:url with your domain, e.g. https://syncopx.com/ -->
+<title>Syncopx | Autonomous Agentic Desktop Assistant for Windows</title>
+<meta name="description" content="Autonomous agentic desktop AI assistant for Windows 10/11. Multi-step task subagents, voice conversation, screen vision, code & terminal execution. Zero signup, bring your own key or 100% offline with Ollama.">
 <link rel="canonical" href="https://syncopx.vercel.app/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Syncopx">
 <meta property="og:title" content="Syncopx | Your PC, on your words">
-<meta property="og:description" content="A floating desktop AI assistant for Windows. Voice, screen control, files and programs. No signup, no bundled keys.">
+<meta property="og:description" content="An autonomous desktop AI assistant for Windows. Multi-step task subagents, voice, screen vision, files, programs and terminal. No signup, no bundled keys.">
 <meta property="og:url" content="https://syncopx.vercel.app/">
 <meta property="og:image" content="https://syncopx.vercel.app/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Syncopx floating desktop AI assistant for Windows">
+<meta property="og:image:alt" content="Syncopx autonomous desktop AI assistant for Windows">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Syncopx | Your PC, on your words">
-<meta name="twitter:description" content="A floating desktop AI assistant for Windows. Voice, screen control, files and programs.">
+<meta name="twitter:description" content="An autonomous desktop AI assistant for Windows. Multi-step subagents, screen vision, voice, files and programs.">
 <meta name="twitter:image" content="https://syncopx.vercel.app/assets/og-image.png">
 <meta name="theme-color" content="#091014">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -39,17 +38,19 @@
 "name":"Syncopx","applicationCategory":"UtilitiesApplication",
 "operatingSystem":"Windows 10/11 64-bit","offers":{"@type":"Offer","price":"0"},
 "url":"https://syncopx.vercel.app/",
-"description":"Floating desktop AI assistant for Windows: voice conversation, screen control, files, programs and documents."}
+"description":"Autonomous agentic desktop AI assistant for Windows: multi-step task subagents, voice conversation, screen vision, files, programs, terminal execution, and in-app self-updates."}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"Is it really a ZIP, not a setup.exe?","acceptedAnswer":{"@type":"Answer","text":"Yes, deliberately. An installer EXE without a paid publisher certificate triggers worse warnings than a ZIP. The ZIP contains an installer script handling files, shortcuts, registry, autostart and uninstaller."}},
-{"@type":"Question","name":"What are the requirements?","acceptedAnswer":{"@type":"Answer","text":"Windows 10/11 64-bit, about 500 MB free, no admin rights. Microphone optional for voice features. Ollama optional for offline local models."}},
-{"@type":"Question","name":"Do I need Ollama?","acceptedAnswer":{"@type":"Answer","text":"No. Ollama is one option for fully offline use and can be left off."}},
-{"@type":"Question","name":"Where do my API keys live?","acceptedAnswer":{"@type":"Answer","text":"Encrypted with Windows DPAPI in the user's own profile. They never leave the PC."}},
-{"@type":"Question","name":"Can it control websites for me?","acceptedAnswer":{"@type":"Answer","text":"No. There is deliberately no browser automation in Syncopx."}},
-{"@type":"Question","name":"How do I update?","acceptedAnswer":{"@type":"Answer","text":"Download the new ZIP, extract, run the installer. Chats, keys and buttons are kept."}},
-{"@type":"Question","name":"How do I uninstall?","acceptedAnswer":{"@type":"Answer","text":"Run Uninstall.bat in the install folder. Data stays unless wipe is chosen."}}]}
+{"@type":"Question","name":"Is it really a ZIP, not a setup.exe?","acceptedAnswer":{"@type":"Answer","text":"Yes, deliberately. An installer EXE without a paid publisher certificate triggers worse warnings than a ZIP. The ZIP contains a robust installer script handling files, shortcuts, registry, autostart, and uninstaller with boot diagnostics."}},
+{"@type":"Question","name":"What are the requirements?","acceptedAnswer":{"@type":"Answer","text":"Windows 10/11 64-bit, about 500 MB free, no admin rights. Microphone optional for voice conversation. Ollama optional for local offline models."}},
+{"@type":"Question","name":"Do I need Ollama?","acceptedAnswer":{"@type":"Answer","text":"No. Ollama is optional for fully offline, private local models. You can also connect cloud providers like Groq, Gemini, OpenRouter, OpenAI, DeepSeek, and Mistral."}},
+{"@type":"Question","name":"Where do my API keys and data live?","acceptedAnswer":{"@type":"Answer","text":"Encrypted with Windows DPAPI in the user profile (%USERPROFILE%\\.agentic_assistant). Chats, notes, and programs remain local on your disk and never leave your machine."}},
+{"@type":"Question","name":"How do tool approvals and safety gates work?","acceptedAnswer":{"@type":"Answer","text":"Potentially destructive tools require explicit user approval with options to Allow once, Always allow, or Reject with feedback. Output secret scanning redacts keys automatically."}},
+{"@type":"Question","name":"What slash commands and shortcuts are available?","acceptedAnswer":{"@type":"Answer","text":"Inline slash commands include /model, /provider, /clear, /new, /shortcuts, /tokens, /cost, and /help. Keyboard shortcuts include Ctrl+K (focus), Ctrl+Enter (send), Ctrl+L (new session), Ctrl+J (toggle tasks), and Esc (stop)."}},
+{"@type":"Question","name":"Can it control apps and see my screen?","acceptedAnswer":{"@type":"Answer","text":"Yes. Syncopx uses on-screen OCR and keyboard/mouse coordination to interact with desktop apps like Word, Settings, and installers like a human user."}},
+{"@type":"Question","name":"How do updates work?","acceptedAnswer":{"@type":"Answer","text":"Syncopx includes built-in in-app auto-updating: open Settings and click Check for Updates to detect, verify SHA-256, and apply releases on restart. You can also download new ZIPs manually anytime."}},
+{"@type":"Question","name":"How do I uninstall?","acceptedAnswer":{"@type":"Answer","text":"Run Uninstall.bat in the installation directory. Shortcuts, registry entries, and program files are removed; user data stays unless wipe is selected."}}]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,7 +83,7 @@
   <section class="hero wrap" aria-labelledby="h1">
     <p class="eyebrow reveal"><span class="dot" aria-hidden="true"></span><span data-ver-long>Syncopx 1.5.0 · Windows 10/11 64-bit · ZIP, no admin</span></p>
     <h1 id="h1" class="reveal">Your PC,<br>on your words.</h1>
-    <p class="lede reveal">A floating desktop assistant that talks, listens, sees your screen and does the work: files, programs, documents, terminal. It lives in an orb on your desktop, not in a browser tab. No signup, you bring your own AI key.</p>
+    <p class="lede reveal">An autonomous agentic desktop assistant that speaks, listens, sees your screen, and gets things done: multi-step subagents, programs, files, terminal, and custom tools. Borderless studio window or floating orb. No signup, you bring your own AI key or run 100% offline with Ollama.</p>
     <div class="cta-row reveal" id="download">
       <a class="btn btn-primary btn-lg" id="dl-btn" href="https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.0/Syncopx-1.5.0-windows.zip" download>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
@@ -90,27 +91,31 @@
       </a>
       <a class="btn btn-ghost btn-lg" href="#install">How installing works</a>
     </div>
-    <p class="dl-sub reveal">No signup · No bundled API keys · <button class="hash" id="hash-btn" type="button" title="Copy full SHA-256">SHA-256 <code data-sha-short>b70c5bde…</code></button> <span class="hash-ok" id="hash-ok" role="status" hidden>copied</span></p>
+    <p class="dl-sub reveal">No signup · No bundled API keys · In-app updates · <button class="hash" id="hash-btn" type="button" title="Copy full SHA-256">SHA-256 <code data-sha-short>b70c5bde…</code></button> <span class="hash-ok" id="hash-ok" role="status" hidden>copied</span></p>
 
     <div class="hero-stage reveal">
       <div class="orb" aria-hidden="true"><img src="assets/syncopx-icon.png" alt="" width="120" height="120" loading="eager" decoding="async"></div>
-      <div class="flow" role="img" aria-label="Illustrative workflow: say what you need, confirm the plan, get the result as files on your PC">
+      <div class="flow" role="img" aria-label="Illustrative agent workflow: instruct with prompt or slash command, plan and approve permissions, autonomous multi-step subagent execution, verified local results">
         <p class="flow-tag">Illustrative workflow</p>
         <ol class="flow-steps">
           <li class="flow-step">
             <span class="flow-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 10v1a7 7 0 0 0 14 0v-1"/><path d="M12 18v4"/></svg></span>
-            <span class="flow-txt"><strong>Say it</strong> by voice or text</span>
+            <span class="flow-txt"><strong>Instruct</strong> by voice, prompt, or /commands</span>
           </li>
           <li class="flow-step">
             <span class="flow-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5 11 13.5 15 9.5"/><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span>
-            <span class="flow-txt"><strong>Confirm</strong> the plan it shows</span>
+            <span class="flow-txt"><strong>Plan &amp; Gate</strong> questions &amp; permission approvals</span>
+          </li>
+          <li class="flow-step">
+            <span class="flow-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+            <span class="flow-txt"><strong>Subagents</strong> run multi-step tools with live progress</span>
           </li>
           <li class="flow-step">
             <span class="flow-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9z"/><path d="M13 3v6h6"/></svg></span>
-            <span class="flow-txt"><strong>Done</strong> files land on your PC</span>
+            <span class="flow-txt"><strong>Delivered</strong> verified files, scripts &amp; cost tracking</span>
           </li>
         </ol>
-        <p class="flow-note">Screen control, voice, files and programs run in the desktop app. <a href="#download">Get Syncopx</a>.</p>
+        <p class="flow-note">Multi-step subagents, voice, screen vision and file tools run in the desktop app. <a href="#download">Get Syncopx</a>.</p>
       </div>
     </div>
   </section>
@@ -122,53 +127,71 @@
       <article class="cell wide reveal">
         <div class="cell-head">
           <p class="cell-n">01</p>
-          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 10v1a7 7 0 0 0 14 0v-1"/><path d="M12 18v4"/></svg></span>
+          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
         </div>
-        <h3>Real voice conversation</h3>
-        <p>Hands-free loop: it speaks answers as they stream in, hears you start talking, stops itself, and replies. Barge in mid-sentence. It listens. Manual mic and per-answer replay included.</p>
-        <p class="mono">mic &rarr; whisper &rarr; answer &rarr; speech, ~1s to first word</p>
+        <h3>Autonomous subagents &amp; step provenance</h3>
+        <p>Break down multi-step objectives into autonomous subagents (general and read-only explore) with persistent session tracking. Watch execution unfold in expandable step headers with live progress, conversation branching, and instant interruption.</p>
+        <p class="mono">task &rarr; subagents &rarr; step provenance &rarr; verified completion</p>
       </article>
       <article class="cell reveal">
         <div class="cell-head">
           <p class="cell-n">02</p>
-          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></span>
+          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 10v1a7 7 0 0 0 14 0v-1"/><path d="M12 18v4"/></svg></span>
         </div>
-        <h3>Sees your screen</h3>
-        <p>Ask it to do things inside real apps: Settings, Word, installers. It reads the screen with OCR and clicks like you would.</p>
+        <h3>Real voice conversation</h3>
+        <p>Continuous hands-free loop: speaks answers as they stream, hears you speak, stops itself, and replies. Barge in mid-sentence with real-time Whisper transcription and spoken output.</p>
+        <p class="mono">mic &rarr; whisper &rarr; stream &rarr; speech (~1s)</p>
       </article>
       <article class="cell reveal">
         <div class="cell-head">
           <p class="cell-n">03</p>
-          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-5 4 5 4"/><path d="m16 8 5 4-5 4"/><path d="m13 5-2 14"/></svg></span>
+          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></span>
         </div>
-        <h3>Writes programs</h3>
-        <p>Describe it, pick language and folder, get complete working files, from single scripts to multi-file projects.</p>
+        <h3>Sees your screen</h3>
+        <p>Ask it to work inside real Windows applications: Settings, Word, installers, and dialogs. Reads the display with local OCR and coordinates human-like clicks and keystrokes.</p>
       </article>
       <article class="cell reveal">
         <div class="cell-head">
           <p class="cell-n">04</p>
-          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6a2 2 0 0 1 2-2h4l2 3h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg></span>
+          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-5 4 5 4"/><path d="m16 8 5 4-5 4"/><path d="m13 5-2 14"/></svg></span>
         </div>
-        <h3>Files &amp; terminal</h3>
-        <p>Read PDFs, Word, Excel, transcribe audio/video, run shell commands. Paths you give are honored exactly.</p>
+        <h3>Programs &amp; scheduled tasks</h3>
+        <p>Generates complete working scripts and multi-file projects. Built-in Local Program Library for one-click launches and recurring background scheduled runs with desktop notifications.</p>
       </article>
       <article class="cell reveal">
         <div class="cell-head">
           <p class="cell-n">05</p>
-          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-6 6c0 4-2 5-2 5h16s-2-1-2-5a6 6 0 0 0-6-6z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></span>
+          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6a2 2 0 0 1 2-2h4l2 3h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg></span>
         </div>
-        <h3>Remembers</h3>
-        <p>Chat history on your disk, to-do list, notes, one-click quick-job buttons you define yourself.</p>
+        <h3>Files, docs &amp; terminal</h3>
+        <p>Parses PDFs, Word, Excel, transcribes local audio/video media, and executes PowerShell/CMD commands. File paths and security boundaries are honored exactly.</p>
+      </article>
+      <article class="cell half reveal">
+        <div class="cell-head">
+          <p class="cell-n">06</p>
+          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="m14 9 3 3-3 3"/></svg></span>
+        </div>
+        <h3>Keyboard-first studio &amp; slash commands</h3>
+        <p>Switch seamlessly between the floating desktop orb and the borderless agent studio. Keyboard navigation with <code>Ctrl+K</code>, <code>Ctrl+Enter</code>, <code>Ctrl+L</code>, <code>Ctrl+J</code>, and inline commands: <code>/model</code>, <code>/provider</code>, <code>/tokens</code>, <code>/cost</code>, <code>/clear</code>, and <code>/new</code>.</p>
+      </article>
+      <article class="cell half reveal">
+        <div class="cell-head">
+          <p class="cell-n">07</p>
+          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        </div>
+        <h3>Safety gates, cost tracking &amp; DPAPI</h3>
+        <p>Live token accounting and exact USD pricing per turn. Sensitive operations prompt with permission gates (Allow once, Always allow, Reject). API keys encrypted locally with Windows DPAPI. Zero tracking, zero telemetry.</p>
       </article>
     </div>
   </section>
+
   <section class="wrap section" id="install" aria-labelledby="h-install">
     <p class="kicker reveal">Install</p>
     <h2 id="h-install" class="reveal">Three steps. No admin. Reversible.</h2>
     <ol class="steps">
-      <li class="reveal"><span class="step-n" aria-hidden="true">1</span><div><h3>Download the ZIP</h3><p>One file, ~155&nbsp;MB, versioned and hash-published on this page. Extract it anywhere.</p></div></li>
-      <li class="reveal"><span class="step-n" aria-hidden="true">2</span><div><h3>Run the installer</h3><p>Double-click <code>Install-Syncopx.bat</code>. It copies the app to your profile, adds Start Menu (+ optional Desktop) shortcuts, and autostart only if you say yes. Full list below.</p></div></li>
-      <li class="reveal"><span class="step-n" aria-hidden="true">3</span><div><h3>Pick your AI provider</h3><p>Open Settings, choose Ollama (local, free) or paste your own Gemini, Groq, OpenRouter… key. Keys stay encrypted on your PC. Nothing is bundled.</p></div></li>
+      <li class="reveal"><span class="step-n" aria-hidden="true">1</span><div><h3>Download the ZIP</h3><p>One self-contained package, ~163&nbsp;MB, versioned and hash-published on this page. Extract it anywhere on your machine.</p></div></li>
+      <li class="reveal"><span class="step-n" aria-hidden="true">2</span><div><h3>Run the installer</h3><p>Double-click <code>Install-Syncopx.bat</code>. It stages the app to your user profile, creates Start Menu (+ optional Desktop) shortcuts, and configures verified autostart with boot diagnostics.</p></div></li>
+      <li class="reveal"><span class="step-n" aria-hidden="true">3</span><div><h3>Pick your AI provider</h3><p>Open Settings and choose Ollama (local, 100% offline &amp; free) or enter your own API key for Groq, Gemini, OpenRouter, DeepSeek, OpenAI... Keys stay encrypted locally with Windows DPAPI.</p></div></li>
     </ol>
     <div class="twocol">
       <div class="panel reveal">
@@ -176,14 +199,15 @@
         <ul class="reg">
           <li><code>%LOCALAPPDATA%\Syncopx\app</code> — program files</li>
           <li><code>HKCU\Software\Syncopx</code> — InstallDir, Version</li>
-          <li><code>HKCU\…\Run\Syncopx</code> — autostart, only with your yes</li>
-          <li>Start Menu shortcut (+ Desktop if asked)</li>
+          <li><code>HKCU\…\Run\Syncopx</code> — autostart, verified with boot diagnostics</li>
+          <li>Start Menu shortcut (+ Desktop if requested)</li>
+          <li>In-app auto-updater — updates seamlessly from Settings &rarr; Check for Updates</li>
         </ul>
-        <p class="muted">Uninstall anytime with the bundled <code>Uninstall.bat</code> — it removes all of the above. Your chats and keys are kept unless you say wipe.</p>
+        <p class="muted">Uninstall anytime with the bundled <code>Uninstall.bat</code> — it removes all registered components cleanly. Your chats, notes, and keys are preserved unless you choose wipe.</p>
       </div>
       <div class="panel warn reveal">
         <h3>About the SmartScreen warning</h3>
-        <p>Syncopx has no paid publisher certificate yet, so Windows may show <em>&ldquo;Windows protected your PC&rdquo;</em> on first run. That is expected: click <strong>More info &rarr; Run anyway</strong>. Verify the ZIP first with the SHA-256 hash above.</p>
+        <p>Syncopx is open and distributed directly without a paid corporate publisher certificate, so Windows may show <em>&ldquo;Windows protected your PC&rdquo;</em> on first run. That is expected: click <strong>More info &rarr; Run anyway</strong>. Verify the ZIP first with the published SHA-256 hash above.</p>
       </div>
     </div>
   </section>
@@ -191,17 +215,17 @@
   <section class="wrap section" id="providers" aria-labelledby="h-providers">
     <p class="kicker reveal">AI providers</p>
     <h2 id="h-providers" class="reveal">Bring your own key. Or none.</h2>
-    <p class="lede-sm reveal">Syncopx ships with <strong>zero</strong> API keys. Run fully offline with Ollama, or paste a key for any of these in Settings. Quota failover keeps you running when one runs dry.</p>
+    <p class="lede-sm reveal">Syncopx ships with <strong>zero</strong> bundled API keys. Run fully offline with Ollama, or connect any cloud provider. Smart Model Routing picks the optimal model per task, and automatic quota failover keeps you working without interruption.</p>
     <ul class="chips reveal" aria-label="Supported providers">
-      <li>Ollama <span>local · free</span></li>
-      <li>Gemini <span>free tier</span></li>
-      <li>Groq <span>free tier</span></li>
-      <li>OpenRouter <span>free models</span></li>
-      <li>Mistral <span>free tier</span></li>
-      <li>DeepSeek</li>
-      <li>OpenAI</li>
-      <li>xAI Grok</li>
-      <li>Together</li>
+      <li>Ollama <span>local · offline · free</span></li>
+      <li>Groq <span>Llama 3.3 70B · fast</span></li>
+      <li>Gemini <span>2.0 Flash · Pro</span></li>
+      <li>DeepSeek <span>V3 · R1 reasoning</span></li>
+      <li>OpenRouter <span>100+ curated models</span></li>
+      <li>OpenAI <span>GPT-4o · mini</span></li>
+      <li>Mistral <span>Small · Large</span></li>
+      <li>xAI <span>Grok 2</span></li>
+      <li>Together AI <span>open weights</span></li>
       <li>Custom <span>OpenAI-compatible</span></li>
     </ul>
   </section>
@@ -212,31 +236,39 @@
     <div class="faq reveal">
       <details open>
         <summary>Is it really a ZIP, not a setup.exe?</summary>
-        <p>Yes, deliberately. An installer EXE without a paid publisher certificate triggers worse warnings than a ZIP. The ZIP contains a small installer script that does everything a setup would: files, shortcuts, registry, autostart, uninstaller.</p>
+        <p>Yes, deliberately. An installer EXE without an expensive enterprise certificate triggers harsh warnings. The ZIP contains a transparent installer script that performs everything a setup would: file staging, robocopy lock protection, shortcuts, registry registration, verified boot autostart, and an uninstaller.</p>
       </details>
       <details>
-        <summary>What are the requirements?</summary>
-        <p>Windows 10/11 64-bit, ~500&nbsp;MB free, no admin rights. Microphone optional (voice features only). Ollama optional (offline local models only).</p>
+        <summary>What are the system requirements?</summary>
+        <p>Windows 10/11 64-bit, ~500&nbsp;MB free disk space, and no administrator privileges required. Microphone is optional for voice features. Ollama is optional for local offline inference.</p>
       </details>
       <details>
         <summary>Do I need Ollama?</summary>
-        <p>No. Ollama is one option for fully offline use. There is a Settings checkbox for it. Leave it off on machines that can't run local models and the app never touches it.</p>
+        <p>No. Ollama is an optional choice for users who want 100% offline, private local AI models. If you prefer cloud providers like Groq, Gemini, or OpenRouter, simply leave Ollama off and paste your API key.</p>
       </details>
       <details>
-        <summary>Where do my API keys live?</summary>
-        <p>Encrypted with Windows DPAPI in your own profile (<code>%USERPROFILE%\.agentic_assistant</code>). They never leave your PC and never ship in any download.</p>
+        <summary>Where do my API keys and conversation histories live?</summary>
+        <p>All credentials are encrypted using Windows DPAPI in your personal profile (<code>%USERPROFILE%\.agentic_assistant</code>). Conversation sessions, notes, programs, and subagent histories stay entirely on your local machine and never leave your PC.</p>
       </details>
       <details>
-        <summary>Can it control websites for me?</summary>
-        <p>No. There is deliberately no browser automation in Syncopx. Open the page yourself and it can work with what is on your screen, or read public pages directly.</p>
+        <summary>How do tool approvals and security gates work?</summary>
+        <p>Syncopx implements strict per-tool permission policies. Potentially destructive operations (file overwriting, command execution, system modifications) trigger permission dialogs offering <em>Allow once</em>, <em>Always allow</em>, or <em>Reject with feedback</em>. Read-only exploration subagents have destructive actions permanently denied.</p>
       </details>
       <details>
-        <summary>How do I update?</summary>
-        <p>Download the new ZIP, extract, run the installer. It replaces program files and leaves your chats, keys and buttons untouched. Check this page's version number.</p>
+        <summary>What slash commands and keyboard shortcuts are supported?</summary>
+        <p>Syncopx features keyboard-first navigation: press <code>Ctrl+K</code> to focus input, <code>Ctrl+Enter</code> to send, <code>Ctrl+L</code> for a fresh session, <code>Ctrl+J</code> to toggle the tasks panel, and <code>Esc</code> to stop generation. Inline slash commands include <code>/model</code>, <code>/provider</code>, <code>/tokens</code>, <code>/cost</code>, <code>/clear</code>, <code>/new</code>, and <code>/help</code>.</p>
+      </details>
+      <details>
+        <summary>Can it control apps and see my screen?</summary>
+        <p>Yes. Syncopx uses local OCR to inspect active application windows and coordinates keyboard and mouse interactions across native Windows programs, Word, Settings, and installation wizards. There is deliberately no hidden browser automation.</p>
+      </details>
+      <details>
+        <summary>How do updates work?</summary>
+        <p>Syncopx includes built-in in-app auto-updating. In the app, open <strong>Settings &rarr; Check for Updates</strong> to query the website manifest, download updates with SHA-256 verification, and apply them on restart. You can also download new ZIPs from this site anytime; your chats, notes, and keys are always preserved.</p>
       </details>
       <details>
         <summary>How do I uninstall?</summary>
-        <p>Run <code>Uninstall.bat</code> in the install folder. Shortcuts, registry entries and program files go; your data stays unless you choose wipe.</p>
+        <p>Run <code>Uninstall.bat</code> in the installation folder. All shortcuts, registry keys, and staged application files are removed cleanly. Your user data remains in your profile unless you explicitly select the wipe option.</p>
       </details>
     </div>
   </section>
@@ -244,14 +276,14 @@
   <section class="wrap section final reveal" aria-labelledby="h-final">
     <h2 id="h-final">Take the orb for a spin.</h2>
     <a class="btn btn-primary btn-lg" id="dl-btn-2" href="https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.0/Syncopx-1.5.0-windows.zip" download>Download Syncopx <span class="dl-meta" data-size>· 163 MB</span></a>
-    <p class="muted"><span data-ver-long>Syncopx 1.5.0</span> · <span data-date>2026-10-07</span></p>
+    <p class="muted"><span data-ver-long>Syncopx 1.5.0</span> · <span data-date>2026-10-08</span></p>
   </section>
 </main>
 
 <footer>
   <div class="wrap foot-in">
-    <p><img src="assets/syncopx-icon.png" alt="Syncopx orb logo" width="20" height="20" loading="lazy" decoding="async"> Syncopx <span data-ver>v1.5.0</span>, a floating desktop AI assistant for Windows.</p>
-    <p class="muted">ZIP install · No signup · Your keys stay yours · <a href="#faq">FAQ</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
+    <p><img src="assets/syncopx-icon.png" alt="Syncopx orb logo" width="20" height="20" loading="lazy" decoding="async"> Syncopx <span data-ver>v1.5.0</span>, an autonomous agentic desktop assistant for Windows.</p>
+    <p class="muted">ZIP install · In-app updates · No signup · Your keys stay yours · <a href="#faq">FAQ</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
   </div>
 </footer>
 
