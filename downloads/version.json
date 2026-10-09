@@ -1,10 +1,10 @@
 {
   "app": "Syncopx",
-  "version": "1.5.0",
-  "file": "https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.0/Syncopx-1.5.0-windows.zip",
-  "bytes": 163409635,
-  "sha256": "b70c5bde69227f36cecb8e3df4eab62b6b9a4e3c76e33ce44be23e8a1bcf2e6f",
-  "date": "2026-10-07",
-  "notes": "Agent chat loop repair with first-class cancel_check and live token/cost accounting, robust autostart & curated provider models.",
+  "version": "1.5.1",
+  "file": "https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.1/Syncopx-1.5.1-windows.zip",
+  "bytes": 163069237,
+  "sha256": "7e0a1ae3bbfda832c887d17ab6e1fb6dbc266cb3334e44830126430930f9dd29",
+  "date": "2026-10-09",
+  "notes": "Added in-app updater with /update slash command, replaced STT with Cactus-Compute/whistle edge ASR model, and removed TTS speech playback.",
   "requires": "Windows 10/11 64-bit, no admin, ~500 MB free"
 }
