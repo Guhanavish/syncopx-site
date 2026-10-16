@@ -25,6 +25,7 @@
 <meta name="twitter:description" content="An autonomous desktop AI assistant for Windows. Multi-step subagents, screen vision, voice, files and programs.">
 <meta name="twitter:image" content="https://syncopx.vercel.app/assets/og-image.png">
 <meta name="theme-color" content="#091014">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
@@ -63,9 +64,9 @@
 <header class="nav" id="top">
   <div class="wrap nav-in">
     <a class="brand" href="#top" aria-label="Syncopx home">
-      <img src="assets/syncopx-icon.png" alt="Syncopx orb logo" width="30" height="30">
+      <img src="assets/logo.svg" alt="Syncopx logo" width="30" height="30">
       <span>Syncopx</span>
-      <code class="ver" data-ver>1.5.0</code>
+      <code class="ver" data-ver>1.5.2</code>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -81,20 +82,20 @@
 </header>
 <main>
   <section class="hero wrap" aria-labelledby="h1">
-    <p class="eyebrow reveal"><span class="dot" aria-hidden="true"></span><span data-ver-long>Syncopx 1.5.0 · Windows 10/11 64-bit · ZIP, no admin</span></p>
+    <p class="eyebrow reveal"><span class="dot" aria-hidden="true"></span><span data-ver-long>Syncopx 1.5.2 · Windows 10/11 64-bit · ZIP, no admin</span></p>
     <h1 id="h1" class="reveal">Your PC,<br>on your words.</h1>
-    <p class="lede reveal">An autonomous agentic desktop assistant that speaks, listens, sees your screen, and gets things done: multi-step subagents, programs, files, terminal, and custom tools. Borderless studio window or floating orb. No signup, you bring your own AI key or run 100% offline with Ollama.</p>
+    <p class="lede reveal">An autonomous agentic desktop assistant that speaks, listens, sees your screen, and gets things done: multi-step subagents, programs, files, terminal, remote automation API, and custom tools. Borderless agent studio window with docked sidebar. No signup, you bring your own AI key or run 100% offline with Ollama.</p>
     <div class="cta-row reveal" id="download">
-      <a class="btn btn-primary btn-lg" id="dl-btn" href="https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.0/Syncopx-1.5.0-windows.zip" download>
+      <a class="btn btn-primary btn-lg" id="dl-btn" href="https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.2/Syncopx-1.5.2-windows.zip" download>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
-        <span>Download ZIP <span class="dl-meta" data-size>· 163 MB</span></span>
+        <span>Download ZIP <span class="dl-meta" data-size>· 165 MB</span></span>
       </a>
       <a class="btn btn-ghost btn-lg" href="#install">How installing works</a>
     </div>
-    <p class="dl-sub reveal">No signup · No bundled API keys · In-app updates · <button class="hash" id="hash-btn" type="button" title="Copy full SHA-256">SHA-256 <code data-sha-short>b70c5bde…</code></button> <span class="hash-ok" id="hash-ok" role="status" hidden>copied</span></p>
+    <p class="dl-sub reveal">No signup · No bundled API keys · In-app updates · <button class="hash" id="hash-btn" type="button" title="Copy full SHA-256">SHA-256 <code data-sha-short>9f49b562…</code></button> <span class="hash-ok" id="hash-ok" role="status" hidden>copied</span></p>
 
     <div class="hero-stage reveal">
-      <div class="orb" aria-hidden="true"><img src="assets/syncopx-icon.png" alt="" width="120" height="120" loading="eager" decoding="async"></div>
+      <div class="hero-badge" aria-hidden="true"><img src="assets/logo.svg" alt="" width="120" height="120" loading="eager" decoding="async"></div>
       <div class="flow" role="img" aria-label="Illustrative agent workflow: instruct with prompt or slash command, plan and approve permissions, autonomous multi-step subagent execution, verified local results">
         <p class="flow-tag">Illustrative workflow</p>
         <ol class="flow-steps">
@@ -122,7 +123,7 @@
 
   <section class="wrap section" id="features" aria-labelledby="h-features">
     <p class="kicker reveal">What it does</p>
-    <h2 id="h-features" class="reveal">One orb. The whole machine.</h2>
+    <h2 id="h-features" class="reveal">One studio. The whole machine.</h2>
     <div class="bento">
       <article class="cell wide reveal">
         <div class="cell-head">
@@ -138,9 +139,9 @@
           <p class="cell-n">02</p>
           <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 10v1a7 7 0 0 0 14 0v-1"/><path d="M12 18v4"/></svg></span>
         </div>
-        <h3>Edge voice input via Whistle</h3>
-        <p>Ultra-low-latency voice transcription powered by Cactus Compute Whistle. Runs edge ASR locally on CPU with zero GPU requirements, transcribing microphone speech instantly into the chat with clean, silent answers.</p>
-        <p class="mono">mic &rarr; whistle STT &rarr; edge transcription &rarr; clean text</p>
+        <h3>Two-way voice conversation &amp; Whistle STT</h3>
+        <p>Continuous hands-free conversation with Voice Activity Detection (VAD), silence detection, and instant barge-in interruption. Edge ASR powered by Cactus Compute Whistle runs locally on CPU with zero GPU requirements, paired with instant offline speech synthesis (Windows SAPI, Piper, Kokoro).</p>
+        <p class="mono">mic &rarr; VAD &rarr; whistle STT &rarr; agent reasoning &rarr; streaming TTS</p>
       </article>
       <article class="cell reveal">
         <div class="cell-head">
@@ -171,16 +172,34 @@
           <p class="cell-n">06</p>
           <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="m14 9 3 3-3 3"/></svg></span>
         </div>
-        <h3>Keyboard-first studio &amp; slash commands</h3>
-        <p>Switch seamlessly between the floating desktop orb and the borderless agent studio. Keyboard navigation with <code>Ctrl+K</code>, <code>Ctrl+Enter</code>, <code>Ctrl+L</code>, <code>Ctrl+J</code>, and inline commands: <code>/model</code>, <code>/provider</code>, <code>/update</code>, <code>/tokens</code>, <code>/cost</code>, <code>/clear</code>, and <code>/new</code>.</p>
+        <h3>Docked chat switcher, shortcuts &amp; time tracking</h3>
+        <p>Switch between conversations instantly via the docked left sidebar or header dropdown. Fast cycling with <code>Ctrl+Tab</code>, toggle the sidebar with <code>Ctrl+B</code>, and scope tasks to per-chat project directories. Live turn duration chips and daily time tracking across chats keep you informed.</p>
       </article>
       <article class="cell half reveal">
         <div class="cell-head">
           <p class="cell-n">07</p>
           <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
         </div>
-        <h3>Safety gates, cost tracking &amp; DPAPI</h3>
-        <p>Live token accounting and exact USD pricing per turn. Sensitive operations prompt with permission gates (Allow once, Always allow, Reject). API keys encrypted locally with Windows DPAPI. Zero tracking, zero telemetry.</p>
+        <h3>Safety Profiles, permission gates &amp; DPAPI</h3>
+        <p>Choose from Safe, Balanced, Unleashed, or Custom security profiles in Settings. Enforce strict <code>allowedDirs</code> filesystem boundaries with headless fail-closed protection. Live token accounting, exact USD costs, and local DPAPI credential encryption.</p>
+      </article>
+      <article class="cell wide reveal">
+        <div class="cell-head">
+          <p class="cell-n">08</p>
+          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg></span>
+        </div>
+        <h3>Browser Web Remote &amp; Automation API</h3>
+        <p>Control your assistant from any phone, tablet, or browser over your local network with the zero-install Web Remote UI (instant <code>?token=...</code> pairing, live chat, browser voice input &amp; speech synthesis, quick jobs, stop controls). Or run headless via the token-authenticated REST API with brute force IP ban defense and zero-prompt audit logging.</p>
+        <p class="mono">http://192.168.1.x:8787/ &middot; curl -H "Authorization: Bearer tok_..." http://127.0.0.1:8787/api/run</p>
+      </article>
+      <article class="cell reveal">
+        <div class="cell-head">
+          <p class="cell-n">09</p>
+          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>
+        </div>
+        <h3>Execution cards &amp; diff drawers</h3>
+        <p>Terminal commands report stdout, stderr, duration, and exit codes in dedicated inline cards. File modifications generate collapsible unified diff drawers with exact syntax highlighting.</p>
+        <p class="mono">exit 0 · 1.2s · diff ±12 lines across 2 files</p>
       </article>
     </div>
   </section>
@@ -251,12 +270,16 @@
         <p>All credentials are encrypted using Windows DPAPI in your personal profile (<code>%USERPROFILE%\.agentic_assistant</code>). Conversation sessions, notes, programs, and subagent histories stay entirely on your local machine and never leave your PC.</p>
       </details>
       <details>
-        <summary>How do tool approvals and security gates work?</summary>
-        <p>Syncopx implements strict per-tool permission policies. Potentially destructive operations (file overwriting, command execution, system modifications) trigger permission dialogs offering <em>Allow once</em>, <em>Always allow</em>, or <em>Reject with feedback</em>. Read-only exploration subagents have destructive actions permanently denied.</p>
+        <summary>How do tool approvals, Safety Profiles, and project scoping work?</summary>
+        <p>Syncopx supports customizable Safety Profiles (<em>Safe</em>, <em>Balanced</em>, <em>Unleashed</em>, <em>Custom</em>) in Settings. In <em>Safe</em> mode, all command execution and file edits are strictly confined to your approved project directory and user-configured <code>allowedDirs</code>. Each chat can also be scoped to its own folder via the header folder chip. Sensitive actions prompt with permission dialogs offering <em>Allow once</em>, <em>Always allow</em>, or <em>Reject</em>.</p>
+      </details>
+      <details>
+        <summary>Does Syncopx support remote access, mobile web, or headless automation?</summary>
+        <p>Yes. Syncopx includes both a built-in Browser &amp; Mobile Web Remote App and an Automation REST API (<code>/api/run</code>, <code>/api/job</code>, <code>/api/status</code>). Open the server in any web browser on your LAN for instant interactive chat and quick jobs, or integrate headless scripts with token permission modes (<code>full</code>, <code>jobs-only</code>, <code>read-only</code>), automatic 10-minute IP ban defense against brute force, and zero-prompt privacy audit logging.</p>
       </details>
       <details>
         <summary>What slash commands and keyboard shortcuts are supported?</summary>
-        <p>Syncopx features keyboard-first navigation: press <code>Ctrl+K</code> to focus input, <code>Ctrl+Enter</code> to send, <code>Ctrl+L</code> for a fresh session, <code>Ctrl+J</code> to toggle the tasks panel, and <code>Esc</code> to stop generation. Inline slash commands include <code>/model</code>, <code>/provider</code>, <code>/update</code>, <code>/tokens</code>, <code>/cost</code>, <code>/clear</code>, <code>/new</code>, and <code>/help</code>.</p>
+        <p>Syncopx features keyboard-first navigation: press <code>Ctrl+K</code> to focus input, <code>Ctrl+Enter</code> to send, <code>Ctrl+L</code> for a fresh session, <code>Ctrl+Tab</code> / <code>Ctrl+Shift+Tab</code> to cycle conversations, <code>Ctrl+B</code> to toggle the chat sidebar, <code>Ctrl+J</code> to toggle the tasks panel, and <code>Esc</code> to stop generation. Inline slash commands include <code>/model</code>, <code>/provider</code>, <code>/update</code>, <code>/tokens</code>, <code>/cost</code>, <code>/clear</code>, <code>/new</code>, and <code>/help</code>.</p>
       </details>
       <details>
         <summary>Can it control apps and see my screen?</summary>
@@ -274,15 +297,15 @@
   </section>
 
   <section class="wrap section final reveal" aria-labelledby="h-final">
-    <h2 id="h-final">Take the orb for a spin.</h2>
-    <a class="btn btn-primary btn-lg" id="dl-btn-2" href="https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.0/Syncopx-1.5.0-windows.zip" download>Download Syncopx <span class="dl-meta" data-size>· 163 MB</span></a>
-    <p class="muted"><span data-ver-long>Syncopx 1.5.0</span> · <span data-date>2026-10-08</span></p>
+    <h2 id="h-final">Take Syncopx for a spin.</h2>
+    <a class="btn btn-primary btn-lg" id="dl-btn-2" href="https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.2/Syncopx-1.5.2-windows.zip" download>Download Syncopx <span class="dl-meta" data-size>· 165 MB</span></a>
+    <p class="muted"><span data-ver-long>Syncopx 1.5.2</span> · <span data-date>2026-10-16</span></p>
   </section>
 </main>
 
 <footer>
   <div class="wrap foot-in">
-    <p><img src="assets/syncopx-icon.png" alt="Syncopx orb logo" width="20" height="20" loading="lazy" decoding="async"> Syncopx <span data-ver>v1.5.0</span>, an autonomous agentic desktop assistant for Windows.</p>
+    <p><img src="assets/logo.svg" alt="Syncopx logo" width="20" height="20" loading="lazy" decoding="async"> Syncopx <span data-ver>v1.5.2</span>, an autonomous agentic desktop assistant for Windows.</p>
     <p class="muted">ZIP install · In-app updates · No signup · Your keys stay yours · <a href="#faq">FAQ</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
   </div>
 </footer>

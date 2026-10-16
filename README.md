@@ -1,8 +1,8 @@
 # Syncopx — Autonomous Agentic Desktop Assistant for Windows
 
-Live site: **https://syncopx.vercel.app/** · Download (1.5.0 ZIP, no admin): **https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.0/Syncopx-1.5.0-windows.zip** · SHA-256: `b70c5bde69227f36cecb8e3df4eab62b6b9a4e3c76e33ce44be23e8a1bcf2e6f`
+Live site: **https://syncopx.vercel.app/** · Download (1.5.1 ZIP, no admin): **https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.1/Syncopx-1.5.1-windows.zip** · SHA-256: `0fa83ba54e814711993da55856a7409df806a4efbc5747d15e24af5aa2947c8d`
 
-Static download site for Syncopx, the autonomous agentic desktop AI assistant for Windows 10/11. Multi-step task subagents, real-time voice conversation, screen vision, files, programs, terminal execution, and in-app self-updates — zero signup, bring your own AI key or run 100% offline with Ollama.
+Static download site for Syncopx, the autonomous agentic desktop AI assistant for Windows 10/11. Multi-step task subagents, real-time voice conversation, screen vision, files, programs, terminal execution, remote automation API, and in-app self-updates — zero signup, bring your own AI key or run 100% offline with Ollama.
 
 ## What this is
 
@@ -11,11 +11,15 @@ This repo hosts the public download site for Syncopx. Native static HTML/CSS/JS,
 ## Features (of the app)
 
 - **Autonomous Task Subagents**: Decomposes complex tasks into multi-turn plans using subagents (`general` and read-only `explore`) with persistent disk sessions and step provenance tracking.
+- **Docked Chat Switcher & Project Scoping**: Docked sidebar list with running/active indicators, `Ctrl+Tab` quick switching, and per-session project folder scoping.
+- **Safety Profiles & Filesystem Boundaries**: Named profiles (Safe, Balanced, Unleashed) with strict `allowedDirs` constraints and headless fail-closed protection.
+- **Browser Web Remote & Automation REST API**: Zero-install Web Remote UI for mobile/browser control with token auto-pairing (`?token=...`), live chat, quick-job triggers, and REST API (`/api/run`, `/api/job`, `/api/status`) with role modes (`full`, `jobs-only`, `read-only`), IP ban defense, and zero-prompt audit logging.
+- **Execution Cards & Unified Diffs**: Live inline command cards with stdout, stderr, and exit codes; collapsible multi-file unified diff drawers.
 - **Real-Time Voice Conversation**: Continuous hands-free loop with instant barge-in interruption. Local Whisper transcription + speech synthesis (~1s latency).
 - **Computer Vision & Screen Control**: Reads active window contents using local OCR and coordinates native clicks/keystrokes across Windows apps, Word, Settings, and installers.
 - **Code & Local Program Library**: Generates complete multi-file projects, Python scripts, and tools. Built-in Program Library for one-click launches and recurring scheduled automation.
-- **Keyboard-First Studio & Slash Commands**: Borderless agent studio window and floating desktop orb. Universal shortcuts (`Ctrl+K`, `Ctrl+Enter`, `Ctrl+L`, `Ctrl+J`, `Esc`) and inline `/commands` (`/model`, `/provider`, `/tokens`, `/cost`, `/clear`, `/new`, `/help`).
-- **Safety, Privacy & Live Cost Accounting**: Live token counters and exact USD billing estimates. Permission gates for sensitive operations (`Allow once`, `Always allow`, `Reject`). API keys encrypted locally with Windows DPAPI. Zero telemetry.
+- **Keyboard-First Studio & Slash Commands**: Borderless agent studio window with docked sidebar. Universal shortcuts (`Ctrl+K`, `Ctrl+Enter`, `Ctrl+L`, `Ctrl+Tab`, `Ctrl+B`, `Ctrl+J`, `Esc`) and inline `/commands` (`/model`, `/provider`, `/tokens`, `/cost`, `/clear`, `/new`, `/help`).
+- **Safety, Privacy & Live Cost Accounting**: Live token counters, exact USD billing estimates, and per-chat + daily time tracking in TaskStore. API keys encrypted locally with Windows DPAPI. Zero telemetry.
 - **Built-in Auto-Updates**: In-app one-click update checks directly against `version.json` with SHA-256 verification and atomic restart installation.
 
 ## Features (of the site)

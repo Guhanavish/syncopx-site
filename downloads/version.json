@@ -1,10 +1,10 @@
 {
   "app": "Syncopx",
-  "version": "1.5.1",
-  "file": "https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.1/Syncopx-1.5.1-windows.zip",
-  "bytes": 163069237,
-  "sha256": "7e0a1ae3bbfda832c887d17ab6e1fb6dbc266cb3334e44830126430930f9dd29",
-  "date": "2026-10-09",
-  "notes": "Added in-app updater with /update slash command, replaced STT with Cactus-Compute/whistle edge ASR model, and removed TTS speech playback.",
+  "version": "1.5.2",
+  "file": "https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.2/Syncopx-1.5.2-windows.zip",
+  "bytes": 165480919,
+  "sha256": "9f49b5628bcfe923af9912a476b03642b3e686ac58151d6470433f2c848756b8",
+  "date": "2026-10-16",
+  "notes": "Added real-time two-way voice conversation mode with hands-free VAD, speech synthesis, barge-in interruption, and browser-based remote voice control.",
   "requires": "Windows 10/11 64-bit, no admin, ~500 MB free"
 }

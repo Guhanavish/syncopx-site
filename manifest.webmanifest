@@ -1,12 +1,13 @@
 {
   "name": "Syncopx",
   "short_name": "Syncopx",
-  "description": "Floating desktop AI assistant for Windows.",
+  "description": "Autonomous agentic desktop AI assistant for Windows.",
   "start_url": ".",
   "display": "browser",
   "background_color": "#091014",
   "theme_color": "#091014",
   "icons": [
+    { "src": "assets/logo.svg", "sizes": "any", "type": "image/svg+xml" },
     { "src": "assets/syncopx-icon.png", "sizes": "512x512", "type": "image/png" },
     { "src": "assets/favicon-180.png", "sizes": "180x180", "type": "image/png" },
     { "src": "assets/favicon-32.png", "sizes": "32x32", "type": "image/png" },

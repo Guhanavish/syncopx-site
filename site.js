@@ -4,11 +4,11 @@
   "use strict";
 
   var FALLBACK = {
-    version: "1.5.0",
-    file: "https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.0/Syncopx-1.5.0-windows.zip",
-    bytes: 163409635,
-    sha256: "b70c5bde69227f36cecb8e3df4eab62b6b9a4e3c76e33ce44be23e8a1bcf2e6f",
-    date: "2026-10-07"
+    version: "1.5.2",
+    file: "https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.2/Syncopx-1.5.2-windows.zip",
+    bytes: 165480919,
+    sha256: "9f49b5628bcfe923af9912a476b03642b3e686ac58151d6470433f2c848756b8",
+    date: "2026-10-16"
   };
 
   function mb(bytes) {

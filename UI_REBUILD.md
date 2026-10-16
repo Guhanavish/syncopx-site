@@ -60,7 +60,7 @@ gated by `prefers-reduced-motion`; touch targets ≥44px; contrast ≥4.5:1.
 
 ```
 |----------------------------------------|
-| [orb] Syncopx 1.4.7            [≡]     |
+| [logo] Syncopx 1.5.1           [≡]     |
 |----------------------------------------|
 | Syncopx 1.4.7 · Windows · ZIP, no admin|
 |                                        |
@@ -68,7 +68,7 @@ gated by `prefers-reduced-motion`; touch targets ≥44px; contrast ≥4.5:1.
 | ON YOUR WORDS.                         |
 | (mono, ~12ch)                          |
 |                                        |
-| Floating desktop assistant that talks, |
+| Borderless studio assistant that talks,|
 | listens, sees the screen and does the  |
 | work. No signup. You bring the key.    |
 |                                        |
@@ -82,7 +82,7 @@ gated by `prefers-reduced-motion`; touch targets ≥44px; contrast ≥4.5:1.
 | |  conversation, no fake counts)     | |
 |----------------------------------------|
 | WHAT IT DOES                           |
-| ONE ORB. THE WHOLE MACHINE.            |
+| ONE STUDIO. THE WHOLE MACHINE.         |
 | | 01 voice      |  (full width cards,  |
 | | 02 screen     |   1px border, number |
 | | 03 programs   |   top-left, icon     |
@@ -105,7 +105,7 @@ gated by `prefers-reduced-motion`; touch targets ≥44px; contrast ≥4.5:1.
 | | ▸ question summary (+)               |
 | | ▸ …                                  |
 |----------------------------------------|
-| TAKE THE ORB FOR A SPIN.               |
+| TAKE SYNCOPX FOR A SPIN.               |
 | [ ███ DOWNLOAD ]                       |
 |----------------------------------------|
 | footer: legal links · no tracking note |
@@ -116,21 +116,21 @@ gated by `prefers-reduced-motion`; touch targets ≥44px; contrast ≥4.5:1.
 
 ```
 |------------------------------------------------------------------|
-| [orb] Syncopx [1.4.7]      What  Install  Providers  FAQ  [DL]   |
+| [logo] Syncopx [1.5.1]     What  Install  Providers  FAQ  [DL]   |
 |------------------------------------------------------------------|
 |                            |                    |                |
-| ● Syncopx 1.4.7 · Windows  |   ORB (decor,      |                |
+| ● Syncopx 1.5.1 · Windows  |   LOGO (decor,     |                |
 | YOUR PC,                   |   absolute, slow   |                |
 | ON YOUR WORDS.             |   drift only)      |                |
 | (mono clamp ~5rem, 16ch)   |                    |                |
 |                            |  | WORKFLOW PANEL  |                |
 | lede ~42rem, muted         |  | right-aligned,  |                |
-|                            |  | 3 steps + orb   |                |
+|                            |  | 3 steps + logo  |                |
 | [ ███ DOWNLOAD ZIP ·155MB] |  | docked top-left |                |
 | No signup · no bundled     |  |                 |                |
 | keys · SHA-256 d3fbbb91…   |  |                 |                |
 |------------------------------------------------------------------|
-| WHAT IT DOES            ONE ORB. THE WHOLE MACHINE.               |
+| WHAT IT DOES            ONE STUDIO. THE WHOLE MACHINE.            |
 | | 01 voice (span 7)      | | 02 screen (span 5)  |                |
 | | 03 programs (span 4)   | | 04 files (span 4)   | | 05 mem (4) | |
 |------------------------------------------------------------------|
@@ -142,7 +142,7 @@ gated by `prefers-reduced-motion`; touch targets ≥44px; contrast ≥4.5:1.
 |------------------------------------------------------------------|
 | FAQ  max 46rem, left-aligned column                               |
 |------------------------------------------------------------------|
-| TAKE THE ORB FOR A SPIN.        [ ███ DOWNLOAD ]   (centered)     |
+| TAKE SYNCOPX FOR A SPIN.        [ ███ DOWNLOAD ]   (centered)     |
 |------------------------------------------------------------------|
 | footer: brand+ver · Terms · Privacy · FAQ · no-tracking note      |
 |------------------------------------------------------------------|
