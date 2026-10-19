@@ -1,10 +1,10 @@
 {
   "app": "Syncopx",
-  "version": "1.5.2",
-  "file": "https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.2/Syncopx-1.5.2-windows.zip",
-  "bytes": 165480919,
-  "sha256": "9f49b5628bcfe923af9912a476b03642b3e686ac58151d6470433f2c848756b8",
-  "date": "2026-10-16",
-  "notes": "Added real-time two-way voice conversation mode with hands-free VAD, speech synthesis, barge-in interruption, and browser-based remote voice control.",
+  "version": "1.5.3",
+  "file": "https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.3/Syncopx-1.5.3-windows.zip",
+  "bytes": 165403733,
+  "sha256": "49a707c29f4a5ff9aad546dce30285c36c53d9bdebed29c0831c439b9ae49610",
+  "date": "2026-10-19",
+  "notes": "Added MCP client support, concurrent parallel subagents, persistent long-term associative memory, codebase AST/symbol indexing, interactive Accept/Reject diff drawers, and inbound automation webhooks.",
   "requires": "Windows 10/11 64-bit, no admin, ~500 MB free"
 }

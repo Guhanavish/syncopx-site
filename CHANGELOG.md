@@ -1,5 +1,14 @@
 # Syncopx changelog
 
+## 1.5.3 (2026-10-19)
+- Model Context Protocol (MCP) Client: Added external MCP server integration over standard JSON-RPC 2.0 stdio protocol; connects servers defined in `%USERPROFILE%/.agentic_assistant/mcp_servers.json` or local workspaces and dynamically exposes external tools to the agent.
+- Concurrent Parallel Subagents: Added multi-agent execution engine (`parallel_tasks`) allowing the assistant to launch up to 4 concurrent subagents across worker threads, executing background research and code audits concurrently with aggregated results.
+- Persistent Long-Term Memory: Built-in associative memory engine (`agentic_ai/memory.py`) with relevance scoring and automatic context injection; stores user preferences, project conventions, and environment rules across reboots.
+- Codebase Symbol & AST Indexing: Fast local AST parsing for Python and regex extractors for JS/TS/Go/Rust (`agentic_ai/indexer.py`); provides instant symbol navigation (`search_symbols`) and architectural summaries (`codebase_overview`).
+- Interactive Accept / Reject Diff Drawers: Upgraded unified diff cards with interactive inline "Accept" and "Reject" staging controls and batch actions on collapsible drawers.
+- Inbound Webhooks & Automation Triggers: Added `POST /api/webhook/<trigger_name>` endpoint with HMAC-SHA256 signature verification (`X-Hub-Signature-256`), payload template interpolation, and headless turn execution.
+- Dock & Remote UI Polish: Fixed dock resizing constraints in `QSplitter`, removed horizontal scrollbar clipping, and cleaned up tunnel status formatting.
+
 ## 1.5.2 (2026-10-16)
 - Real-Time Two-Way Voice Conversation: Hands-free continuous voice conversation mode with Voice Activity Detection (VAD), silence detection, and automatic turn-taking for desktop.
 - Barge-In Interruption & Ducking: Instant barge-in speech interruption cutting TTS audio playback and thinking loops the moment the user starts speaking; automatic mic threshold ducking during speech synthesis prevents the assistant from interrupting itself.
