@@ -1,5 +1,14 @@
 # Syncopx changelog
 
+## 1.6.0 (2026-10-27)
+- Unified Horizontal Tabs ("the Syncopx way"): Integrated horizontal conversation tabs directly into the frameless studio title bar, clustering active chats and new-chat button with scoped project and agent chips.
+- Smooth Slide-Out Sessions Drawer & Tasks Dock: Added 160ms cubic ease-out slide transitions (`OutCubic`) for the session navigation drawer (`Ctrl+B`) and Task Inspector dock (`Ctrl+J`) with offscreen test mode instant bypass.
+- Tactile Button & Interaction Polish: Implemented `:pressed` micro-offsets across neutral, ghost, pill, and primary buttons; eliminated harsh hover outlines on neutral controls; upgraded transcript action buttons to sleek ghost pills.
+- Welcome Card Visual Refinement: Replaced flattened card styling with bordered panel backgrounds, 10px rounded corners, distinct 36x36 icon frames, and animated chevron hover nudges without card edge clipping.
+- Dynamic OS Palette & Fast Theme Switching: Instant palette switching with optimized layout invalidation and Paper/Daylight theme support (`#F4F1EA`) alongside Carbon/Graphite (`#091014`).
+- Borderless Focus Mode (`F11`): Clean distraction-free view hiding toolbars and docks with one keystroke.
+- Comprehensive Test Stability: 52/52 complete test suites passing green across core agent logic, UI rendering, logo consistency, and update signing.
+
 ## 1.5.3 (2026-10-19)
 - Model Context Protocol (MCP) Client: Added external MCP server integration over standard JSON-RPC 2.0 stdio protocol; connects servers defined in `%USERPROFILE%/.agentic_assistant/mcp_servers.json` or local workspaces and dynamically exposes external tools to the agent.
 - Concurrent Parallel Subagents: Added multi-agent execution engine (`parallel_tasks`) allowing the assistant to launch up to 4 concurrent subagents across worker threads, executing background research and code audits concurrently with aggregated results.

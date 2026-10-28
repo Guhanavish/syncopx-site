@@ -1,10 +1,20 @@
 {
   "app": "Syncopx",
-  "version": "1.5.3",
-  "file": "https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.3/Syncopx-1.5.3-windows.zip",
-  "bytes": 165403733,
-  "sha256": "49a707c29f4a5ff9aad546dce30285c36c53d9bdebed29c0831c439b9ae49610",
-  "date": "2026-10-19",
-  "notes": "Added MCP client support, concurrent parallel subagents, persistent long-term associative memory, codebase AST/symbol indexing, interactive Accept/Reject diff drawers, and inbound automation webhooks.",
-  "requires": "Windows 10/11 64-bit, no admin, ~500 MB free"
+  "version": "1.6.0",
+  "channel": "stable",
+  "file": "https://github.com/Guhanavish/syncopx-site/releases/download/v1.6.0/Syncopx-1.6.0-windows.zip",
+  "bytes": 165712209,
+  "sha256": "e29df458d16ed94fc94f5ec77507a9c9a63621213eaaf1dbc120a18db3c83d47",
+  "date": "2026-10-27",
+  "notes": "Rebuilt desktop shell: an editorial transcript with collapsible tool traces, one composer, a task inspector, full-page settings with search, and Paper/Carbon themes that follow Windows. Window geometry, open docks and dock widths are remembered. Signed, incremental updates and one-click rollback are unchanged; no new dependencies.",
+  "requires": "Windows 10/11 64-bit, no admin, ~500 MB free",
+  "deltas": [
+    {
+      "from": "1.5.3",
+      "file": "https://github.com/Guhanavish/syncopx-site/releases/download/v1.6.0/Syncopx-1.6.0-from-1.5.3-windows-delta.zip",
+      "bytes": 17331377,
+      "sha256": "167ed22500dc402d990d003b048c107ac985064d412f1a533932c98bafccd85c"
+    }
+  ],
+  "signature": "g/RWR6zytq5tdn108VJlQrwuEaiv+klF1+Sy8BP9s/oELVnTC8nNnoHJvZNrXLgL6SMEbkY7FskidjZDhs6An+9HDwFKzV+fVI+tEW8OP3l84szDm6G5KIboibpdoskXXbzALGNHxlKvdBLAIOk54yqU7Dxn3NIu4nzoK6WdqaOqkGvM8L4E5BrOgqvrZzVUIKUaE0J8ahVrW0F2ZjM6f2UwcQR8izQTZT9pBr7UhXsVEVxq5ZgoR6bt9udGl+HHmoRwXSAQiG3C3mcceNHGxIU4oIXJJiAD82pqt23L/AhMh21URPry+s/yqrlHxItPrvqyQTeskQc1eTzDl17Qig=="
 }

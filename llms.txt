@@ -2,17 +2,19 @@
 
 Syncopx is a free, autonomous agentic desktop AI assistant for Windows 10/11 64-bit.
 It decomposes multi-step goals into autonomous subagents with persistent disk sessions,
-talks and listens (continuous voice with barge-in interruption), sees the screen (OCR + control),
-generates programs and scheduled background tasks, executes terminal commands with inline cards & diff drawers,
-provides a token-authenticated Remote Access & Automation REST API, and tracks live token/cost and per-chat time.
+features a unified frameless studio with horizontal session tabs and slide-out drawers,
+supports Model Context Protocol (MCP) servers, talks and listens (continuous voice with barge-in interruption),
+sees the screen (OCR + control), generates programs and scheduled background tasks, executes terminal commands
+with inline cards & diff drawers, provides a token-authenticated Remote Access & Automation REST API,
+and tracks live token/cost and per-chat time.
 
-- Download (1.5.1 ZIP, no admin, no signup): https://syncopx.vercel.app/#download
+- Download (1.6.0 ZIP, no admin, no signup): https://syncopx.vercel.app/#download
 - How installing works: https://syncopx.vercel.app/#install
 - AI providers (bring your own key, or 100% offline with local Ollama): https://syncopx.vercel.app/#providers
 - FAQ: https://syncopx.vercel.app/#faq
 - Terms: https://syncopx.vercel.app/terms.html
 - Privacy: https://syncopx.vercel.app/privacy.html
-- Current version metadata (v1.5.1, size, SHA-256): https://syncopx.vercel.app/downloads/version.json
+- Current version metadata (v1.6.0, size, SHA-256): https://syncopx.vercel.app/downloads/version.json
 
 API keys are encrypted on the user's PC with Windows DPAPI. Zero accounts, zero tracking, no bundled keys.
 Safety Profiles (Safe, Balanced, Unleashed) with allowedDirs scoping and fail-closed headless security.

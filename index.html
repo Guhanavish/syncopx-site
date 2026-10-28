@@ -48,7 +48,7 @@
 {"@type":"Question","name":"Do I need Ollama?","acceptedAnswer":{"@type":"Answer","text":"No. Ollama is optional for fully offline, private local models. You can also connect cloud providers like Groq, Gemini, OpenRouter, OpenAI, DeepSeek, and Mistral."}},
 {"@type":"Question","name":"Where do my API keys and data live?","acceptedAnswer":{"@type":"Answer","text":"Encrypted with Windows DPAPI in the user profile (%USERPROFILE%\\.agentic_assistant). Chats, notes, and programs remain local on your disk and never leave your machine."}},
 {"@type":"Question","name":"How do tool approvals and safety gates work?","acceptedAnswer":{"@type":"Answer","text":"Potentially destructive tools require explicit user approval with options to Allow once, Always allow, or Reject with feedback. Output secret scanning redacts keys automatically."}},
-{"@type":"Question","name":"What slash commands and shortcuts are available?","acceptedAnswer":{"@type":"Answer","text":"Inline slash commands include /model, /provider, /clear, /new, /shortcuts, /tokens, /cost, and /help. Keyboard shortcuts include Ctrl+K (focus), Ctrl+Enter (send), Ctrl+L (new session), Ctrl+J (toggle tasks), and Esc (stop)."}},
+{"@type":"Question","name":"What slash commands and shortcuts are available?","acceptedAnswer":{"@type":"Answer","text":"Inline slash commands include /model, /provider, /clear, /new, /shortcuts, /tokens, /cost, and /help. Keyboard shortcuts include Ctrl+K (focus), Enter (send), Ctrl+L (new session), Ctrl+Tab (cycle chats), Ctrl+B (sessions drawer), Ctrl+J (toggle tasks), F11 (focus mode), and Esc (stop)."}},
 {"@type":"Question","name":"Can it control apps and see my screen?","acceptedAnswer":{"@type":"Answer","text":"Yes. Syncopx uses on-screen OCR and keyboard/mouse coordination to interact with desktop apps like Word, Settings, and installers like a human user."}},
 {"@type":"Question","name":"How do updates work?","acceptedAnswer":{"@type":"Answer","text":"Syncopx includes built-in in-app auto-updating: open Settings and click Check for Updates to detect, verify SHA-256, and apply releases on restart. You can also download new ZIPs manually anytime."}},
 {"@type":"Question","name":"How do I uninstall?","acceptedAnswer":{"@type":"Answer","text":"Run Uninstall.bat in the installation directory. Shortcuts, registry entries, and program files are removed; user data stays unless wipe is selected."}}]}
@@ -66,7 +66,7 @@
     <a class="brand" href="#top" aria-label="Syncopx home">
       <img src="assets/logo.svg" alt="Syncopx logo" width="30" height="30">
       <span>Syncopx</span>
-      <code class="ver" data-ver>1.5.3</code>
+      <code class="ver" data-ver>1.6.0</code>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -82,17 +82,17 @@
 </header>
 <main>
   <section class="hero wrap" aria-labelledby="h1">
-    <p class="eyebrow reveal"><span class="dot" aria-hidden="true"></span><span data-ver-long>Syncopx 1.5.3 · Windows 10/11 64-bit · ZIP, no admin</span></p>
+    <p class="eyebrow reveal"><span class="dot" aria-hidden="true"></span><span data-ver-long>Syncopx 1.6.0 · Windows 10/11 64-bit · ZIP, no admin</span></p>
     <h1 id="h1" class="reveal">Your PC,<br>on your words.</h1>
-    <p class="lede reveal">An autonomous agentic desktop assistant that speaks, listens, sees your screen, and gets things done: multi-step subagents, programs, files, terminal, remote automation API, and custom tools. Borderless agent studio window with docked sidebar. No signup, you bring your own AI key or run 100% offline with Ollama.</p>
+    <p class="lede reveal">An autonomous agentic desktop assistant that speaks, listens, sees your screen, and gets things done: multi-step subagents, programs, files, terminal, remote automation API, and MCP tools. Unified frameless studio with horizontal session tabs, task inspector, and slide-out drawer. No signup, you bring your own AI key or run 100% offline with Ollama.</p>
     <div class="cta-row reveal" id="download">
-      <a class="btn btn-primary btn-lg" id="dl-btn" href="https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.3/Syncopx-1.5.3-windows.zip" download>
+      <a class="btn btn-primary btn-lg" id="dl-btn" href="https://github.com/Guhanavish/syncopx-site/releases/download/v1.6.0/Syncopx-1.6.0-windows.zip" download>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
         <span>Download ZIP <span class="dl-meta" data-size>· 165 MB</span></span>
       </a>
       <a class="btn btn-ghost btn-lg" href="#install">How installing works</a>
     </div>
-    <p class="dl-sub reveal">No signup · No bundled API keys · In-app updates · <button class="hash" id="hash-btn" type="button" title="Copy full SHA-256">SHA-256 <code data-sha-short>49a707c2…</code></button> <span class="hash-ok" id="hash-ok" role="status" hidden>copied</span></p>
+    <p class="dl-sub reveal">No signup · No bundled API keys · In-app updates · <button class="hash" id="hash-btn" type="button" title="Copy full SHA-256">SHA-256 <code data-sha-short>e29df458…</code></button> <span class="hash-ok" id="hash-ok" role="status" hidden>copied</span></p>
 
     <div class="hero-stage reveal">
       <div class="hero-badge" aria-hidden="true"><img src="assets/logo.svg" alt="" width="120" height="120" loading="eager" decoding="async"></div>
@@ -172,8 +172,8 @@
           <p class="cell-n">06</p>
           <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="m14 9 3 3-3 3"/></svg></span>
         </div>
-        <h3>Docked chat switcher, shortcuts &amp; time tracking</h3>
-        <p>Switch between conversations instantly via the docked left sidebar or header dropdown. Fast cycling with <code>Ctrl+Tab</code>, toggle the sidebar with <code>Ctrl+B</code>, and scope tasks to per-chat project directories. Live turn duration chips and daily time tracking across chats keep you informed.</p>
+        <h3>Unified horizontal tabs, sessions drawer &amp; time tracking</h3>
+        <p>Switch between conversations effortlessly with unified horizontal tabs in the header &mdash; the Syncopx way. Smooth 160ms slide-out Sessions Drawer (<code>Ctrl+B</code>) and Tasks Dock (<code>Ctrl+J</code>), fast cycling with <code>Ctrl+Tab</code>, per-chat project directories, and live turn duration chips keep your workflow organized.</p>
       </article>
       <article class="cell half reveal">
         <div class="cell-head">
@@ -197,9 +197,9 @@
           <p class="cell-n">09</p>
           <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>
         </div>
-        <h3>Execution cards &amp; diff drawers</h3>
-        <p>Terminal commands report stdout, stderr, duration, and exit codes in dedicated inline cards. File modifications generate collapsible unified diff drawers with exact syntax highlighting.</p>
-        <p class="mono">exit 0 · 1.2s · diff ±12 lines across 2 files</p>
+        <h3>Model Context Protocol (MCP) &amp; Execution cards</h3>
+        <p>Connect tools via open Model Context Protocol (MCP) servers and execute commands with live status cards reporting stdout, stderr, and exit codes. File modifications generate collapsible unified diff drawers with syntax highlighting.</p>
+        <p class="mono">mcp-server · exit 0 · 1.2s · diff ±12 lines</p>
       </article>
     </div>
   </section>
@@ -208,7 +208,7 @@
     <p class="kicker reveal">Install</p>
     <h2 id="h-install" class="reveal">Three steps. No admin. Reversible.</h2>
     <ol class="steps">
-      <li class="reveal"><span class="step-n" aria-hidden="true">1</span><div><h3>Download the ZIP</h3><p>One self-contained package, ~163&nbsp;MB, versioned and hash-published on this page. Extract it anywhere on your machine.</p></div></li>
+      <li class="reveal"><span class="step-n" aria-hidden="true">1</span><div><h3>Download the ZIP</h3><p>One self-contained package, ~165&nbsp;MB, versioned and hash-published on this page. Extract it anywhere on your machine.</p></div></li>
       <li class="reveal"><span class="step-n" aria-hidden="true">2</span><div><h3>Run the installer</h3><p>Double-click <code>Install-Syncopx.bat</code>. It stages the app to your user profile, creates Start Menu (+ optional Desktop) shortcuts, and configures verified autostart with boot diagnostics.</p></div></li>
       <li class="reveal"><span class="step-n" aria-hidden="true">3</span><div><h3>Pick your AI provider</h3><p>Open Settings and choose Ollama (local, 100% offline &amp; free) or enter your own API key for Groq, Gemini, OpenRouter, DeepSeek, OpenAI... Keys stay encrypted locally with Windows DPAPI.</p></div></li>
     </ol>
@@ -218,7 +218,7 @@
         <ul class="reg">
           <li><code>%LOCALAPPDATA%\Syncopx\app</code> — program files</li>
           <li><code>HKCU\Software\Syncopx</code> — InstallDir, Version</li>
-          <li><code>HKCU\…\Run\Syncopx</code> — autostart, verified with boot diagnostics</li>
+          <li><code>HKCU\Software\Microsoft\Windows\CurrentVersion\Run\Syncopx</code> — autostart, verified with boot diagnostics</li>
           <li>Start Menu shortcut (+ Desktop if requested)</li>
           <li>In-app auto-updater — updates seamlessly from Settings &rarr; Check for Updates</li>
         </ul>
@@ -279,7 +279,7 @@
       </details>
       <details>
         <summary>What slash commands and keyboard shortcuts are supported?</summary>
-        <p>Syncopx features keyboard-first navigation: press <code>Ctrl+K</code> to focus input, <code>Ctrl+Enter</code> to send, <code>Ctrl+L</code> for a fresh session, <code>Ctrl+Tab</code> / <code>Ctrl+Shift+Tab</code> to cycle conversations, <code>Ctrl+B</code> to toggle the chat sidebar, <code>Ctrl+J</code> to toggle the tasks panel, and <code>Esc</code> to stop generation. Inline slash commands include <code>/model</code>, <code>/provider</code>, <code>/update</code>, <code>/tokens</code>, <code>/cost</code>, <code>/clear</code>, <code>/new</code>, and <code>/help</code>.</p>
+        <p>Syncopx features keyboard-first navigation: press <code>Ctrl+K</code> to focus input, <code>Enter</code> to send (or <code>Ctrl+Enter</code> in multi-line), <code>Ctrl+L</code> for a fresh session, <code>Ctrl+Tab</code> / <code>Ctrl+Shift+Tab</code> to cycle conversations, <code>Ctrl+B</code> to toggle the sessions drawer, <code>Ctrl+J</code> to toggle the tasks dock, <code>Ctrl+Shift+P</code> for command palette, <code>F11</code> for borderless focus mode, and <code>Esc</code> to stop generation. Inline slash commands include <code>/model</code>, <code>/provider</code>, <code>/update</code>, <code>/tokens</code>, <code>/cost</code>, <code>/clear</code>, <code>/new</code>, and <code>/help</code>.</p>
       </details>
       <details>
         <summary>Can it control apps and see my screen?</summary>
@@ -298,14 +298,14 @@
 
   <section class="wrap section final reveal" aria-labelledby="h-final">
     <h2 id="h-final">Take Syncopx for a spin.</h2>
-    <a class="btn btn-primary btn-lg" id="dl-btn-2" href="https://github.com/Guhanavish/syncopx-site/releases/download/v1.5.3/Syncopx-1.5.3-windows.zip" download>Download Syncopx <span class="dl-meta" data-size>· 165 MB</span></a>
-    <p class="muted"><span data-ver-long>Syncopx 1.5.3</span> · <span data-date>2026-10-19</span></p>
+    <a class="btn btn-primary btn-lg" id="dl-btn-2" href="https://github.com/Guhanavish/syncopx-site/releases/download/v1.6.0/Syncopx-1.6.0-windows.zip" download>Download Syncopx <span class="dl-meta" data-size>· 165 MB</span></a>
+    <p class="muted"><span data-ver-long>Syncopx 1.6.0</span> · <span data-date>2026-10-27</span></p>
   </section>
 </main>
 
 <footer>
   <div class="wrap foot-in">
-    <p><img src="assets/logo.svg" alt="Syncopx logo" width="20" height="20" loading="lazy" decoding="async"> Syncopx <span data-ver>v1.5.3</span>, an autonomous agentic desktop assistant for Windows.</p>
+    <p><img src="assets/logo.svg" alt="Syncopx logo" width="20" height="20" loading="lazy" decoding="async"> Syncopx <span data-ver>1.6.0</span>, an autonomous agentic desktop assistant for Windows.</p>
     <p class="muted">ZIP install · In-app updates · No signup · Your keys stay yours · <a href="#faq">FAQ</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
   </div>
 </footer>
