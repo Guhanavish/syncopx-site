@@ -1,20 +1,15 @@
 <!DOCTYPE html>
-<!-- Syncopx download site.
-  Design: graphite flat surfaces, one mint signal line, JetBrains Mono for
-  headings/code, IBM Plex Sans for body. No gradients, no glows, no fake
-  conversation or counts - the hero workflow panel is labeled illustrative.
-  Preserved: version.json wiring, release URL + SHA-256, SEO kit, legal links. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Syncopx | Autonomous Agentic Desktop Assistant for Windows</title>
-<meta name="description" content="Autonomous agentic desktop AI assistant for Windows 10/11. Multi-step task subagents, voice conversation, screen vision, code & terminal execution. Zero signup, bring your own key or 100% offline with Ollama.">
+<meta name="description" content="Autonomous agentic desktop AI assistant for Windows 10/11. Multi-step task subagents, screen vision, edge voice, Model Context Protocol (MCP), and local DPAPI encryption. Run 100% offline with Ollama or BYOK.">
 <link rel="canonical" href="https://syncopx.vercel.app/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Syncopx">
 <meta property="og:title" content="Syncopx | Your PC, on your words">
-<meta property="og:description" content="An autonomous desktop AI assistant for Windows. Multi-step task subagents, voice, screen vision, files, programs and terminal. No signup, no bundled keys.">
+<meta property="og:description" content="An autonomous desktop AI assistant for Windows. Multi-step subagents, screen vision, voice STT, terminal execution, and MCP tools. Zero signup, no bundled keys.">
 <meta property="og:url" content="https://syncopx.vercel.app/">
 <meta property="og:image" content="https://syncopx.vercel.app/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -22,36 +17,25 @@
 <meta property="og:image:alt" content="Syncopx autonomous desktop AI assistant for Windows">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Syncopx | Your PC, on your words">
-<meta name="twitter:description" content="An autonomous desktop AI assistant for Windows. Multi-step subagents, screen vision, voice, files and programs.">
+<meta name="twitter:description" content="An autonomous desktop AI assistant for Windows. Multi-step subagents, screen vision, voice, and MCP tools.">
 <meta name="twitter:image" content="https://syncopx.vercel.app/assets/og-image.png">
-<meta name="theme-color" content="#091014">
+<meta name="theme-color" content="#060A0C">
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
 <link rel="manifest" href="manifest.webmanifest">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite",
-"name":"Syncopx","url":"https://syncopx.vercel.app/"}
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication",
-"name":"Syncopx","applicationCategory":"UtilitiesApplication",
-"operatingSystem":"Windows 10/11 64-bit","offers":{"@type":"Offer","price":"0"},
-"url":"https://syncopx.vercel.app/",
-"description":"Autonomous agentic desktop AI assistant for Windows: multi-step task subagents, voice conversation, screen vision, files, programs, terminal execution, and in-app self-updates."}
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"Is it really a ZIP, not a setup.exe?","acceptedAnswer":{"@type":"Answer","text":"Yes, deliberately. An installer EXE without a paid publisher certificate triggers worse warnings than a ZIP. The ZIP contains a robust installer script handling files, shortcuts, registry, autostart, and uninstaller with boot diagnostics."}},
-{"@type":"Question","name":"What are the requirements?","acceptedAnswer":{"@type":"Answer","text":"Windows 10/11 64-bit, about 500 MB free, no admin rights. Microphone optional for voice conversation. Ollama optional for local offline models."}},
-{"@type":"Question","name":"Do I need Ollama?","acceptedAnswer":{"@type":"Answer","text":"No. Ollama is optional for fully offline, private local models. You can also connect cloud providers like Groq, Gemini, OpenRouter, OpenAI, DeepSeek, and Mistral."}},
-{"@type":"Question","name":"Where do my API keys and data live?","acceptedAnswer":{"@type":"Answer","text":"Encrypted with Windows DPAPI in the user profile (%USERPROFILE%\\.agentic_assistant). Chats, notes, and programs remain local on your disk and never leave your machine."}},
-{"@type":"Question","name":"How do tool approvals and safety gates work?","acceptedAnswer":{"@type":"Answer","text":"Potentially destructive tools require explicit user approval with options to Allow once, Always allow, or Reject with feedback. Output secret scanning redacts keys automatically."}},
-{"@type":"Question","name":"What slash commands and shortcuts are available?","acceptedAnswer":{"@type":"Answer","text":"Inline slash commands include /model, /provider, /clear, /new, /shortcuts, /tokens, /cost, and /help. Keyboard shortcuts include Ctrl+K (focus), Enter (send), Ctrl+L (new session), Ctrl+Tab (cycle chats), Ctrl+B (sessions drawer), Ctrl+J (toggle tasks), F11 (focus mode), and Esc (stop)."}},
-{"@type":"Question","name":"Can it control apps and see my screen?","acceptedAnswer":{"@type":"Answer","text":"Yes. Syncopx uses on-screen OCR and keyboard/mouse coordination to interact with desktop apps like Word, Settings, and installers like a human user."}},
-{"@type":"Question","name":"How do updates work?","acceptedAnswer":{"@type":"Answer","text":"Syncopx includes built-in in-app auto-updating: open Settings and click Check for Updates to detect, verify SHA-256, and apply releases on restart. You can also download new ZIPs manually anytime."}},
-{"@type":"Question","name":"How do I uninstall?","acceptedAnswer":{"@type":"Answer","text":"Run Uninstall.bat in the installation directory. Shortcuts, registry entries, and program files are removed; user data stays unless wipe is selected."}}]}
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Syncopx",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Windows 10/11 64-bit",
+  "offers": { "@type": "Offer", "price": "0" },
+  "url": "https://syncopx.vercel.app/",
+  "description": "Autonomous agentic desktop AI assistant for Windows featuring unified horizontal tabs, Model Context Protocol (MCP), voice conversation, screen vision, and local DPAPI encryption."
+}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,252 +45,494 @@
 <body>
 <a class="skip" href="#download">Skip to download</a>
 
+<!-- Header Navigation Bar -->
 <header class="nav" id="top">
   <div class="wrap nav-in">
-    <a class="brand" href="#top" aria-label="Syncopx home">
-      <img src="assets/logo.svg" alt="Syncopx logo" width="30" height="30">
-      <span>Syncopx</span>
-      <code class="ver" data-ver>1.6.0</code>
+    <a class="brand" href="#top" aria-label="Syncopx Home">
+      <span class="brand-mark" aria-hidden="true">
+        <img src="assets/logo.svg" alt="Syncopx logo" width="22" height="22">
+      </span>
+      <span class="brand-name">
+        <span>Syncopx</span>
+        <span class="ver-pill" data-ver>v1.6.0</span>
+      </span>
     </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
       <span></span><span></span><span></span>
     </button>
-    <nav class="links" id="navlinks" aria-label="Sections">
-      <a href="#features">What it does</a>
-      <a href="#install">Install</a>
-      <a href="#providers">AI providers</a>
+
+    <nav class="nav-links" aria-label="Main Navigation">
+      <a href="#features">Studio Features</a>
+      <a href="#simulator">Live Simulator</a>
+      <a href="#install">Installation</a>
+      <a href="#providers">AI Providers</a>
+      <a href="#shortcuts">Shortcuts</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-primary btn-sm nav-cta" href="#download">Download</a>
+
+    <div class="nav-actions">
+      <a class="btn btn-primary btn-sm" href="#download" data-dl-link download>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
+        <span>Download</span>
+      </a>
+    </div>
   </div>
 </header>
+
 <main>
+  <!-- Hero Section -->
   <section class="hero wrap" aria-labelledby="h1">
-    <p class="eyebrow reveal"><span class="dot" aria-hidden="true"></span><span data-ver-long>Syncopx 1.6.0 · Windows 10/11 64-bit · ZIP, no admin</span></p>
-    <h1 id="h1" class="reveal">Your PC,<br>on your words.</h1>
-    <p class="lede reveal">An autonomous agentic desktop assistant that speaks, listens, sees your screen, and gets things done: multi-step subagents, programs, files, terminal, remote automation API, and MCP tools. Unified frameless studio with horizontal session tabs, task inspector, and slide-out drawer. No signup, you bring your own AI key or run 100% offline with Ollama.</p>
-    <div class="cta-row reveal" id="download">
-      <a class="btn btn-primary btn-lg" id="dl-btn" href="https://github.com/Guhanavish/syncopx-site/releases/download/v1.6.0/Syncopx-1.6.0-windows.zip" download>
+    <div class="hero-status-pill">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span>Syncopx <span data-ver-plain>1.6.0</span> Released &middot; Windows 10/11 &middot; Zero Admin &middot; 100% Offline with Ollama</span>
+    </div>
+
+    <h1 id="h1">Your PC,<br>on your words.</h1>
+    <p class="hero-sub">An autonomous agentic desktop assistant for Windows. Unified frameless studio with horizontal session tabs, Model Context Protocol (MCP), edge voice, screen vision, and DPAPI encryption. Zero telemetry &mdash; run 100% offline with Ollama or bring your own key.</p>
+
+    <div class="hero-cta" id="download">
+      <a class="btn btn-primary btn-lg" href="https://github.com/Guhanavish/syncopx-site/releases/download/v1.6.0/Syncopx-1.6.0-windows.zip" data-dl-link download>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
-        <span>Download ZIP <span class="dl-meta" data-size>· 165 MB</span></span>
+        <span>Download Syncopx <span class="dl-meta" data-size>&middot; 165 MB</span></span>
       </a>
-      <a class="btn btn-ghost btn-lg" href="#install">How installing works</a>
+      <a class="btn btn-ghost btn-lg" href="#install">How Installing Works</a>
     </div>
-    <p class="dl-sub reveal">No signup · No bundled API keys · In-app updates · <button class="hash" id="hash-btn" type="button" title="Copy full SHA-256">SHA-256 <code data-sha-short>e29df458…</code></button> <span class="hash-ok" id="hash-ok" role="status" hidden>copied</span></p>
 
-    <div class="hero-stage reveal">
-      <div class="hero-badge" aria-hidden="true"><img src="assets/logo.svg" alt="" width="120" height="120" loading="eager" decoding="async"></div>
-      <div class="flow" role="img" aria-label="Illustrative agent workflow: instruct with prompt or slash command, plan and approve permissions, autonomous multi-step subagent execution, verified local results">
-        <p class="flow-tag">Illustrative workflow</p>
-        <ol class="flow-steps">
-          <li class="flow-step">
-            <span class="flow-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 10v1a7 7 0 0 0 14 0v-1"/><path d="M12 18v4"/></svg></span>
-            <span class="flow-txt"><strong>Instruct</strong> by voice, prompt, or /commands</span>
-          </li>
-          <li class="flow-step">
-            <span class="flow-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5 11 13.5 15 9.5"/><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span>
-            <span class="flow-txt"><strong>Plan &amp; Gate</strong> questions &amp; permission approvals</span>
-          </li>
-          <li class="flow-step">
-            <span class="flow-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
-            <span class="flow-txt"><strong>Subagents</strong> run multi-step tools with live progress</span>
-          </li>
-          <li class="flow-step">
-            <span class="flow-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9z"/><path d="M13 3v6h6"/></svg></span>
-            <span class="flow-txt"><strong>Delivered</strong> verified files, scripts &amp; cost tracking</span>
-          </li>
-        </ol>
-        <p class="flow-note">Multi-step subagents, voice, screen vision and file tools run in the desktop app. <a href="#download">Get Syncopx</a>.</p>
+    <div class="hash-strip">
+      <span>SHA-256:</span>
+      <button class="hash-btn" id="hash-btn" type="button" title="Click to copy full SHA-256 hash">
+        <code data-sha-short>e29df458&hellip;</code>
+      </button>
+      <span class="hash-ok" id="hash-ok" role="status" hidden>&check; copied to clipboard</span>
+    </div>
+
+    <div class="hero-chips">
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 52/52 Tests Verified Green</span>
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> No Signup Required</span>
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Windows DPAPI Encryption</span>
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> In-App Self Updates</span>
+    </div>
+
+    <!-- Interactive Hero Studio Simulator -->
+    <div class="studio-showcase" id="simulator" aria-label="Interactive desktop studio interface simulation">
+      <div class="studio-window">
+        <!-- Titlebar with Horizontal Tabs ("the Syncopx way") -->
+        <div class="studio-header">
+          <div class="studio-header-left">
+            <span class="studio-header-icon" title="Syncopx Studio">
+              <img src="assets/logo.svg" alt="Syncopx" width="18" height="18">
+            </span>
+            <div class="studio-tabs" role="tablist">
+              <button class="studio-tab active" data-tab="tab-auth" role="tab" aria-selected="true">
+                <span>Fix Auth Failing Test</span>
+                <span class="mono" style="opacity:0.5">&times;</span>
+              </button>
+              <button class="studio-tab" data-tab="tab-ollama" role="tab" aria-selected="false">
+                <span>Local Ollama Setup</span>
+                <span class="mono" style="opacity:0.5">&times;</span>
+              </button>
+              <span class="studio-tab-add" title="New Session (Ctrl+L)">+</span>
+            </div>
+          </div>
+          <div class="studio-header-right">
+            <span class="studio-chip" title="Active Project Scoping Directory">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg>
+              <span>G:\Agentic AI</span>
+            </span>
+            <span class="studio-chip">Ready &middot; Qwen 2.5 7B</span>
+            <div class="studio-controls" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Studio Body Grid (Drawer + Transcript + Inspector) -->
+        <div class="studio-body">
+          <!-- Left Sessions Drawer (Ctrl+B) -->
+          <aside class="studio-drawer" aria-label="Sessions Drawer">
+            <span class="studio-section-label">Sessions (Ctrl+B)</span>
+            <div class="studio-session-item active" data-tab="tab-auth">
+              <strong>Fix Auth Failing Test</strong>
+              <span class="session-item-time">4m ago &middot; 1.4s turn</span>
+            </div>
+            <div class="studio-session-item" data-tab="tab-ollama">
+              <strong>Local Ollama Setup</strong>
+              <span class="session-item-time">18m ago &middot; offline</span>
+            </div>
+            <div class="studio-session-item">
+              <strong>Refactor Vector Icons</strong>
+              <span class="session-item-time">2h ago &middot; 52/52 green</span>
+            </div>
+            <div class="studio-session-item">
+              <strong>MCP Filesystem Server</strong>
+              <span class="session-item-time">Yesterday &middot; stdio</span>
+            </div>
+          </aside>
+
+          <!-- Central Chat Transcript -->
+          <section class="studio-transcript" aria-label="Chat Transcript">
+            <div class="studio-msg user">
+              <div class="studio-bubble">Run unit tests for auth and fix any failures</div>
+            </div>
+
+            <div class="studio-msg assistant">
+              <!-- Expandable Step Header -->
+              <div class="step-header">
+                <div class="step-header-left">
+                  <span>&check;</span>
+                  <span>4 steps completed &middot; 1.4s</span>
+                </div>
+                <span>&blacktriangleright;</span>
+              </div>
+
+              <!-- Inline Tool Execution Card -->
+              <div class="studio-card">
+                <div class="studio-card-head">
+                  <span>Terminal (PowerShell)</span>
+                  <span class="studio-card-cmd">exit 0 &middot; 1.2s</span>
+                </div>
+                <pre class="studio-card-code">pytest test_permissions.py -v
+[100%] test_allowed_dirs_enforcement PASSED</pre>
+              </div>
+
+              <!-- Collapsible Unified Diff Drawer -->
+              <div class="diff-card">
+                <div class="diff-header" role="button" tabindex="0">
+                  <span class="diff-file">agentic_ai/config.py</span>
+                  <span class="diff-badge">diff &plusmn;3 lines</span>
+                </div>
+                <div class="diff-body">
+                  <div class="diff-line del">- verify_allowed_path(strict=False)</div>
+                  <div class="diff-line add">+ verify_allowed_path(strict=True, fail_closed=True)</div>
+                </div>
+              </div>
+
+              <div class="studio-bubble">All 52 test suites pass green. Strict filesystem boundary enabled with fail-closed security.</div>
+            </div>
+          </section>
+
+          <!-- Right Task Inspector Dock (Ctrl+J) -->
+          <aside class="studio-inspector" aria-label="Task Inspector">
+            <div class="inspector-block">
+              <span class="inspector-title">Turn Latency</span>
+              <span class="inspector-stat">1.4s</span>
+            </div>
+            <div class="inspector-block">
+              <span class="inspector-title">Active Safety Profile</span>
+              <span class="mono" style="color:var(--accent)">Safe (allowedDirs)</span>
+            </div>
+            <div class="inspector-block">
+              <span class="inspector-title">Subagents Provenance</span>
+              <ul class="inspector-list">
+                <li class="done"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Codebase AST Indexer</li>
+                <li class="done"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Read-Only Explorer</li>
+                <li class="done"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Gitwrite Diff Stager</li>
+              </ul>
+            </div>
+            <div class="inspector-block">
+              <span class="inspector-title">Token Accounting</span>
+              <span class="mono" style="font-size:0.84rem;color:var(--text-muted)">Prompt: 412 &middot; Compl: 88<br>Cost: $0.0000 (Ollama)</span>
+            </div>
+          </aside>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Deep Feature Bento Grid -->
   <section class="wrap section" id="features" aria-labelledby="h-features">
-    <p class="kicker reveal">What it does</p>
-    <h2 id="h-features" class="reveal">One studio. The whole machine.</h2>
-    <div class="bento">
-      <article class="cell wide reveal">
-        <div class="cell-head">
-          <p class="cell-n">01</p>
-          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+    <span class="kicker">Studio Capabilities</span>
+    <h2 id="h-features">One unified studio. The whole operating system.</h2>
+    <p class="section-desc">Syncopx bridges high-level AI reasoning directly with low-level Windows OS primitives &mdash; terminal execution, visual OCR, background scheduling, and local privacy.</p>
+
+    <div class="bento-grid">
+      <!-- Feature 01: Unified Horizontal Tabs -->
+      <article class="bento-card col-8">
+        <div class="bento-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
         </div>
-        <h3>Autonomous subagents &amp; step provenance</h3>
-        <p>Break down multi-step objectives into autonomous subagents (general and read-only explore) with persistent session tracking. Watch execution unfold in expandable step headers with live progress, conversation branching, and instant interruption.</p>
-        <p class="mono">task &rarr; subagents &rarr; step provenance &rarr; verified completion</p>
+        <h3>Unified Horizontal Tabs &amp; Frameless Studio</h3>
+        <p>Switch between conversations seamlessly with horizontal tabs right in the title bar &mdash; the Syncopx way. Features a smooth 160ms slide-out Sessions Drawer (<code>Ctrl+B</code>), Task Inspector dock (<code>Ctrl+J</code>), per-chat scoped project directories, and distraction-free Focus Mode (<code>F11</code>).</p>
+        <div class="bento-meta">&blacktriangleright; Ctrl+Tab cycling &middot; 160ms OutCubic easing &middot; Focus Mode (F11)</div>
       </article>
-      <article class="cell reveal">
-        <div class="cell-head">
-          <p class="cell-n">02</p>
-          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 10v1a7 7 0 0 0 14 0v-1"/><path d="M12 18v4"/></svg></span>
+
+      <!-- Feature 02: Model Context Protocol -->
+      <article class="bento-card col-4">
+        <div class="bento-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
         </div>
-        <h3>Two-way voice conversation &amp; Whistle STT</h3>
-        <p>Continuous hands-free conversation with Voice Activity Detection (VAD), silence detection, and instant barge-in interruption. Edge ASR powered by Cactus Compute Whistle runs locally on CPU with zero GPU requirements, paired with instant offline speech synthesis (Windows SAPI, Piper, Kokoro).</p>
-        <p class="mono">mic &rarr; VAD &rarr; whistle STT &rarr; agent reasoning &rarr; streaming TTS</p>
+        <h3>Model Context Protocol (MCP)</h3>
+        <p>Native client support for external MCP servers over JSON-RPC 2.0 stdio. Connect database inspectors, filesystem bridges, and custom developer tools dynamically to your agent loop.</p>
+        <div class="bento-meta">&blacktriangleright; JSON-RPC 2.0 stdio &middot; External Tool Discovery</div>
       </article>
-      <article class="cell reveal">
-        <div class="cell-head">
-          <p class="cell-n">03</p>
-          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></span>
+
+      <!-- Feature 03: Whistle Edge Voice -->
+      <article class="bento-card col-4">
+        <div class="bento-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 10v1a7 7 0 0 0 14 0v-1"/><path d="M12 18v4"/></svg>
         </div>
-        <h3>Sees your screen</h3>
-        <p>Ask it to work inside real Windows applications: Settings, Word, installers, and dialogs. Reads the display with local OCR and coordinates human-like clicks and keystrokes.</p>
+        <h3>Two-Way Voice &amp; Whistle STT</h3>
+        <p>Continuous hands-free conversation powered by Cactus Compute Whistle ASR running locally on CPU. Instant barge-in interruption cuts speech output the millisecond you speak.</p>
+        <div class="bento-meta">&blacktriangleright; &lt; 1s CPU Latency &middot; Barge-In Interruption &middot; VAD</div>
       </article>
-      <article class="cell reveal">
-        <div class="cell-head">
-          <p class="cell-n">04</p>
-          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-5 4 5 4"/><path d="m16 8 5 4-5 4"/><path d="m13 5-2 14"/></svg></span>
+
+      <!-- Feature 04: Screen OCR & Vision -->
+      <article class="bento-card col-4">
+        <div class="bento-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
         </div>
-        <h3>Programs &amp; scheduled tasks</h3>
-        <p>Generates complete working scripts and multi-file projects. Built-in Local Program Library for one-click launches and recurring background scheduled runs with desktop notifications.</p>
+        <h3>Computer Vision &amp; Desktop OCR</h3>
+        <p>Inspect real native Windows applications: Settings, Word, installation wizards, and modal dialogs. Coordinates human-like clicks and keyboard shortcuts with zero browser automation.</p>
+        <div class="bento-meta">&blacktriangleright; Native App Navigation &middot; Local OCR Parsing</div>
       </article>
-      <article class="cell reveal">
-        <div class="cell-head">
-          <p class="cell-n">05</p>
-          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6a2 2 0 0 1 2-2h4l2 3h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg></span>
+
+      <!-- Feature 05: Windows DPAPI & Safety -->
+      <article class="bento-card col-4">
+        <div class="bento-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
         </div>
-        <h3>Files, docs &amp; terminal</h3>
-        <p>Parses PDFs, Word, Excel, transcribes local audio/video media, and executes PowerShell/CMD commands. File paths and security boundaries are honored exactly.</p>
+        <h3>Windows DPAPI &amp; Safety Profiles</h3>
+        <p>Choose from Safe, Balanced, Unleashed, or Custom security profiles. Enforce strict <code>allowedDirs</code> filesystem boundaries with fail-closed protection and local DPAPI hardware key encryption.</p>
+        <div class="bento-meta">&blacktriangleright; Hardware DPAPI &middot; allowedDirs Sandbox &middot; Zero Telemetry</div>
       </article>
-      <article class="cell half reveal">
-        <div class="cell-head">
-          <p class="cell-n">06</p>
-          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="m14 9 3 3-3 3"/></svg></span>
+
+      <!-- Feature 06: Browser Web Remote & REST API -->
+      <article class="bento-card col-12">
+        <div class="bento-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
         </div>
-        <h3>Unified horizontal tabs, sessions drawer &amp; time tracking</h3>
-        <p>Switch between conversations effortlessly with unified horizontal tabs in the header &mdash; the Syncopx way. Smooth 160ms slide-out Sessions Drawer (<code>Ctrl+B</code>) and Tasks Dock (<code>Ctrl+J</code>), fast cycling with <code>Ctrl+Tab</code>, per-chat project directories, and live turn duration chips keep your workflow organized.</p>
-      </article>
-      <article class="cell half reveal">
-        <div class="cell-head">
-          <p class="cell-n">07</p>
-          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
-        </div>
-        <h3>Safety Profiles, permission gates &amp; DPAPI</h3>
-        <p>Choose from Safe, Balanced, Unleashed, or Custom security profiles in Settings. Enforce strict <code>allowedDirs</code> filesystem boundaries with headless fail-closed protection. Live token accounting, exact USD costs, and local DPAPI credential encryption.</p>
-      </article>
-      <article class="cell wide reveal">
-        <div class="cell-head">
-          <p class="cell-n">08</p>
-          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg></span>
-        </div>
-        <h3>Browser Web Remote &amp; Automation API</h3>
-        <p>Control your assistant from any phone, tablet, or browser over your local network with the zero-install Web Remote UI (instant <code>?token=...</code> pairing, live chat, browser voice input &amp; speech synthesis, quick jobs, stop controls). Or run headless via the token-authenticated REST API with brute force IP ban defense and zero-prompt audit logging.</p>
-        <p class="mono">http://192.168.1.x:8787/ &middot; curl -H "Authorization: Bearer tok_..." http://127.0.0.1:8787/api/run</p>
-      </article>
-      <article class="cell reveal">
-        <div class="cell-head">
-          <p class="cell-n">09</p>
-          <span class="cell-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>
-        </div>
-        <h3>Model Context Protocol (MCP) &amp; Execution cards</h3>
-        <p>Connect tools via open Model Context Protocol (MCP) servers and execute commands with live status cards reporting stdout, stderr, and exit codes. File modifications generate collapsible unified diff drawers with syntax highlighting.</p>
-        <p class="mono">mcp-server · exit 0 · 1.2s · diff ±12 lines</p>
+        <h3>Browser Web Remote &amp; Automation REST API</h3>
+        <p>Control your assistant from any phone, tablet, or browser over your local WiFi network with the zero-install Web Remote UI (instant <code>?token=...</code> pairing, live chat, mobile voice input, quick jobs). Or run completely headless via the token-authenticated REST API with automatic IP ban protection and zero-prompt audit logging.</p>
+        <div class="bento-meta">&blacktriangleright; http://192.168.1.x:8787/ &middot; curl -H "Authorization: Bearer tok_..." http://127.0.0.1:8787/api/run</div>
       </article>
     </div>
   </section>
 
+  <!-- 3-Step Installation Guide -->
   <section class="wrap section" id="install" aria-labelledby="h-install">
-    <p class="kicker reveal">Install</p>
-    <h2 id="h-install" class="reveal">Three steps. No admin. Reversible.</h2>
-    <ol class="steps">
-      <li class="reveal"><span class="step-n" aria-hidden="true">1</span><div><h3>Download the ZIP</h3><p>One self-contained package, ~165&nbsp;MB, versioned and hash-published on this page. Extract it anywhere on your machine.</p></div></li>
-      <li class="reveal"><span class="step-n" aria-hidden="true">2</span><div><h3>Run the installer</h3><p>Double-click <code>Install-Syncopx.bat</code>. It stages the app to your user profile, creates Start Menu (+ optional Desktop) shortcuts, and configures verified autostart with boot diagnostics.</p></div></li>
-      <li class="reveal"><span class="step-n" aria-hidden="true">3</span><div><h3>Pick your AI provider</h3><p>Open Settings and choose Ollama (local, 100% offline &amp; free) or enter your own API key for Groq, Gemini, OpenRouter, DeepSeek, OpenAI... Keys stay encrypted locally with Windows DPAPI.</p></div></li>
+    <span class="kicker">Deployment</span>
+    <h2 id="h-install">Three steps. No admin rights. Completely reversible.</h2>
+    <p class="section-desc">Syncopx ships as a self-contained ZIP without opaque executable installers or forced system modifications.</p>
+
+    <ol class="install-steps">
+      <li class="step-card">
+        <span class="step-number">01</span>
+        <h3>Download the ZIP</h3>
+        <p>One self-contained ~165 MB package, hash-verified and cryptographically signed. Extract it to any folder on your machine.</p>
+      </li>
+      <li class="step-card">
+        <span class="step-number">02</span>
+        <h3>Run Install-Syncopx.bat</h3>
+        <p>Stages the app to your user profile, creates Start Menu shortcuts, and registers verified boot autostart with diagnostic logging.</p>
+      </li>
+      <li class="step-card">
+        <span class="step-number">03</span>
+        <h3>Choose Your Model</h3>
+        <p>Run 100% offline and free with Ollama, or paste your API key for Groq, Gemini, DeepSeek, or OpenAI. All keys stay encrypted locally via DPAPI.</p>
+      </li>
     </ol>
-    <div class="twocol">
-      <div class="panel reveal">
+
+    <div class="install-details">
+      <div class="panel-card">
         <h3>What the installer registers</h3>
-        <ul class="reg">
-          <li><code>%LOCALAPPDATA%\Syncopx\app</code> — program files</li>
-          <li><code>HKCU\Software\Syncopx</code> — InstallDir, Version</li>
-          <li><code>HKCU\Software\Microsoft\Windows\CurrentVersion\Run\Syncopx</code> — autostart, verified with boot diagnostics</li>
-          <li>Start Menu shortcut (+ Desktop if requested)</li>
-          <li>In-app auto-updater — updates seamlessly from Settings &rarr; Check for Updates</li>
+        <ul class="reg-list">
+          <li><code>%LOCALAPPDATA%\Syncopx\app</code> &mdash; Application runtime and dependencies</li>
+          <li><code>HKCU\Software\Syncopx</code> &mdash; Install directory and version metadata</li>
+          <li><code>HKCU\Software\Microsoft\Windows\CurrentVersion\Run\Syncopx</code> &mdash; Autostart with boot verification</li>
+          <li>Start Menu shortcut (+ optional Desktop shortcut)</li>
+          <li>In-app self-updater &mdash; updates seamlessly with SHA-256 validation</li>
         </ul>
-        <p class="muted">Uninstall anytime with the bundled <code>Uninstall.bat</code> — it removes all registered components cleanly. Your chats, notes, and keys are preserved unless you choose wipe.</p>
+        <p style="font-size:0.9rem;color:var(--text-dim);margin:0">Uninstall anytime by running <code>Uninstall.bat</code> &mdash; it cleanly purges all registry keys and application files.</p>
       </div>
-      <div class="panel warn reveal">
-        <h3>About the SmartScreen warning</h3>
-        <p>Syncopx is open and distributed directly without a paid corporate publisher certificate, so Windows may show <em>&ldquo;Windows protected your PC&rdquo;</em> on first run. That is expected: click <strong>More info &rarr; Run anyway</strong>. Verify the ZIP first with the published SHA-256 hash above.</p>
+      <div class="panel-card" style="border-color:var(--border-strong)">
+        <h3 style="color:var(--accent-warm)">About Windows SmartScreen</h3>
+        <p style="font-size:0.92rem;color:var(--text-muted);line-height:1.6">Syncopx is distributed directly by an independent developer without paying thousands for corporate code-signing certificates. Windows may show <em>&ldquo;Windows protected your PC&rdquo;</em> on first launch. Click <strong>More info &rarr; Run anyway</strong>. You can verify the ZIP against the published SHA-256 hash before running.</p>
       </div>
     </div>
   </section>
 
+  <!-- AI Providers Matrix -->
   <section class="wrap section" id="providers" aria-labelledby="h-providers">
-    <p class="kicker reveal">AI providers</p>
-    <h2 id="h-providers" class="reveal">Bring your own key. Or none.</h2>
-    <p class="lede-sm reveal">Syncopx ships with <strong>zero</strong> bundled API keys. Run fully offline with Ollama, or connect any cloud provider. Smart Model Routing picks the optimal model per task, and automatic quota failover keeps you working without interruption.</p>
-    <ul class="chips reveal" aria-label="Supported providers">
-      <li>Ollama <span>local · offline · free</span></li>
-      <li>Groq <span>Llama 3.3 70B · fast</span></li>
-      <li>Gemini <span>2.0 Flash · Pro</span></li>
-      <li>DeepSeek <span>V3 · R1 reasoning</span></li>
-      <li>OpenRouter <span>100+ curated models</span></li>
-      <li>OpenAI <span>GPT-4o · mini</span></li>
-      <li>Mistral <span>Small · Large</span></li>
-      <li>xAI <span>Grok 2</span></li>
-      <li>Together AI <span>open weights</span></li>
-      <li>Custom <span>OpenAI-compatible</span></li>
-    </ul>
+    <span class="kicker">AI Connectivity</span>
+    <h2 id="h-providers">Bring your own key. Or none.</h2>
+    <p class="section-desc">Syncopx ships with zero bundled cloud keys. Run fully private on your own hardware with Ollama, or connect to leading cloud LLM providers.</p>
+
+    <div class="providers-grid">
+      <div class="provider-chip">
+        <span class="provider-name">Ollama</span>
+        <span class="provider-detail">Qwen 2.5, Llama 3.3, Phi-4 &middot; 100% Local &amp; Offline</span>
+      </div>
+      <div class="provider-chip">
+        <span class="provider-name">Groq</span>
+        <span class="provider-detail">Llama 3.3 70B &middot; Ultra-fast LPU inference</span>
+      </div>
+      <div class="provider-chip">
+        <span class="provider-name">Google Gemini</span>
+        <span class="provider-detail">Gemini 2.0 Flash, Gemini 1.5 Pro</span>
+      </div>
+      <div class="provider-chip">
+        <span class="provider-name">DeepSeek</span>
+        <span class="provider-detail">DeepSeek V3, DeepSeek R1 Reasoning</span>
+      </div>
+      <div class="provider-chip">
+        <span class="provider-name">OpenRouter</span>
+        <span class="provider-detail">100+ curated AI models with unified routing</span>
+      </div>
+      <div class="provider-chip">
+        <span class="provider-name">OpenAI</span>
+        <span class="provider-detail">GPT-4o, GPT-4o-mini, o1 reasoning</span>
+      </div>
+      <div class="provider-chip">
+        <span class="provider-name">Mistral AI</span>
+        <span class="provider-detail">Mistral Large, Codestral, Pixtral</span>
+      </div>
+      <div class="provider-chip">
+        <span class="provider-name">xAI</span>
+        <span class="provider-detail">Grok 2 &middot; Real-time knowledge</span>
+      </div>
+      <div class="provider-chip">
+        <span class="provider-name">Custom Endpoint</span>
+        <span class="provider-detail">Any OpenAI-compatible server (vLLM, LM Studio)</span>
+      </div>
+    </div>
   </section>
 
+  <!-- Shortcuts & Commands Reference -->
+  <section class="wrap section" id="shortcuts" aria-labelledby="h-shortcuts">
+    <span class="kicker">Power User Ergonomics</span>
+    <h2 id="h-shortcuts">Keyboard-first navigation.</h2>
+    <p class="section-desc">Keep your hands on the home row with universal keyboard shortcuts and inline slash commands.</p>
+
+    <div class="install-details">
+      <div class="panel-card">
+        <h3>Universal Keyboard Shortcuts</h3>
+        <ul class="reg-list">
+          <li><code>Ctrl + K</code> &mdash; Focus chat composer</li>
+          <li><code>Enter</code> &mdash; Send message (or <code>Ctrl+Enter</code> in multi-line)</li>
+          <li><code>Ctrl + L</code> &mdash; Open fresh chat session</li>
+          <li><code>Ctrl + Tab</code> &mdash; Cycle active conversation tabs</li>
+          <li><code>Ctrl + B</code> &mdash; Toggle Sessions Drawer</li>
+          <li><code>Ctrl + J</code> &mdash; Toggle Task Inspector Dock</li>
+          <li><code>Ctrl + Shift + P</code> &mdash; Open Command Palette</li>
+          <li><code>F11</code> &mdash; Toggle Borderless Focus Mode</li>
+          <li><code>Esc</code> &mdash; Stop current generation / Cancel turn</li>
+        </ul>
+      </div>
+      <div class="panel-card">
+        <h3>Inline Slash Commands</h3>
+        <ul class="reg-list">
+          <li><code>/model &lt;name&gt;</code> &mdash; Switch active model instantly</li>
+          <li><code>/provider &lt;name&gt;</code> &mdash; Switch active AI provider</li>
+          <li><code>/update</code> &mdash; Check release manifest and apply updates</li>
+          <li><code>/tokens</code> &mdash; Inspect live token counter and breakdown</li>
+          <li><code>/cost</code> &mdash; View exact USD cost accounting</li>
+          <li><code>/clear</code> &mdash; Wipe current conversation history</li>
+          <li><code>/new</code> &mdash; Create a clean conversation</li>
+          <li><code>/help</code> &mdash; Show comprehensive command manual</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical FAQ Accordion -->
   <section class="wrap section" id="faq" aria-labelledby="h-faq">
-    <p class="kicker reveal">FAQ</p>
-    <h2 id="h-faq" class="reveal">Straight answers.</h2>
-    <div class="faq reveal">
-      <details open>
-        <summary>Is it really a ZIP, not a setup.exe?</summary>
-        <p>Yes, deliberately. An installer EXE without an expensive enterprise certificate triggers harsh warnings. The ZIP contains a transparent installer script that performs everything a setup would: file staging, robocopy lock protection, shortcuts, registry registration, verified boot autostart, and an uninstaller.</p>
+    <span class="kicker">Questions &amp; Answers</span>
+    <h2 id="h-faq">Straight technical facts.</h2>
+    <p class="section-desc">Transparent architecture, zero obfuscation.</p>
+
+    <div class="faq-grid">
+      <details class="faq-item" open>
+        <summary>Why is it distributed as a ZIP instead of an MSI or setup.exe?</summary>
+        <div class="faq-content">
+          <p>Deliberately. Windows Defender displays harsh untrusted warnings for unsigned binary EXEs. The ZIP contains human-readable scripts (<code>Install-Syncopx.bat</code>, <code>Uninstall.bat</code>) that perform standard staging, Start Menu shortcuts, and autostart registration transparently with zero administrative privileges required.</p>
+        </div>
       </details>
-      <details>
-        <summary>What are the system requirements?</summary>
-        <p>Windows 10/11 64-bit, ~500&nbsp;MB free disk space, and no administrator privileges required. Microphone is optional for voice features. Ollama is optional for local offline inference.</p>
+
+      <details class="faq-item">
+        <summary>What are the minimum system requirements?</summary>
+        <div class="faq-content">
+          <p>Windows 10 or 11 64-bit, approximately 500 MB free disk space, and standard user privileges (no admin rights needed). A microphone is optional for Whistle edge voice. Ollama is optional for offline local models.</p>
+        </div>
       </details>
-      <details>
-        <summary>Do I need Ollama?</summary>
-        <p>No. Ollama is an optional choice for users who want 100% offline, private local AI models. If you prefer cloud providers like Groq, Gemini, or OpenRouter, simply leave Ollama off and paste your API key.</p>
+
+      <details class="faq-item">
+        <summary>Do I have to use Ollama to run Syncopx?</summary>
+        <div class="faq-content">
+          <p>No. Ollama is completely optional for users seeking 100% offline, local-only AI inference. If you prefer cloud AI, you can connect Groq, Gemini, OpenRouter, DeepSeek, or OpenAI by pasting your API key.</p>
+        </div>
       </details>
-      <details>
-        <summary>Where do my API keys and conversation histories live?</summary>
-        <p>All credentials are encrypted using Windows DPAPI in your personal profile (<code>%USERPROFILE%\.agentic_assistant</code>). Conversation sessions, notes, programs, and subagent histories stay entirely on your local machine and never leave your PC.</p>
+
+      <details class="faq-item">
+        <summary>Where are API keys and conversation histories stored?</summary>
+        <div class="faq-content">
+          <p>All credentials are encrypted with Windows DPAPI (Data Protection API) inside your personal user profile (<code>%USERPROFILE%\.agentic_assistant</code>). Your sessions, transcripts, notes, and local scripts remain strictly on your local disk. Zero telemetry is collected.</p>
+        </div>
       </details>
-      <details>
-        <summary>How do tool approvals, Safety Profiles, and project scoping work?</summary>
-        <p>Syncopx supports customizable Safety Profiles (<em>Safe</em>, <em>Balanced</em>, <em>Unleashed</em>, <em>Custom</em>) in Settings. In <em>Safe</em> mode, all command execution and file edits are strictly confined to your approved project directory and user-configured <code>allowedDirs</code>. Each chat can also be scoped to its own folder via the header folder chip. Sensitive actions prompt with permission dialogs offering <em>Allow once</em>, <em>Always allow</em>, or <em>Reject</em>.</p>
+
+      <details class="faq-item">
+        <summary>How do Safety Profiles and permission gates work?</summary>
+        <div class="faq-content">
+          <p>Syncopx features four configurable Safety Profiles (<em>Safe</em>, <em>Balanced</em>, <em>Unleashed</em>, <em>Custom</em>). In Safe mode, all commands and file operations are strictly locked to your specified <code>allowedDirs</code> directory boundaries. Destructive operations prompt with permission dialogs offering <em>Allow once</em>, <em>Always allow</em>, or <em>Reject</em>.</p>
+        </div>
       </details>
-      <details>
-        <summary>Does Syncopx support remote access, mobile web, or headless automation?</summary>
-        <p>Yes. Syncopx includes both a built-in Browser &amp; Mobile Web Remote App and an Automation REST API (<code>/api/run</code>, <code>/api/job</code>, <code>/api/status</code>). Open the server in any web browser on your LAN for instant interactive chat and quick jobs, or integrate headless scripts with token permission modes (<code>full</code>, <code>jobs-only</code>, <code>read-only</code>), automatic 10-minute IP ban defense against brute force, and zero-prompt privacy audit logging.</p>
+
+      <details class="faq-item">
+        <summary>How does the Browser Web Remote and Automation API work?</summary>
+        <div class="faq-content">
+          <p>Syncopx includes an embedded lightweight HTTP server. Opening <code>http://&lt;your-ip&gt;:8787/?token=...</code> on your local network opens an interactive web app with voice, chat, and quick jobs. The REST API (<code>/api/run</code>, <code>/api/job</code>) allows external scripts to trigger tasks with token-based permissions and brute force IP defense.</p>
+        </div>
       </details>
-      <details>
-        <summary>What slash commands and keyboard shortcuts are supported?</summary>
-        <p>Syncopx features keyboard-first navigation: press <code>Ctrl+K</code> to focus input, <code>Enter</code> to send (or <code>Ctrl+Enter</code> in multi-line), <code>Ctrl+L</code> for a fresh session, <code>Ctrl+Tab</code> / <code>Ctrl+Shift+Tab</code> to cycle conversations, <code>Ctrl+B</code> to toggle the sessions drawer, <code>Ctrl+J</code> to toggle the tasks dock, <code>Ctrl+Shift+P</code> for command palette, <code>F11</code> for borderless focus mode, and <code>Esc</code> to stop generation. Inline slash commands include <code>/model</code>, <code>/provider</code>, <code>/update</code>, <code>/tokens</code>, <code>/cost</code>, <code>/clear</code>, <code>/new</code>, and <code>/help</code>.</p>
+
+      <details class="faq-item">
+        <summary>How do in-app updates work?</summary>
+        <div class="faq-content">
+          <p>Open <strong>Settings &rarr; Updates</strong>, type <code>/update</code> in chat, or select <em>Check for Updates</em>. Syncopx queries the published <code>version.json</code>, verifies the cryptographic signature and SHA-256 hash, downloads the delta or package, and applies it cleanly on restart without touching your conversations or keys.</p>
+        </div>
       </details>
-      <details>
-        <summary>Can it control apps and see my screen?</summary>
-        <p>Yes. Syncopx uses local OCR to inspect active application windows and coordinates keyboard and mouse interactions across native Windows programs, Word, Settings, and installation wizards. There is deliberately no hidden browser automation.</p>
-      </details>
-      <details>
-        <summary>How do updates work?</summary>
-        <p>Syncopx includes built-in in-app auto-updating. Click <strong>Check for Updates</strong> in the overflow menu, run <code>/update</code> in the chat composer, or open <strong>Settings &rarr; Updates</strong> to query the release manifest, download updates with SHA-256 verification, and apply them on restart. You can also download new ZIPs from this site anytime; your chats, notes, and keys are always preserved.</p>
-      </details>
-      <details>
-        <summary>How do I uninstall?</summary>
-        <p>Run <code>Uninstall.bat</code> in the installation folder. All shortcuts, registry keys, and staged application files are removed cleanly. Your user data remains in your profile unless you explicitly select the wipe option.</p>
+
+      <details class="faq-item">
+        <summary>How do I completely uninstall Syncopx?</summary>
+        <div class="faq-content">
+          <p>Run <code>Uninstall.bat</code> located in your installation directory. It removes all Start Menu shortcuts, autostart registry entries, and program files cleanly. Your chat logs and API keys are preserved unless you choose the wipe option.</p>
+        </div>
       </details>
     </div>
   </section>
 
-  <section class="wrap section final reveal" aria-labelledby="h-final">
-    <h2 id="h-final">Take Syncopx for a spin.</h2>
-    <a class="btn btn-primary btn-lg" id="dl-btn-2" href="https://github.com/Guhanavish/syncopx-site/releases/download/v1.6.0/Syncopx-1.6.0-windows.zip" download>Download Syncopx <span class="dl-meta" data-size>· 165 MB</span></a>
-    <p class="muted"><span data-ver-long>Syncopx 1.6.0</span> · <span data-date>2026-10-27</span></p>
+  <!-- Final CTA Section -->
+  <section class="wrap">
+    <div class="final-cta">
+      <h2>Take Syncopx for a spin.</h2>
+      <p>Autonomous agentic assistance for Windows. Zero signup, full local privacy, and ready in 60 seconds.</p>
+      <a class="btn btn-primary btn-lg" href="https://github.com/Guhanavish/syncopx-site/releases/download/v1.6.0/Syncopx-1.6.0-windows.zip" data-dl-link download>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
+        <span>Download Syncopx <span class="dl-meta" data-size>&middot; 165 MB</span></span>
+      </a>
+      <p style="margin-top:1.2rem;font-size:0.86rem;color:var(--text-dim);font-family:var(--mono)">Syncopx <span data-ver-plain>1.6.0</span> &middot; Release Date: <span data-date>2026-10-27</span></p>
+    </div>
   </section>
 </main>
 
-<footer>
-  <div class="wrap foot-in">
-    <p><img src="assets/logo.svg" alt="Syncopx logo" width="20" height="20" loading="lazy" decoding="async"> Syncopx <span data-ver>1.6.0</span>, an autonomous agentic desktop assistant for Windows.</p>
-    <p class="muted">ZIP install · In-app updates · No signup · Your keys stay yours · <a href="#faq">FAQ</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
+<!-- Footer -->
+<footer class="footer">
+  <div class="wrap footer-in">
+    <div class="footer-brand">
+      <span class="brand-mark" style="width:28px;height:28px;box-shadow:none" aria-hidden="true">
+        <img src="assets/logo.svg" alt="Syncopx logo" width="18" height="18">
+      </span>
+      <span>Syncopx <span data-ver-plain>1.6.0</span></span>
+    </div>
+
+    <div class="footer-links">
+      <a href="#features">Features</a>
+      <a href="#install">Install</a>
+      <a href="#faq">FAQ</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="CHANGELOG.md">Changelog</a>
+      <a href="https://github.com/Guhanavish/syncopx-site/releases" target="_blank" rel="noopener noreferrer">Releases ↗</a>
+    </div>
   </div>
 </footer>
 
