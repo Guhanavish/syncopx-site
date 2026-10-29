@@ -19,12 +19,14 @@
 <meta name="twitter:title" content="Syncopx | Your PC, on your words">
 <meta name="twitter:description" content="An autonomous desktop AI assistant for Windows. Multi-step subagents, screen vision, voice, and MCP tools.">
 <meta name="twitter:image" content="https://syncopx.vercel.app/assets/og-image.png">
-<meta name="theme-color" content="#060A0C">
+<meta name="theme-color" content="#000000">
+
 <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
 <link rel="manifest" href="manifest.webmanifest">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,508 +36,679 @@
   "operatingSystem": "Windows 10/11 64-bit",
   "offers": { "@type": "Offer", "price": "0" },
   "url": "https://syncopx.vercel.app/",
-  "description": "Autonomous agentic desktop AI assistant for Windows featuring unified horizontal tabs, Model Context Protocol (MCP), voice conversation, screen vision, and local DPAPI encryption."
+  "description": "Autonomous agentic desktop AI assistant for Windows: unified horizontal tabs, Model Context Protocol (MCP), voice conversation, screen vision, and local DPAPI encryption."
 }
 </script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip" href="#download">Skip to download</a>
 
-<!-- Header Navigation Bar -->
-<header class="nav" id="top">
-  <div class="wrap nav-in">
-    <a class="brand" href="#top" aria-label="Syncopx Home">
-      <span class="brand-mark" aria-hidden="true">
-        <img src="assets/logo.svg" alt="Syncopx logo" width="22" height="22">
+<a class="skip-link" href="#download">Skip to download</a>
+
+<!-- Ambient Background & Film Grain Overlay -->
+<div class="ambient-grid" aria-hidden="true"></div>
+<div class="ambient-glow" aria-hidden="true"></div>
+<div class="grain-overlay" aria-hidden="true"></div>
+
+<!-- Custom Cursor (Difference Blend) -->
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<!-- Boot Sequence (1.6s Terminal on Session Start) -->
+<aside class="boot-screen" id="boot-screen" aria-label="Terminal initialization sequence">
+  <div class="boot-log">
+    <div class="boot-line">&gt; syncopx --init</div>
+    <div class="boot-line">&gt; loading desktop agent runtime ... ok</div>
+    <div class="boot-line">&gt; verifying sha-256 integrity [e29df458...] ... ok</div>
+    <div class="boot-line">&gt; ready. booting studio interface.</div>
+  </div>
+  <span class="boot-skip">Click anywhere or press any key to skip</span>
+</aside>
+
+<!-- Command Palette Modal (Ctrl+K) -->
+<div class="cmd-palette-backdrop" id="cmd-backdrop" role="dialog" aria-modal="true" aria-label="Command Palette">
+  <div class="cmd-palette">
+    <div class="cmd-input-row">
+      <input type="text" class="cmd-input" id="cmd-input" placeholder="Type a section name or command... (Esc to close)" autocomplete="off" spellcheck="false">
+    </div>
+    <ul class="cmd-list" id="cmd-list"></ul>
+  </div>
+</div>
+
+<!-- Sticky Top Nav -->
+<header class="nav-wrap">
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Syncopx v1.6.0">
+      <span class="brand-icon">
+        <img src="assets/logo.svg" alt="Syncopx logo" width="18" height="18">
       </span>
-      <span class="brand-name">
-        <span>Syncopx</span>
-        <span class="ver-pill" data-ver>v1.6.0</span>
-      </span>
+      <span>Syncopx</span>
+      <span class="brand-ver" data-ver>v1.6.0</span>
     </a>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav class="nav-links" aria-label="Main Navigation">
-      <a href="#features">Studio Features</a>
-      <a href="#simulator">Live Simulator</a>
-      <a href="#install">Installation</a>
-      <a href="#providers">AI Providers</a>
-      <a href="#shortcuts">Shortcuts</a>
-      <a href="#faq">FAQ</a>
+    <nav class="nav-menu" aria-label="Main navigation">
+      <a class="nav-link" href="#features">Features</a>
+      <a class="nav-link" href="#simulator">Simulator</a>
+      <a class="nav-link" href="#install">Install</a>
+      <a class="nav-link" href="#providers">Providers</a>
+      <a class="nav-link" href="#shortcuts">Shortcuts</a>
+      <a class="nav-link" href="#faq">FAQ</a>
     </nav>
 
     <div class="nav-actions">
-      <a class="btn btn-primary btn-sm" href="#download" data-dl-link download>
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
-        <span>Download</span>
-      </a>
+      <a class="nav-btn" href="#download">Download</a>
+      <button class="nav-mobile-btn" type="button" aria-label="Toggle Menu">&equiv;</button>
     </div>
   </div>
 </header>
 
 <main>
   <!-- Hero Section -->
-  <section class="hero wrap" aria-labelledby="h1">
-    <div class="hero-status-pill">
-      <span class="status-dot" aria-hidden="true"></span>
+  <section class="hero wrap" aria-labelledby="hero-heading">
+    <div class="hero-pill">
+      <span class="pulse-dot" aria-hidden="true"></span>
       <span>Syncopx <span data-ver-plain>1.6.0</span> Released &middot; Windows 10/11 &middot; Zero Admin &middot; 100% Offline with Ollama</span>
     </div>
 
-    <h1 id="h1">Your PC,<br>on your words.</h1>
-    <p class="hero-sub">An autonomous agentic desktop assistant for Windows. Unified frameless studio with horizontal session tabs, Model Context Protocol (MCP), edge voice, screen vision, and DPAPI encryption. Zero telemetry &mdash; run 100% offline with Ollama or bring your own key.</p>
-
-    <div class="hero-cta" id="download">
-      <a class="btn btn-primary btn-lg" href="https://github.com/Guhanavish/syncopx-site/releases/download/v1.6.0/Syncopx-1.6.0-windows.zip" data-dl-link download>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
-        <span>Download Syncopx <span class="dl-meta" data-size>&middot; 165 MB</span></span>
-      </a>
-      <a class="btn btn-ghost btn-lg" href="#install">How Installing Works</a>
+    <div class="hero-title-container">
+      <h1 id="hero-heading">
+        <span class="hero-title-line"><span class="hero-title-text">Your PC, on your words.</span><span class="blinking-cursor" aria-hidden="true">&#9608;</span></span>
+      </h1>
     </div>
 
-    <div class="hash-strip">
+    <p class="hero-lead">An autonomous agentic desktop assistant for Windows. Unified frameless studio with horizontal session tabs, Model Context Protocol (MCP), edge voice, screen vision, and DPAPI encryption. Zero telemetry. Run 100% offline with Ollama or bring your own key.</p>
+
+    <div class="hero-actions" id="download">
+      <!-- Download-as-Agent Terminal Button -->
+      <a class="agent-dl-btn" href="https://github.com/Guhanavish/syncopx-site/releases/download/v1.6.0/Syncopx-1.6.0-windows.zip" data-dl-link download>
+        <div class="dl-label-row">
+          <span>&darr; Download Syncopx</span>
+          <span data-size>&middot; 165 MB</span>
+        </div>
+        <div class="dl-stream-log" aria-live="polite"></div>
+        <div class="dl-progress-bar" aria-hidden="true"></div>
+      </a>
+
+      <a class="ghost-btn" href="#install">
+        <span>How Installing Works &rarr;</span>
+      </a>
+    </div>
+
+    <div class="hash-row">
       <span>SHA-256:</span>
-      <button class="hash-btn" id="hash-btn" type="button" title="Click to copy full SHA-256 hash">
+      <button class="hash-copy-btn" id="hash-btn" type="button" title="Copy full SHA-256 hash">
         <code data-sha-short>e29df458&hellip;</code>
       </button>
-      <span class="hash-ok" id="hash-ok" role="status" hidden>&check; copied to clipboard</span>
+      <span class="hash-status" id="hash-status" role="status"></span>
     </div>
 
-    <div class="hero-chips">
-      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 52/52 Tests Verified Green</span>
-      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> No Signup Required</span>
-      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Windows DPAPI Encryption</span>
-      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> In-App Self Updates</span>
+    <!-- Trust row separated by hairlines -->
+    <div class="trust-grid">
+      <div class="trust-item"><span class="glyph">&#10003;</span> 52/52 Tests Verified Green</div>
+      <div class="trust-item"><span class="glyph">&#10003;</span> No Signup Required</div>
+      <div class="trust-item"><span class="glyph">&#10003;</span> Windows DPAPI Encryption</div>
+      <div class="trust-item"><span class="glyph">&#10003;</span> In-App Self Updates</div>
     </div>
 
-    <!-- Interactive Hero Studio Simulator -->
-    <div class="studio-showcase" id="simulator" aria-label="Interactive desktop studio interface simulation">
-      <div class="studio-window">
-        <!-- Titlebar with Horizontal Tabs ("the Syncopx way") -->
-        <div class="studio-header">
-          <div class="studio-header-left">
-            <span class="studio-header-icon" title="Syncopx Studio">
-              <img src="assets/logo.svg" alt="Syncopx" width="18" height="18">
-            </span>
-            <div class="studio-tabs" role="tablist">
-              <button class="studio-tab active" data-tab="tab-auth" role="tab" aria-selected="true">
-                <span>Fix Auth Failing Test</span>
-                <span class="mono" style="opacity:0.5">&times;</span>
-              </button>
-              <button class="studio-tab" data-tab="tab-ollama" role="tab" aria-selected="false">
-                <span>Local Ollama Setup</span>
-                <span class="mono" style="opacity:0.5">&times;</span>
-              </button>
-              <span class="studio-tab-add" title="New Session (Ctrl+L)">+</span>
-            </div>
+    <!-- Large App Window Mockup (pure HTML/CSS) -->
+    <div class="mockup-frame" id="hero-mockup">
+      <div class="mockup-titlebar">
+        <div class="mockup-tabs">
+          <div class="mockup-tab active" data-tab="tab-auth">
+            <span>Fix Auth Failing Test</span>
+            <span style="opacity:0.4">&times;</span>
           </div>
-          <div class="studio-header-right">
-            <span class="studio-chip" title="Active Project Scoping Directory">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg>
-              <span>G:\Agentic AI</span>
-            </span>
-            <span class="studio-chip">Ready &middot; Qwen 2.5 7B</span>
-            <div class="studio-controls" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </div>
+          <div class="mockup-tab" data-tab="tab-ollama">
+            <span>Local Ollama Setup</span>
+            <span style="opacity:0.4">&times;</span>
           </div>
+          <span style="padding:0.2rem 0.5rem;color:var(--text-dim);cursor:pointer">+</span>
         </div>
-
-        <!-- Studio Body Grid (Drawer + Transcript + Inspector) -->
-        <div class="studio-body">
-          <!-- Left Sessions Drawer (Ctrl+B) -->
-          <aside class="studio-drawer" aria-label="Sessions Drawer">
-            <span class="studio-section-label">Sessions (Ctrl+B)</span>
-            <div class="studio-session-item active" data-tab="tab-auth">
-              <strong>Fix Auth Failing Test</strong>
-              <span class="session-item-time">4m ago &middot; 1.4s turn</span>
-            </div>
-            <div class="studio-session-item" data-tab="tab-ollama">
-              <strong>Local Ollama Setup</strong>
-              <span class="session-item-time">18m ago &middot; offline</span>
-            </div>
-            <div class="studio-session-item">
-              <strong>Refactor Vector Icons</strong>
-              <span class="session-item-time">2h ago &middot; 52/52 green</span>
-            </div>
-            <div class="studio-session-item">
-              <strong>MCP Filesystem Server</strong>
-              <span class="session-item-time">Yesterday &middot; stdio</span>
-            </div>
-          </aside>
-
-          <!-- Central Chat Transcript -->
-          <section class="studio-transcript" aria-label="Chat Transcript">
-            <div class="studio-msg user">
-              <div class="studio-bubble">Run unit tests for auth and fix any failures</div>
-            </div>
-
-            <div class="studio-msg assistant">
-              <!-- Expandable Step Header -->
-              <div class="step-header">
-                <div class="step-header-left">
-                  <span>&check;</span>
-                  <span>4 steps completed &middot; 1.4s</span>
-                </div>
-                <span>&blacktriangleright;</span>
-              </div>
-
-              <!-- Inline Tool Execution Card -->
-              <div class="studio-card">
-                <div class="studio-card-head">
-                  <span>Terminal (PowerShell)</span>
-                  <span class="studio-card-cmd">exit 0 &middot; 1.2s</span>
-                </div>
-                <pre class="studio-card-code">pytest test_permissions.py -v
-[100%] test_allowed_dirs_enforcement PASSED</pre>
-              </div>
-
-              <!-- Collapsible Unified Diff Drawer -->
-              <div class="diff-card">
-                <div class="diff-header" role="button" tabindex="0">
-                  <span class="diff-file">agentic_ai/config.py</span>
-                  <span class="diff-badge">diff &plusmn;3 lines</span>
-                </div>
-                <div class="diff-body">
-                  <div class="diff-line del">- verify_allowed_path(strict=False)</div>
-                  <div class="diff-line add">+ verify_allowed_path(strict=True, fail_closed=True)</div>
-                </div>
-              </div>
-
-              <div class="studio-bubble">All 52 test suites pass green. Strict filesystem boundary enabled with fail-closed security.</div>
-            </div>
-          </section>
-
-          <!-- Right Task Inspector Dock (Ctrl+J) -->
-          <aside class="studio-inspector" aria-label="Task Inspector">
-            <div class="inspector-block">
-              <span class="inspector-title">Turn Latency</span>
-              <span class="inspector-stat">1.4s</span>
-            </div>
-            <div class="inspector-block">
-              <span class="inspector-title">Active Safety Profile</span>
-              <span class="mono" style="color:var(--accent)">Safe (allowedDirs)</span>
-            </div>
-            <div class="inspector-block">
-              <span class="inspector-title">Subagents Provenance</span>
-              <ul class="inspector-list">
-                <li class="done"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Codebase AST Indexer</li>
-                <li class="done"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Read-Only Explorer</li>
-                <li class="done"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Gitwrite Diff Stager</li>
-              </ul>
-            </div>
-            <div class="inspector-block">
-              <span class="inspector-title">Token Accounting</span>
-              <span class="mono" style="font-size:0.84rem;color:var(--text-muted)">Prompt: 412 &middot; Compl: 88<br>Cost: $0.0000 (Ollama)</span>
-            </div>
-          </aside>
+        <div class="mockup-meta">
+          <span>G:\Agentic AI &middot; Ready &middot; Qwen 2.5 7B</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Deep Feature Bento Grid -->
-  <section class="wrap section" id="features" aria-labelledby="h-features">
-    <span class="kicker">Studio Capabilities</span>
+  <!-- Live Simulator Section -->
+  <section class="simulator-section wrap" id="simulator" aria-labelledby="h-simulator">
+    <span class="eyebrow">Interactive Environment</span>
+    <h2 id="h-simulator">Live Studio Simulator</h2>
+    <p style="color:var(--text-dim);max-width:640px;margin-bottom:2.5rem">A faithful recreation of the frameless Syncopx agent studio, showcasing the horizontal titlebar tabs ("the Syncopx way"), 160ms slide-out Sessions Drawer, and Task Inspector dock.</p>
+
+    <div class="mockup-frame">
+      <div class="mockup-titlebar">
+        <div class="mockup-tabs" role="tablist">
+          <button class="mockup-tab active" data-tab="tab-auth" role="tab" aria-selected="true">
+            <span>Fix Auth Failing Test</span>
+            <span style="opacity:0.4">&times;</span>
+          </button>
+          <button class="mockup-tab" data-tab="tab-ollama" role="tab" aria-selected="false">
+            <span>Local Ollama Setup</span>
+            <span style="opacity:0.4">&times;</span>
+          </button>
+          <span style="padding:0.2rem 0.5rem;color:var(--text-dim);cursor:pointer" title="New Chat (Ctrl+L)">+</span>
+        </div>
+        <div class="mockup-meta">
+          <span>G:\Agentic AI &middot; Ready &middot; Qwen 2.5 7B</span>
+        </div>
+      </div>
+
+      <div class="mockup-body">
+        <!-- Sessions Drawer -->
+        <aside class="mockup-drawer">
+          <div class="mockup-drawer-heading">Sessions (Ctrl+B)</div>
+          <div class="session-node active" data-tab="tab-auth">
+            <strong>Fix Auth Failing Test</strong>
+            <span class="session-node-time">4m ago &middot; 1.4s turn</span>
+          </div>
+          <div class="session-node" data-tab="tab-ollama">
+            <strong>Local Ollama Setup</strong>
+            <span class="session-node-time">18m ago &middot; offline</span>
+          </div>
+          <div class="session-node">
+            <strong>Refactor Vector Icons</strong>
+            <span class="session-node-time">2h ago &middot; 52/52 green</span>
+          </div>
+          <div class="session-node">
+            <strong>MCP Filesystem Server</strong>
+            <span class="session-node-time">Yesterday &middot; stdio</span>
+          </div>
+        </aside>
+
+        <!-- Transcript Thread -->
+        <div class="mockup-transcript" id="sim-transcript">
+          <div class="mockup-bubble user">Run unit tests for auth and fix any failures</div>
+
+          <div class="sim-step-header">
+            <span>&check; 4 steps completed &middot; 1.4s</span>
+            <span>&blacktriangleright;</span>
+          </div>
+
+          <div class="sim-terminal-card">
+            <div class="sim-terminal-bar">
+              <span>Terminal (PowerShell)</span>
+              <span>exit 0 &middot; 1.2s</span>
+            </div>
+            <pre class="sim-terminal-code">pytest test_permissions.py -v
+[100%] test_allowed_dirs_enforcement PASSED</pre>
+          </div>
+
+          <div class="sim-diff-card">
+            <div class="sim-diff-bar" id="sim-diff-bar" role="button" tabindex="0">
+              <span>agentic_ai/config.py</span>
+              <span>diff &plusmn;3 lines</span>
+            </div>
+            <div class="sim-diff-body" id="sim-diff-body">
+              <div class="diff-del">- verify_allowed_path(strict=False)</div>
+              <div class="diff-add">+ verify_allowed_path(strict=True, fail_closed=True)</div>
+            </div>
+          </div>
+
+          <div class="mockup-bubble assistant">All 52 test suites pass green. Strict filesystem boundary enabled with fail-closed security.</div>
+        </div>
+
+        <!-- Task Inspector -->
+        <aside class="mockup-inspector">
+          <div class="inspector-section">
+            <span class="inspector-lbl">Turn Latency</span>
+            <span class="inspector-val">1.4s</span>
+          </div>
+          <div class="inspector-section">
+            <span class="inspector-lbl">Safety Profile</span>
+            <span class="inspector-val">Safe (allowedDirs)</span>
+          </div>
+          <div class="inspector-section">
+            <span class="inspector-lbl">Subagents Provenance</span>
+            <div class="subagents-track">
+              <div class="subagent-node active">&check; Codebase AST Indexer</div>
+              <div class="subagent-node active">&check; Read-Only Explorer</div>
+              <div class="subagent-node active">&check; Gitwrite Diff Stager</div>
+            </div>
+          </div>
+          <div class="inspector-section">
+            <span class="inspector-lbl">Token Accounting</span>
+            <span class="mono" style="font-size:11px;color:var(--text-dim)">Prompt: 412 &middot; Compl: 88<br>Cost: $0.0000 (Ollama)</span>
+          </div>
+        </aside>
+      </div>
+
+      <div class="sim-controls-row">
+        <div class="sim-scrubber">
+          <span>STATE:</span>
+          <span class="sim-scrub-step done"></span>
+          <span class="sim-scrub-step done"></span>
+          <span class="sim-scrub-step done"></span>
+          <span class="sim-scrub-step done"></span>
+        </div>
+        <button class="sim-replay-btn" id="sim-replay-btn" type="button">&#8635; Reset Timeline</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Studio Capabilities (Bento Grid) -->
+  <section class="features-section wrap" id="features" aria-labelledby="h-features">
+    <span class="eyebrow">Studio Capabilities</span>
     <h2 id="h-features">One unified studio. The whole operating system.</h2>
-    <p class="section-desc">Syncopx bridges high-level AI reasoning directly with low-level Windows OS primitives &mdash; terminal execution, visual OCR, background scheduling, and local privacy.</p>
+    <p style="color:var(--text-dim);max-width:680px">Syncopx bridges high-level AI reasoning directly with low-level Windows OS primitives: terminal execution, visual OCR, background scheduling, and local privacy.</p>
 
     <div class="bento-grid">
-      <!-- Feature 01: Unified Horizontal Tabs -->
+      <!-- Card 01: Horizontal Tabs -->
       <article class="bento-card col-8">
-        <div class="bento-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        <span class="card-num">01 / 06</span>
+        <div class="micro-visual">
+          <code>[Tab: Fix Auth &times;] [Tab: Ollama &times;] [+] &mdash;&gt; 160ms Slide</code>
         </div>
         <h3>Unified Horizontal Tabs &amp; Frameless Studio</h3>
-        <p>Switch between conversations seamlessly with horizontal tabs right in the title bar &mdash; the Syncopx way. Features a smooth 160ms slide-out Sessions Drawer (<code>Ctrl+B</code>), Task Inspector dock (<code>Ctrl+J</code>), per-chat scoped project directories, and distraction-free Focus Mode (<code>F11</code>).</p>
-        <div class="bento-meta">&blacktriangleright; Ctrl+Tab cycling &middot; 160ms OutCubic easing &middot; Focus Mode (F11)</div>
+        <p>Switch between conversations seamlessly with horizontal tabs right in the title bar &mdash; the Syncopx way. Features a smooth 160ms slide-out Sessions Drawer (Ctrl+B), Task Inspector dock (Ctrl+J), per-chat scoped project directories, and distraction-free Focus Mode (F11).</p>
+        <div class="card-tags">Ctrl+Tab cycling &middot; 160ms OutCubic easing &middot; Focus Mode (F11)</div>
       </article>
 
-      <!-- Feature 02: Model Context Protocol -->
+      <!-- Card 02: Model Context Protocol -->
       <article class="bento-card col-4">
-        <div class="bento-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+        <span class="card-num">02 / 06</span>
+        <div class="micro-visual">
+          <code>{"jsonrpc":"2.0","method":"tools/call"}</code>
         </div>
         <h3>Model Context Protocol (MCP)</h3>
-        <p>Native client support for external MCP servers over JSON-RPC 2.0 stdio. Connect database inspectors, filesystem bridges, and custom developer tools dynamically to your agent loop.</p>
-        <div class="bento-meta">&blacktriangleright; JSON-RPC 2.0 stdio &middot; External Tool Discovery</div>
+        <p>Native client support for external MCP servers over standard JSON-RPC 2.0 stdio protocol. Connect database inspectors, filesystem bridges, and custom developer tools dynamically to your agent loop.</p>
+        <div class="card-tags">JSON-RPC 2.0 stdio &middot; External Tool Discovery</div>
       </article>
 
-      <!-- Feature 03: Whistle Edge Voice -->
+      <!-- Card 03: Whistle STT -->
       <article class="bento-card col-4">
-        <div class="bento-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 10v1a7 7 0 0 0 14 0v-1"/><path d="M12 18v4"/></svg>
+        <span class="card-num">03 / 06</span>
+        <div class="micro-visual">
+          <code>&mid;&boxv;&mid;&boxv;&mid;&boxv;&mid; [VAD: Speech Detected &rarr; Cut TTS]</code>
         </div>
         <h3>Two-Way Voice &amp; Whistle STT</h3>
-        <p>Continuous hands-free conversation powered by Cactus Compute Whistle ASR running locally on CPU. Instant barge-in interruption cuts speech output the millisecond you speak.</p>
-        <div class="bento-meta">&blacktriangleright; &lt; 1s CPU Latency &middot; Barge-In Interruption &middot; VAD</div>
+        <p>Continuous hands-free conversation powered by Cactus Compute Whistle ASR running locally on CPU. Instant barge-in speech interruption cuts speech synthesis playback the millisecond you start talking.</p>
+        <div class="card-tags">&lt; 1s CPU Latency &middot; Barge-In Interruption &middot; VAD</div>
       </article>
 
-      <!-- Feature 04: Screen OCR & Vision -->
+      <!-- Card 04: Screen OCR & Vision -->
       <article class="bento-card col-4">
-        <div class="bento-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        <span class="card-num">04 / 06</span>
+        <div class="micro-visual">
+          <code>[SCAN: Win32 HWND 0x004F2 &rarr; OCR OK]</code>
         </div>
         <h3>Computer Vision &amp; Desktop OCR</h3>
         <p>Inspect real native Windows applications: Settings, Word, installation wizards, and modal dialogs. Coordinates human-like clicks and keyboard shortcuts with zero browser automation.</p>
-        <div class="bento-meta">&blacktriangleright; Native App Navigation &middot; Local OCR Parsing</div>
+        <div class="card-tags">Native App Navigation &middot; Local OCR Parsing</div>
       </article>
 
-      <!-- Feature 05: Windows DPAPI & Safety -->
+      <!-- Card 05: DPAPI & Safety -->
       <article class="bento-card col-4">
-        <div class="bento-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        <span class="card-num">05 / 06</span>
+        <div class="micro-visual">
+          <code>[CryptProtectData() &rarr; DPAPI SEALED]</code>
         </div>
         <h3>Windows DPAPI &amp; Safety Profiles</h3>
-        <p>Choose from Safe, Balanced, Unleashed, or Custom security profiles. Enforce strict <code>allowedDirs</code> filesystem boundaries with fail-closed protection and local DPAPI hardware key encryption.</p>
-        <div class="bento-meta">&blacktriangleright; Hardware DPAPI &middot; allowedDirs Sandbox &middot; Zero Telemetry</div>
+        <p>Choose from Safe, Balanced, Unleashed, or Custom security profiles. Enforce strict allowedDirs filesystem boundaries with fail-closed protection and local DPAPI hardware key encryption.</p>
+        <div class="card-tags">Hardware DPAPI &middot; allowedDirs Sandbox &middot; Zero Telemetry</div>
       </article>
 
-      <!-- Feature 06: Browser Web Remote & REST API -->
+      <!-- Card 06: Web Remote (Wide) -->
       <article class="bento-card col-12">
-        <div class="bento-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+        <span class="card-num">06 / 06</span>
+        <div class="micro-visual">
+          <code>curl -H "Authorization: Bearer tok_..." http://127.0.0.1:8787/api/run &middot; http://192.168.1.x:8787/</code>
         </div>
         <h3>Browser Web Remote &amp; Automation REST API</h3>
-        <p>Control your assistant from any phone, tablet, or browser over your local WiFi network with the zero-install Web Remote UI (instant <code>?token=...</code> pairing, live chat, mobile voice input, quick jobs). Or run completely headless via the token-authenticated REST API with automatic IP ban protection and zero-prompt audit logging.</p>
-        <div class="bento-meta">&blacktriangleright; http://192.168.1.x:8787/ &middot; curl -H "Authorization: Bearer tok_..." http://127.0.0.1:8787/api/run</div>
+        <p>Control your assistant from any phone, tablet, or browser over your local WiFi network with the zero-install Web Remote UI (instant <code>?token=...</code> pairing, live chat, mobile voice input, quick jobs). Or run completely headless via the token-authenticated REST API with automatic IP ban defense and zero-prompt audit logging.</p>
+        <div class="card-tags">LAN Token Auth &middot; Mobile Web Remote &middot; REST Endpoints (/api/run, /api/job)</div>
       </article>
     </div>
   </section>
 
-  <!-- 3-Step Installation Guide -->
-  <section class="wrap section" id="install" aria-labelledby="h-install">
-    <span class="kicker">Deployment</span>
+  <!-- Installation (Vertical Terminal Stepper) -->
+  <section class="install-section wrap" id="install" aria-labelledby="h-install">
+    <span class="eyebrow">Deployment</span>
     <h2 id="h-install">Three steps. No admin rights. Completely reversible.</h2>
-    <p class="section-desc">Syncopx ships as a self-contained ZIP without opaque executable installers or forced system modifications.</p>
+    <p style="color:var(--text-dim);max-width:680px">Syncopx ships as a self-contained ZIP without opaque executable installers or forced system modifications.</p>
 
-    <ol class="install-steps">
-      <li class="step-card">
-        <span class="step-number">01</span>
-        <h3>Download the ZIP</h3>
-        <p>One self-contained ~165 MB package, hash-verified and cryptographically signed. Extract it to any folder on your machine.</p>
-      </li>
-      <li class="step-card">
-        <span class="step-number">02</span>
-        <h3>Run Install-Syncopx.bat</h3>
-        <p>Stages the app to your user profile, creates Start Menu shortcuts, and registers verified boot autostart with diagnostic logging.</p>
-      </li>
-      <li class="step-card">
-        <span class="step-number">03</span>
-        <h3>Choose Your Model</h3>
-        <p>Run 100% offline and free with Ollama, or paste your API key for Groq, Gemini, DeepSeek, or OpenAI. All keys stay encrypted locally via DPAPI.</p>
-      </li>
-    </ol>
+    <div class="stepper-container">
+      <div class="terminal-stepper">
+        <div class="stepper-rail" aria-hidden="true"></div>
+        <div class="stepper-fill" aria-hidden="true"></div>
 
-    <div class="install-details">
-      <div class="panel-card">
-        <h3>What the installer registers</h3>
-        <ul class="reg-list">
-          <li><code>%LOCALAPPDATA%\Syncopx\app</code> &mdash; Application runtime and dependencies</li>
-          <li><code>HKCU\Software\Syncopx</code> &mdash; Install directory and version metadata</li>
-          <li><code>HKCU\Software\Microsoft\Windows\CurrentVersion\Run\Syncopx</code> &mdash; Autostart with boot verification</li>
-          <li>Start Menu shortcut (+ optional Desktop shortcut)</li>
-          <li>In-app self-updater &mdash; updates seamlessly with SHA-256 validation</li>
-        </ul>
-        <p style="font-size:0.9rem;color:var(--text-dim);margin:0">Uninstall anytime by running <code>Uninstall.bat</code> &mdash; it cleanly purges all registry keys and application files.</p>
+        <div class="step-node active">
+          <div class="step-dot" aria-hidden="true"></div>
+          <div class="step-title">01 &middot; Download the ZIP</div>
+          <p class="step-desc">One self-contained ~165 MB package, hash-verified and cryptographically signed. Extract it to any folder on your machine.</p>
+        </div>
+
+        <div class="step-node active">
+          <div class="step-dot" aria-hidden="true"></div>
+          <div class="step-title">02 &middot; Run Install-Syncopx.bat</div>
+          <p class="step-desc">Stages the app to your user profile, creates Start Menu shortcuts, and registers verified boot autostart with diagnostic logging.</p>
+        </div>
+
+        <div class="step-node active">
+          <div class="step-dot" aria-hidden="true"></div>
+          <div class="step-title">03 &middot; Choose Your Model</div>
+          <p class="step-desc">Run 100% offline and free with Ollama, or paste your API key for Groq, Gemini, DeepSeek, or OpenAI. Keys stay encrypted locally via DPAPI.</p>
+        </div>
       </div>
-      <div class="panel-card" style="border-color:var(--border-strong)">
-        <h3 style="color:var(--accent-warm)">About Windows SmartScreen</h3>
-        <p style="font-size:0.92rem;color:var(--text-muted);line-height:1.6">Syncopx is distributed directly by an independent developer without paying thousands for corporate code-signing certificates. Windows may show <em>&ldquo;Windows protected your PC&rdquo;</em> on first launch. Click <strong>More info &rarr; Run anyway</strong>. You can verify the ZIP against the published SHA-256 hash before running.</p>
+
+      <div class="registry-panel">
+        <div class="registry-tree">
+          <span style="color:var(--text-hi);font-weight:600;margin-bottom:0.5rem">What the installer registers:</span>
+          <span>&boxur;&minus;&minus; %LOCALAPPDATA%\Syncopx\app (program files)</span>
+          <span>&boxur;&minus;&minus; HKCU\Software\Syncopx (InstallDir, Version)</span>
+          <span>&boxur;&minus;&minus; HKCU\Software\Microsoft\Windows\CurrentVersion\Run\Syncopx</span>
+          <span>&boxur;&minus;&minus; Start Menu (+ optional Desktop shortcut)</span>
+          <span>&boxur;&minus;&minus; In-app self-updater (SHA-256 validation)</span>
+          <span style="color:var(--text-dim);margin-top:0.6rem">Uninstall anytime by running Uninstall.bat &mdash; it cleanly purges all registry keys and application files.</span>
+        </div>
+
+        <div class="smartscreen-box">
+          <h4>About Windows SmartScreen</h4>
+          <p>Syncopx is distributed directly by an independent developer without paying for corporate code-signing certificates. Windows may show &ldquo;Windows protected your PC&rdquo;; click <strong>More info &rarr; Run anyway</strong>. Verify the ZIP against the published SHA-256 first.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- AI Providers Matrix -->
-  <section class="wrap section" id="providers" aria-labelledby="h-providers">
-    <span class="kicker">AI Connectivity</span>
+  <!-- AI Providers Section (Marquee + Grid) -->
+  <section class="providers-section wrap" id="providers" aria-labelledby="h-providers">
+    <span class="eyebrow">AI Connectivity</span>
     <h2 id="h-providers">Bring your own key. Or none.</h2>
-    <p class="section-desc">Syncopx ships with zero bundled cloud keys. Run fully private on your own hardware with Ollama, or connect to leading cloud LLM providers.</p>
+    <p style="color:var(--text-dim);max-width:680px">Syncopx ships with zero bundled cloud keys. Run fully private on your own hardware with Ollama, or connect to leading cloud LLM providers.</p>
+
+    <div class="marquee-container" aria-hidden="true">
+      <div class="marquee-row left">
+        <div class="marquee-chip">OLLAMA &middot; QWEN 2.5 7B</div>
+        <div class="marquee-chip">GROQ &middot; LLAMA 3.3 70B</div>
+        <div class="marquee-chip">GOOGLE GEMINI 2.0 FLASH</div>
+        <div class="marquee-chip">DEEPSEEK V3 &amp; R1</div>
+        <div class="marquee-chip">OPENROUTER CURATED</div>
+        <div class="marquee-chip">OPENAI GPT-4O</div>
+        <div class="marquee-chip">MISTRAL CODESTRAL</div>
+        <div class="marquee-chip">XAI GROK 2</div>
+        <!-- Duplicated for seamless loop -->
+        <div class="marquee-chip">OLLAMA &middot; QWEN 2.5 7B</div>
+        <div class="marquee-chip">GROQ &middot; LLAMA 3.3 70B</div>
+        <div class="marquee-chip">GOOGLE GEMINI 2.0 FLASH</div>
+        <div class="marquee-chip">DEEPSEEK V3 &amp; R1</div>
+        <div class="marquee-chip">OPENROUTER CURATED</div>
+        <div class="marquee-chip">OPENAI GPT-4O</div>
+        <div class="marquee-chip">MISTRAL CODESTRAL</div>
+        <div class="marquee-chip">XAI GROK 2</div>
+      </div>
+      <div class="marquee-row right">
+        <div class="marquee-chip">LOCAL OFFLINE INFERENCE</div>
+        <div class="marquee-chip">SUB-280MS LPU STREAMING</div>
+        <div class="marquee-chip">REASONING CHAIN INSPECTION</div>
+        <div class="marquee-chip">FAIL-CLOSED SAFE BOUNDARIES</div>
+        <div class="marquee-chip">DPAPI HARDWARE ENCRYPTION</div>
+        <div class="marquee-chip">AUTOMATIC QUOTA FAILOVER</div>
+        <!-- Duplicated for seamless loop -->
+        <div class="marquee-chip">LOCAL OFFLINE INFERENCE</div>
+        <div class="marquee-chip">SUB-280MS LPU STREAMING</div>
+        <div class="marquee-chip">REASONING CHAIN INSPECTION</div>
+        <div class="marquee-chip">FAIL-CLOSED SAFE BOUNDARIES</div>
+        <div class="marquee-chip">DPAPI HARDWARE ENCRYPTION</div>
+        <div class="marquee-chip">AUTOMATIC QUOTA FAILOVER</div>
+      </div>
+    </div>
 
     <div class="providers-grid">
-      <div class="provider-chip">
-        <span class="provider-name">Ollama</span>
-        <span class="provider-detail">Qwen 2.5, Llama 3.3, Phi-4 &middot; 100% Local &amp; Offline</span>
+      <div class="provider-card">
+        <div class="provider-title">Ollama</div>
+        <div class="provider-desc">Qwen 2.5, Llama 3.3, Phi-4 &middot; 100% Local &amp; Offline</div>
       </div>
-      <div class="provider-chip">
-        <span class="provider-name">Groq</span>
-        <span class="provider-detail">Llama 3.3 70B &middot; Ultra-fast LPU inference</span>
+      <div class="provider-card">
+        <div class="provider-title">Groq</div>
+        <div class="provider-desc">Llama 3.3 70B &middot; Ultra-fast LPU inference</div>
       </div>
-      <div class="provider-chip">
-        <span class="provider-name">Google Gemini</span>
-        <span class="provider-detail">Gemini 2.0 Flash, Gemini 1.5 Pro</span>
+      <div class="provider-card">
+        <div class="provider-title">Google Gemini</div>
+        <div class="provider-desc">Gemini 2.0 Flash, Gemini 1.5 Pro</div>
       </div>
-      <div class="provider-chip">
-        <span class="provider-name">DeepSeek</span>
-        <span class="provider-detail">DeepSeek V3, DeepSeek R1 Reasoning</span>
+      <div class="provider-card">
+        <div class="provider-title">DeepSeek</div>
+        <div class="provider-desc">DeepSeek V3, DeepSeek R1 Reasoning</div>
       </div>
-      <div class="provider-chip">
-        <span class="provider-name">OpenRouter</span>
-        <span class="provider-detail">100+ curated AI models with unified routing</span>
+      <div class="provider-card">
+        <div class="provider-title">OpenRouter</div>
+        <div class="provider-desc">100+ curated models with unified routing</div>
       </div>
-      <div class="provider-chip">
-        <span class="provider-name">OpenAI</span>
-        <span class="provider-detail">GPT-4o, GPT-4o-mini, o1 reasoning</span>
+      <div class="provider-card">
+        <div class="provider-title">OpenAI</div>
+        <div class="provider-desc">GPT-4o, GPT-4o-mini, o1 reasoning</div>
       </div>
-      <div class="provider-chip">
-        <span class="provider-name">Mistral AI</span>
-        <span class="provider-detail">Mistral Large, Codestral, Pixtral</span>
+      <div class="provider-card">
+        <div class="provider-title">Mistral AI</div>
+        <div class="provider-desc">Mistral Large, Codestral, Pixtral</div>
       </div>
-      <div class="provider-chip">
-        <span class="provider-name">xAI</span>
-        <span class="provider-detail">Grok 2 &middot; Real-time knowledge</span>
+      <div class="provider-card">
+        <div class="provider-title">xAI</div>
+        <div class="provider-desc">Grok 2 &middot; Real-time knowledge</div>
       </div>
-      <div class="provider-chip">
-        <span class="provider-name">Custom Endpoint</span>
-        <span class="provider-detail">Any OpenAI-compatible server (vLLM, LM Studio)</span>
+      <div class="provider-card">
+        <div class="provider-title">Custom Endpoint</div>
+        <div class="provider-desc">Any OpenAI-compatible server (vLLM, LM Studio)</div>
       </div>
     </div>
   </section>
 
-  <!-- Shortcuts & Commands Reference -->
-  <section class="wrap section" id="shortcuts" aria-labelledby="h-shortcuts">
-    <span class="kicker">Power User Ergonomics</span>
+  <!-- Shortcuts & Commands Section -->
+  <section class="shortcuts-section wrap" id="shortcuts" aria-labelledby="h-shortcuts">
+    <span class="eyebrow">Power User Ergonomics</span>
     <h2 id="h-shortcuts">Keyboard-first navigation.</h2>
-    <p class="section-desc">Keep your hands on the home row with universal keyboard shortcuts and inline slash commands.</p>
+    <p style="color:var(--text-dim);max-width:680px">Every primary interaction is wired to single keystrokes. Press matching keys on your physical keyboard to test the keycaps below.</p>
 
-    <div class="install-details">
-      <div class="panel-card">
-        <h3>Universal Keyboard Shortcuts</h3>
-        <ul class="reg-list">
-          <li><code>Ctrl + K</code> &mdash; Focus chat composer</li>
-          <li><code>Enter</code> &mdash; Send message (or <code>Ctrl+Enter</code> in multi-line)</li>
-          <li><code>Ctrl + L</code> &mdash; Open fresh chat session</li>
-          <li><code>Ctrl + Tab</code> &mdash; Cycle active conversation tabs</li>
-          <li><code>Ctrl + B</code> &mdash; Toggle Sessions Drawer</li>
-          <li><code>Ctrl + J</code> &mdash; Toggle Task Inspector Dock</li>
-          <li><code>Ctrl + Shift + P</code> &mdash; Open Command Palette</li>
-          <li><code>F11</code> &mdash; Toggle Borderless Focus Mode</li>
-          <li><code>Esc</code> &mdash; Stop current generation / Cancel turn</li>
-        </ul>
+    <div class="shortcuts-columns">
+      <!-- Universal Keycaps Table -->
+      <div class="keycaps-table">
+        <div class="keycap-row" id="row-k">
+          <div class="keycap-keys"><span class="keycap">Ctrl</span><span class="keycap">K</span></div>
+          <span class="keycap-action">Focus chat composer</span>
+        </div>
+        <div class="keycap-row" id="row-enter">
+          <div class="keycap-keys"><span class="keycap">Enter</span></div>
+          <span class="keycap-action">Send prompt (Ctrl+Enter multi-line)</span>
+        </div>
+        <div class="keycap-row" id="row-l">
+          <div class="keycap-keys"><span class="keycap">Ctrl</span><span class="keycap">L</span></div>
+          <span class="keycap-action">Fresh conversation session</span>
+        </div>
+        <div class="keycap-row" id="row-tab">
+          <div class="keycap-keys"><span class="keycap">Ctrl</span><span class="keycap">Tab</span></div>
+          <span class="keycap-action">Cycle horizontal tabs</span>
+        </div>
+        <div class="keycap-row" id="row-b">
+          <div class="keycap-keys"><span class="keycap">Ctrl</span><span class="keycap">B</span></div>
+          <span class="keycap-action">Toggle Sessions Drawer</span>
+        </div>
+        <div class="keycap-row" id="row-j">
+          <div class="keycap-keys"><span class="keycap">Ctrl</span><span class="keycap">J</span></div>
+          <span class="keycap-action">Toggle Task Inspector Dock</span>
+        </div>
+        <div class="keycap-row" id="row-p">
+          <div class="keycap-keys"><span class="keycap">Ctrl</span><span class="keycap">Shift</span><span class="keycap">P</span></div>
+          <span class="keycap-action">Open Command Palette</span>
+        </div>
+        <div class="keycap-row" id="row-f11">
+          <div class="keycap-keys"><span class="keycap">F11</span></div>
+          <span class="keycap-action">Toggle Borderless Focus Mode</span>
+        </div>
+        <div class="keycap-row" id="row-esc">
+          <div class="keycap-keys"><span class="keycap">Esc</span></div>
+          <span class="keycap-action">Cancel turn / Stop generation</span>
+        </div>
       </div>
-      <div class="panel-card">
-        <h3>Inline Slash Commands</h3>
-        <ul class="reg-list">
-          <li><code>/model &lt;name&gt;</code> &mdash; Switch active model instantly</li>
-          <li><code>/provider &lt;name&gt;</code> &mdash; Switch active AI provider</li>
-          <li><code>/update</code> &mdash; Check release manifest and apply updates</li>
-          <li><code>/tokens</code> &mdash; Inspect live token counter and breakdown</li>
-          <li><code>/cost</code> &mdash; View exact USD cost accounting</li>
-          <li><code>/clear</code> &mdash; Wipe current conversation history</li>
-          <li><code>/new</code> &mdash; Create a clean conversation</li>
-          <li><code>/help</code> &mdash; Show comprehensive command manual</li>
-        </ul>
+
+      <!-- Inline Slash Commands Terminal -->
+      <div class="slash-terminal">
+        <div style="color:var(--text-hi);font-weight:600;margin-bottom:0.4rem;border-bottom:1px solid var(--line);padding-bottom:0.4rem">Inline Slash Commands</div>
+        <div class="slash-row"><span class="slash-cmd">/model &lt;name&gt;</span><span class="slash-desc">Switch active model instantly</span></div>
+        <div class="slash-row"><span class="slash-cmd">/provider &lt;name&gt;</span><span class="slash-desc">Switch active AI provider</span></div>
+        <div class="slash-row"><span class="slash-cmd">/update</span><span class="slash-desc">Check release manifest &amp; apply</span></div>
+        <div class="slash-row"><span class="slash-cmd">/tokens</span><span class="slash-desc">Inspect live prompt/compl counters</span></div>
+        <div class="slash-row"><span class="slash-cmd">/cost</span><span class="slash-desc">View exact USD cost accounting</span></div>
+        <div class="slash-row"><span class="slash-cmd">/clear</span><span class="slash-desc">Wipe current conversation history</span></div>
+        <div class="slash-row"><span class="slash-cmd">/new</span><span class="slash-desc">Create fresh conversation session</span></div>
+        <div class="slash-row"><span class="slash-cmd">/help</span><span class="slash-desc">Display comprehensive command manual</span></div>
       </div>
     </div>
   </section>
 
-  <!-- Technical FAQ Accordion -->
-  <section class="wrap section" id="faq" aria-labelledby="h-faq">
-    <span class="kicker">Questions &amp; Answers</span>
+  <!-- FAQ Accordion Section -->
+  <section class="faq-section wrap" id="faq" aria-labelledby="h-faq">
+    <span class="eyebrow">Questions &amp; Answers</span>
     <h2 id="h-faq">Straight technical facts.</h2>
-    <p class="section-desc">Transparent architecture, zero obfuscation.</p>
+    <p style="color:var(--text-dim);max-width:680px">Transparent architecture, zero obfuscation.</p>
 
-    <div class="faq-grid">
-      <details class="faq-item" open>
-        <summary>Why is it distributed as a ZIP instead of an MSI or setup.exe?</summary>
-        <div class="faq-content">
-          <p>Deliberately. Windows Defender displays harsh untrusted warnings for unsigned binary EXEs. The ZIP contains human-readable scripts (<code>Install-Syncopx.bat</code>, <code>Uninstall.bat</code>) that perform standard staging, Start Menu shortcuts, and autostart registration transparently with zero administrative privileges required.</p>
+    <div class="faq-list">
+      <div class="faq-entry open">
+        <button class="faq-trigger" type="button">
+          <span>Is it really a ZIP, not a setup.exe or MSI?</span>
+          <span class="faq-icon">&plus;</span>
+        </button>
+        <div class="faq-panel" style="max-height:200px">
+          <div class="faq-panel-inner">
+            Yes, deliberately. Windows Defender displays harsh untrusted warnings for unsigned binary EXEs. The ZIP contains human-readable scripts (<code>Install-Syncopx.bat</code>, <code>Uninstall.bat</code>) that perform standard staging, Start Menu shortcuts, and autostart registration transparently with zero administrative privileges required.
+          </div>
         </div>
-      </details>
+      </div>
 
-      <details class="faq-item">
-        <summary>What are the minimum system requirements?</summary>
-        <div class="faq-content">
-          <p>Windows 10 or 11 64-bit, approximately 500 MB free disk space, and standard user privileges (no admin rights needed). A microphone is optional for Whistle edge voice. Ollama is optional for offline local models.</p>
+      <div class="faq-entry">
+        <button class="faq-trigger" type="button">
+          <span>What are the system requirements?</span>
+          <span class="faq-icon">&plus;</span>
+        </button>
+        <div class="faq-panel">
+          <div class="faq-panel-inner">
+            Windows 10 or 11 64-bit, approximately 500 MB free disk space, and standard user privileges (no administrator rights needed). A microphone is optional for Whistle edge voice. Ollama is optional for local offline models.
+          </div>
         </div>
-      </details>
+      </div>
 
-      <details class="faq-item">
-        <summary>Do I have to use Ollama to run Syncopx?</summary>
-        <div class="faq-content">
-          <p>No. Ollama is completely optional for users seeking 100% offline, local-only AI inference. If you prefer cloud AI, you can connect Groq, Gemini, OpenRouter, DeepSeek, or OpenAI by pasting your API key.</p>
+      <div class="faq-entry">
+        <button class="faq-trigger" type="button">
+          <span>Do I need Ollama to run Syncopx?</span>
+          <span class="faq-icon">&plus;</span>
+        </button>
+        <div class="faq-panel">
+          <div class="faq-panel-inner">
+            No. Ollama is completely optional for users who want 100% offline, local-only AI inference. If you prefer cloud providers like Groq, Gemini, OpenRouter, DeepSeek, or OpenAI, simply paste your API key in Settings.
+          </div>
         </div>
-      </details>
+      </div>
 
-      <details class="faq-item">
-        <summary>Where are API keys and conversation histories stored?</summary>
-        <div class="faq-content">
-          <p>All credentials are encrypted with Windows DPAPI (Data Protection API) inside your personal user profile (<code>%USERPROFILE%\.agentic_assistant</code>). Your sessions, transcripts, notes, and local scripts remain strictly on your local disk. Zero telemetry is collected.</p>
+      <div class="faq-entry">
+        <button class="faq-trigger" type="button">
+          <span>Where do my API keys and conversation histories live?</span>
+          <span class="faq-icon">&plus;</span>
+        </button>
+        <div class="faq-panel">
+          <div class="faq-panel-inner">
+            All credentials are encrypted with Windows DPAPI in your personal user profile (<code>%USERPROFILE%\.agentic_assistant</code>). Conversation sessions, notes, programs, and subagent histories stay entirely on your local machine and never leave your disk.
+          </div>
         </div>
-      </details>
+      </div>
 
-      <details class="faq-item">
-        <summary>How do Safety Profiles and permission gates work?</summary>
-        <div class="faq-content">
-          <p>Syncopx features four configurable Safety Profiles (<em>Safe</em>, <em>Balanced</em>, <em>Unleashed</em>, <em>Custom</em>). In Safe mode, all commands and file operations are strictly locked to your specified <code>allowedDirs</code> directory boundaries. Destructive operations prompt with permission dialogs offering <em>Allow once</em>, <em>Always allow</em>, or <em>Reject</em>.</p>
+      <div class="faq-entry">
+        <button class="faq-trigger" type="button">
+          <span>How do tool approvals, Safety Profiles, and project scoping work?</span>
+          <span class="faq-icon">&plus;</span>
+        </button>
+        <div class="faq-panel">
+          <div class="faq-panel-inner">
+            Syncopx supports customizable Safety Profiles (<em>Safe</em>, <em>Balanced</em>, <em>Unleashed</em>, <em>Custom</em>) in Settings. In <em>Safe</em> mode, all command execution and file edits are strictly confined to your approved project directory and user-configured <code>allowedDirs</code>. Sensitive actions prompt with permission dialogs offering <em>Allow once</em>, <em>Always allow</em>, or <em>Reject</em>.
+          </div>
         </div>
-      </details>
+      </div>
 
-      <details class="faq-item">
-        <summary>How does the Browser Web Remote and Automation API work?</summary>
-        <div class="faq-content">
-          <p>Syncopx includes an embedded lightweight HTTP server. Opening <code>http://&lt;your-ip&gt;:8787/?token=...</code> on your local network opens an interactive web app with voice, chat, and quick jobs. The REST API (<code>/api/run</code>, <code>/api/job</code>) allows external scripts to trigger tasks with token-based permissions and brute force IP defense.</p>
+      <div class="faq-entry">
+        <button class="faq-trigger" type="button">
+          <span>Does Syncopx support remote access, mobile web, or headless automation?</span>
+          <span class="faq-icon">&plus;</span>
+        </button>
+        <div class="faq-panel">
+          <div class="faq-panel-inner">
+            Yes. Syncopx includes both a built-in Browser &amp; Mobile Web Remote App and an Automation REST API (<code>/api/run</code>, <code>/api/job</code>, <code>/api/status</code>). Open the server on your LAN for interactive chat, or integrate headless scripts with token permission modes, automatic 10-minute IP ban defense against brute force, and zero-prompt audit logging.
+          </div>
         </div>
-      </details>
+      </div>
 
-      <details class="faq-item">
-        <summary>How do in-app updates work?</summary>
-        <div class="faq-content">
-          <p>Open <strong>Settings &rarr; Updates</strong>, type <code>/update</code> in chat, or select <em>Check for Updates</em>. Syncopx queries the published <code>version.json</code>, verifies the cryptographic signature and SHA-256 hash, downloads the delta or package, and applies it cleanly on restart without touching your conversations or keys.</p>
+      <div class="faq-entry">
+        <button class="faq-trigger" type="button">
+          <span>How do updates work?</span>
+          <span class="faq-icon">&plus;</span>
+        </button>
+        <div class="faq-panel">
+          <div class="faq-panel-inner">
+            Syncopx includes built-in in-app auto-updating. Click <strong>Check for Updates</strong> in the overflow menu, run <code>/update</code> in chat, or open <strong>Settings &rarr; Updates</strong> to query the release manifest, download updates with SHA-256 verification, and apply them on restart. Your chats, notes, and keys are always preserved.
+          </div>
         </div>
-      </details>
+      </div>
 
-      <details class="faq-item">
-        <summary>How do I completely uninstall Syncopx?</summary>
-        <div class="faq-content">
-          <p>Run <code>Uninstall.bat</code> located in your installation directory. It removes all Start Menu shortcuts, autostart registry entries, and program files cleanly. Your chat logs and API keys are preserved unless you choose the wipe option.</p>
+      <div class="faq-entry">
+        <button class="faq-trigger" type="button">
+          <span>How do I uninstall?</span>
+          <span class="faq-icon">&plus;</span>
+        </button>
+        <div class="faq-panel">
+          <div class="faq-panel-inner">
+            Run <code>Uninstall.bat</code> located in your installation folder. All shortcuts, registry keys, and staged application files are removed cleanly. Your user data remains in your profile unless you explicitly select the wipe option.
+          </div>
         </div>
-      </details>
+      </div>
     </div>
   </section>
 
-  <!-- Final CTA Section -->
-  <section class="wrap">
-    <div class="final-cta">
+  <!-- Final CTA Section with Outlined Wordmark -->
+  <section class="final-section wrap">
+    <div class="bg-wordmark" aria-hidden="true">SYNCOPX</div>
+    <div class="final-content">
       <h2>Take Syncopx for a spin.</h2>
-      <p>Autonomous agentic assistance for Windows. Zero signup, full local privacy, and ready in 60 seconds.</p>
-      <a class="btn btn-primary btn-lg" href="https://github.com/Guhanavish/syncopx-site/releases/download/v1.6.0/Syncopx-1.6.0-windows.zip" data-dl-link download>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
-        <span>Download Syncopx <span class="dl-meta" data-size>&middot; 165 MB</span></span>
+      <p style="font-size:1.15rem;color:var(--text);margin-bottom:2.2rem">Autonomous agentic assistance for Windows. Zero signup, full local privacy, and ready in 60 seconds.</p>
+
+      <a class="agent-dl-btn" href="https://github.com/Guhanavish/syncopx-site/releases/download/v1.6.0/Syncopx-1.6.0-windows.zip" data-dl-link download style="margin:0 auto;display:inline-flex">
+        <div class="dl-label-row">
+          <span>&darr; Download Syncopx</span>
+          <span data-size>&middot; 165 MB</span>
+        </div>
+        <div class="dl-stream-log" aria-live="polite"></div>
+        <div class="dl-progress-bar" aria-hidden="true"></div>
       </a>
-      <p style="margin-top:1.2rem;font-size:0.86rem;color:var(--text-dim);font-family:var(--mono)">Syncopx <span data-ver-plain>1.6.0</span> &middot; Release Date: <span data-date>2026-10-27</span></p>
+
+      <p style="margin-top:1.4rem;font-family:var(--mono);font-size:12px;color:var(--text-dim)">Syncopx <span data-ver-plain>1.6.0</span> &middot; Release Date: <span data-date>2026-10-27</span></p>
     </div>
   </section>
 </main>
 
 <!-- Footer -->
 <footer class="footer">
-  <div class="wrap footer-in">
-    <div class="footer-brand">
-      <span class="brand-mark" style="width:28px;height:28px;box-shadow:none" aria-hidden="true">
-        <img src="assets/logo.svg" alt="Syncopx logo" width="18" height="18">
+  <div class="wrap footer-row">
+    <div style="display:flex;align-items:center;gap:0.6rem">
+      <span class="brand-icon">
+        <img src="assets/logo.svg" alt="Syncopx logo" width="16" height="16">
       </span>
       <span>Syncopx <span data-ver-plain>1.6.0</span></span>
     </div>
 
-    <div class="footer-links">
+    <nav class="footer-nav" aria-label="Footer navigation">
       <a href="#features">Features</a>
       <a href="#install">Install</a>
       <a href="#faq">FAQ</a>
       <a href="terms.html">Terms</a>
       <a href="privacy.html">Privacy</a>
       <a href="CHANGELOG.md">Changelog</a>
-      <a href="https://github.com/Guhanavish/syncopx-site/releases" target="_blank" rel="noopener noreferrer">Releases ↗</a>
-    </div>
+      <a href="https://github.com/Guhanavish/syncopx-site/releases" target="_blank" rel="noopener noreferrer">Releases &nearr;</a>
+    </nav>
   </div>
 </footer>
 
-<script src="site.js" defer></script>
+<script src="main.js" defer></script>
 </body>
 </html>
