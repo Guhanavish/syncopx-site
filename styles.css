@@ -328,8 +328,12 @@ a:hover {
 .brand-icon img {
   width: 18px;
   height: 18px;
-  filter: brightness(0) invert(1);
+  object-fit: contain;
   display: block;
+}
+
+img[src$="logo.png"] {
+  object-fit: contain;
 }
 
 .brand-ver {
@@ -1619,11 +1623,6 @@ a:hover {
   font-weight: 600;
 }
 
-.nav .brand img,
-.brand-mark svg {
-  filter: brightness(0) invert(1);
-}
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -1763,7 +1762,6 @@ footer {
 }
 
 .foot-in img {
-  filter: brightness(0) invert(1);
   vertical-align: middle;
   margin-right: 0.5rem;
 }
